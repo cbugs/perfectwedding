@@ -8,7 +8,13 @@
     <div class="row home__featured-vendor_content">
       <div class="col-md-4 col-sm-6 home__featured-vendor_listing">
       {% for key,product in products %}1{% endfor %}
-
+{% for key,group in products|batch(2) %}
+    <div class="container">
+        {% for element in group %}
+            <span>{{ 1 }}</span>
+        {% endfor %}
+    </div>
+{% endfor %}
         {{ include('WeddingBundle:Components:squaredImageBlock.html.twig',
           {
             link: '#',
