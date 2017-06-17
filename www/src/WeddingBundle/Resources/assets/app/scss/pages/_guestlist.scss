@@ -29,30 +29,30 @@
     padding-top  : 10px;
     text-align   : center;
     line-height  : 20px;
-    &:after {
-      content       : "";
-      position      : absolute;
-      left          : 100%;
-      top           : 0px;
-      width         : 0px;
-      height        : 0px;
-      z-index       : 2;
-      border-top    : 40px solid transparent;
-      border-left   : 20px solid $pink;
-      border-bottom : 40px solid transparent;
-    }
-    &:before {
-      content       : "";
-      position      : absolute;
-      right         : 93.5%;
-      top           : 0px;
-      width         : 0px;
-      height        : 0px;
-      z-index       : 0;
-      border-top    : 40px solid transparent;
-      border-left   : 20px solid $color-lighter-grey;
-      border-bottom : 40px solid transparent;
-    }
+    // &:after {
+    //   content       : "";
+    //   position      : absolute;
+    //   left          : 100%;
+    //   top           : 0px;
+    //   width         : 0px;
+    //   height        : 0px;
+    //   z-index       : 2;
+    //   border-top    : 40px solid transparent;
+    //   border-left   : 20px solid $pink;
+    //   border-bottom : 40px solid transparent;
+    // }
+    // &:before {
+    //   content       : "";
+    //   position      : absolute;
+    //   right         : 93.5%;
+    //   top           : 0px;
+    //   width         : 0px;
+    //   height        : 0px;
+    //   z-index       : 0;
+    //   border-top    : 40px solid transparent;
+    //   border-left   : 20px solid $color-lighter-grey;
+    //   border-bottom : 40px solid transparent;
+    // }
   }
   
 }
