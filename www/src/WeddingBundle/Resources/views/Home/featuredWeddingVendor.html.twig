@@ -6,109 +6,24 @@
     </div>
     
     <div class="row home__featured-vendor_content">
-      <div class="col-md-4 col-sm-6 home__featured-vendor_listing">
-{% for key,group in products|batch(2) %}
-    <div class="container">
-        {% for element in group %}
-            <span>{{ element['nid'] }}</span>
-        {% endfor %}
-    </div>
-{% endfor %}
-        {{ include('WeddingBundle:Components:squaredImageBlock.html.twig',
-          {
-            link: '#',
-            src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-256737.jpg',
-            alt: 'Featured Vendor',
-            overlay: 'top-left-featured',
-            favorite: true,
-            title: 'Venue Vendor Title',
-            address: 'Street Address, Name of Town, 12345, Country',
-            ratings: 4,
-            footerContent: '$190 - $600',
-            footerClass: 'home__featured-vendor_price'
-          })
-        }}
-      </div>
-      <div class="col-md-4 col-sm-6 home__featured-vendor_listing">
-        {{ include('WeddingBundle:Components:squaredImageBlock.html.twig',
-          {
-            link: '#',
-            src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-256737.jpg',
-            alt: 'Featured Vendor',
-            overlay: 'top-left-toprated',
-            favorite: true,
-            title: 'Wedding Dress Vendor Title',
-            address: 'Street Address, Name of Town, 12345, Country',
-            ratings: 4,
-            footerContent: '$290 - $600',
-            footerClass: 'home__featured-vendor_price'
-          })
-        }}
-      </div>
-      <div class="col-md-4 col-sm-6 home__featured-vendor_listing">
-        {{ include('WeddingBundle:Components:squaredImageBlock.html.twig',
-          {
-            link: '#',
-            src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-256737.jpg',
-            alt: 'Featured Vendor',
-            overlay: 'top-left-popular',
-            favorite: true,
-            title: 'Vendor Photographer Title',
-            address: 'Street Address, Name of Town, 12345, Country',
-            ratings: 4,
-            footerContent: '$290 - $650',
-            footerClass: 'home__featured-vendor_price'
-          })
-        }}
-      </div>
-      <div class="col-md-4 col-sm-6 home__featured-vendor_listing">
-        {{ include('WeddingBundle:Components:squaredImageBlock.html.twig',
-          {
-            link: '#',
-            src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-256737.jpg',
-            alt: 'Featured Vendor',
-            overlay: 'top-left-featured',
-            favorite: true,
-            title: 'Venue Vendor Title',
-            address: 'Street Address, Name of Town, 12345, Country',
-            ratings: 4,
-            footerContent: '$300 - $600',
-            footerClass: 'home__featured-vendor_price'
-          })
-        }}
-      </div>
-      <div class="col-md-4 col-sm-6 home__featured-vendor_listing">
-        {{ include('WeddingBundle:Components:squaredImageBlock.html.twig',
-          {
-            link: '#',
-            src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-256737.jpg',
-            alt: 'Featured Vendor',
-            overlay: 'top-left-toprated',
-            favorite: true,
-            title: 'Wedding Dress Vendor Title',
-            address: 'Street Address, Name of Town, 12345, Country',
-            ratings: 4,
-            footerContent: '$290 - $800',
-            footerClass: 'home__featured-vendor_price'
-          })
-        }}
-      </div>
-      <div class="col-md-4 col-sm-6 home__featured-vendor_listing">
-        {{ include('WeddingBundle:Components:squaredImageBlock.html.twig',
-          {
-            link: '#',
-            src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-256737.jpg',
-            alt: 'Featured Vendor',
-            overlay: 'top-left-popular',
-            favorite: true,
-            title: 'Vendor Photographer Title',
-            address: 'Street Address, Name of Town, 12345, Country',
-            ratings: 4,
-            footerContent: '$200 - $600',
-            footerClass: 'home__featured-vendor_price'
-          })
-        }}
-      </div>
+      {% for key,product in products %}
+        <div class="col-md-4 col-sm-6 home__featured-vendor_listing">
+          {{ include('WeddingBundle:Components:squaredImageBlock.html.twig',
+            {
+              link: '{{ product["nid"] }}',
+              src: '{{ product["field_image"] }}',
+              alt: '',
+              overlay: 'top-left-featured',
+              favorite: true,
+              title: '{{ product["title"] }}',
+              address: '{{ product["field_address"] }}',
+              ratings: 4,
+              footerContent: 'Rs {{ product["field_price"] }}',
+              footerClass: 'home__featured-vendor_price'
+            })
+          }}
+        </div>
+      {% endfor %}
     </div>
     
   </div>
