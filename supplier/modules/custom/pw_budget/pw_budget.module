@@ -1,0 +1,10 @@
+<?php
+
+  function pw_budget_theme() {
+    $theme['budget'] = [
+      'variables' => ['title' => NULL],
+      'template' => 'budget'
+    ];
+
+    return $theme;
+  }

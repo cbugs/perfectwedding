@@ -1,0 +1,13 @@
+name: Couple Dashboard
+type: module
+description: 'Couple Dashboard Module'
+package: 
+# core: 8.x
+dependencies:
+  - drupal:node
+
+# Information added by Drupal.org packaging script on 2017-03-15
+version: '8.x-1.x-dev'
+core: '8.x'
+project: 'perfect_wedding'
+datestamp: 1489606986

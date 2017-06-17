@@ -1,0 +1,50 @@
+.roundImageBlock {
+  
+  position: relative;
+  
+  //&__link {
+  //
+  //}
+  
+  &__img-container {
+    overflow: hidden;
+    max-width : 180px;
+    max-height: 180px;
+    margin: 0 auto;
+    img {
+      height: 180px;
+      width: 180px;
+    }
+  }
+  
+  .overlay {
+    position: absolute;
+  }
+  
+  &__content {
+    margin-top: 30px;
+  }
+  
+  &__title {
+    text-transform: uppercase;
+  }
+  
+  &__desc {
+    font-style: italic;
+    color: $color-dark-grey;
+    font-size: 0.9rem;
+  }
+  
+  &__user {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: $black;
+  }
+  
+  &__date {
+    font-weight: bold;
+    font-size: 0.75rem;
+  }
+  
+}

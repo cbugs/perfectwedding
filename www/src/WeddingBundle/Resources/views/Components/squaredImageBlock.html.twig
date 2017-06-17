@@ -1,0 +1,64 @@
+<div class="squaredImageBlock">
+  
+  <a href="{{ link }}" class="squaredImageBlock__link category-link">
+    <img
+      src="{{ src }}"
+      class="squaredImageBlock__img img-fluid" alt="{{ alt }}" />
+    {% if overlay is defined %}
+      <span class="squaredImageBlock__overlay squaredImageBlock__overlay_{{ overlay }}">
+        {% if overlayContent is defined %}
+          {{ overlayContent }}
+        {% endif %}
+      </span>
+    {% endif %}
+    {% if favorite is defined %}
+      <span id="1" class="squaredImageBlock__fav js-favorite-btn">
+        <i aria-hidden="true" aria-selected="false" class="js-favorite-icon fa fa-heart-o"></i>
+      </span>
+    {% endif %}
+    
+    {% if title is defined or desc is defined or address is defined or ratings is defined %}
+      <div class="squaredImageBlock__content category-content">
+      {% if title is defined %}
+        <h3 class="squaredImageBlock__title category-title">{{ title | raw }}
+          {% if avail is defined %}
+            <span class="squaredImageBlock__avail cat-availability">{{ avail | raw }}</span>
+          {% endif %}
+        </h3>
+      {% endif %}
+      
+      {% if desc is defined %}
+        <p class="squaredImageBlock__desc category-desc">{{ desc | raw }}</p>
+      {% endif %}
+  
+      {% if address is defined %}
+        <p class="squaredImageBlock__address category-address"><i class="fa fa-map-marker" aria-hidden="true"></i>{{ address | raw }}</p>
+      {% endif %}
+      
+      {% if ratings is defined %}
+        <div class="squaredImageBlock__rating js-rating-toggle">
+          {% for rating in range(1, ratings) %}
+            <i class="fa fa-star" aria-hidden="true"></i>
+          {% endfor %}
+          
+          {% if ratings < 5 %}
+            {% for norating in range(1, (5 - ratings )) %}
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            {% endfor %}
+            <span>( {{ ratings }} )</span>
+          {% endif %}
+        </div>
+      {% endif %}
+      
+    </div>
+    {% endif %}
+  
+    {% if footerContent is defined %}
+      <footer class="squaredImageBlock__footer">
+        <p class="squaredImageBlock__footer-content {{ footerClass }}">{{ footerContent }}</p>
+      </footer>
+    {% endif %}
+    
+  </a>
+  
+</div>

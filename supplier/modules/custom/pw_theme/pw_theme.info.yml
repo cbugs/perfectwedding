@@ -1,0 +1,7 @@
+name: Perfect Wedding Theme
+type: module
+description: 'Perfect Wedding Sections Theming'
+package: 
+version: '8.x'
+core: '8.x'
+project: 'perfect_wedding'

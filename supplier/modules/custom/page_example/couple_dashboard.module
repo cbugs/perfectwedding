@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function couple_dashboard_theme($existing, $type, $theme, $path)
+{
+    return [
+        'couple_dashboard_index' => [
+            'render element' => 'dashboard_index',
+            'path' => $path . '/templates',
+            'template' => 'index',
+            'variables' => [
+                'var1' => 'default value for var1',
+            ],
+        ],
+    ];
+}

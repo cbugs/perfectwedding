@@ -1,0 +1,81 @@
+/* =======================================================================
+## ++ Globals
+========================================================================== */
+html{
+    font-size: 100%;
+}
+
+body{
+    -webkit-font-smoothing: antialiased;
+    background:#fff;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+
+/* =======================================================================
+## ++ Cleafix
+========================================================================== */
+
+/* float clearing for IE6 */
+* html .clearfix{
+ height: 1%;
+ overflow: visible;
+}
+
+/* float clearing for IE7 */
+*+html .clearfix{
+ min-height: 1%;
+}
+
+/* float clearing for everyone else */
+.clearfix:after{
+ clear: both;
+ content: ".";
+ display: block;
+ height: 0;
+ visibility: hidden;
+ font-size: 0;
+}
+
+.clr{clear:both;}
+
+.js-form-type-vertical-tabs {
+    display: none;
+}
+
+.form-actions {
+    >.button--danger {
+        display: none;
+    }
+    >div>div>ul {
+        >.unpublish {
+            display:none;
+        }
+    }
+}
+
+#block-views-block-cover-image-block-1 {
+    >div>div>div>.views-field-field-cover>div>img{
+        height:400px;
+    }
+    >div>div>div>.views-field-user-picture>div>img{
+        position:absolute;
+        top: 150px;
+        left: 100px;
+        width:150px;
+        height:150px;
+    }
+    
+}
+
+.node-budget-edit-form {
+
+}
+
+.txt-pink {
+    color: $color-pink;
+}
+

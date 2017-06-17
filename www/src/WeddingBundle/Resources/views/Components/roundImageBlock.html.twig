@@ -1,0 +1,34 @@
+<div class="roundImageBlock">
+  
+  <a href="{{ link }}" class="roundImageBlock__link item-link">
+  
+    <div class="rounded-circle roundImageBlock__img-container">
+      <img src="{{ src }}" alt="{{ alt }}" class="roundImageBlock__img">
+    </div>
+  
+    {% if overlay is defined %}
+      <span class="overlay overlay__{{ overlay }}">{{ overlayContent }}</span>
+    {% endif %}
+    
+  </a>
+  
+  <blockquote class="blockquote roundImageBlock__content item-content">
+    
+    {% if title is defined %}
+      <h3 class="roundImageBlock__title item-title">{{ title | raw }}</h3>
+    {% endif %}
+  
+    {% if desc is defined %}
+      <p class="font-italic roundImageBlock__desc category-desc">"{{ desc | raw }}"</p>
+    {% endif %}
+    
+    {% if user and date is defined %}
+      <footer class="blockquote-footer roundImageBlock__footer">
+        <p class="mb-0 roundImageBlock__user">{{ user | raw }}</p>
+        <p class="roundImageBlock__date">{{ date | raw }}</p>
+      </footer>
+    {% endif %}
+    
+  </blockquote>
+  
+</div>

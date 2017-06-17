@@ -1,0 +1,24 @@
+material_styling:
+  css:
+    theme:
+      css/agnian.css: { media: all }
+  js:
+    js/theme.js: {}
+  
+switch_style:
+ css:
+  theme:
+   libraries/switch_style/bootstrap-switch.css: { media: all }
+   
+ js:
+   libraries/switch_style/bootstrap-switch.js: {}
+   
+owl_carousel:
+  css:
+    theme:
+      libraries/owl-carousel/owl.carousel.css: {media: all}    
+    
+
+  js:
+    libraries/owl-carousel/owl.carousel.min.js: {} 
+    

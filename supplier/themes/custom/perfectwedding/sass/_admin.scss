@@ -1,0 +1,26 @@
+#block-perfectwedding-primary-local-tasks {
+    //background: $color-grey;
+    padding: 10px;
+    > ul > li {
+        display: inline;
+        >a {
+            background: $color-pink;
+            color: $color-white;
+            text-decoration: none;
+            padding: 10px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+    }
+}
+
+#block-sitebranding {
+    position: absolute;
+    z-index: 99;
+    >a {
+        >img {
+            height: 150px;
+            width: 200px;
+        }
+    }
+}

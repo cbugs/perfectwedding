@@ -1,0 +1,111 @@
+{% set page = 'checklist' %}
+{% extends 'WeddingBundle:Dashboard:base.html.twig' %}
+
+{% block dashboardContent %}
+
+<div id="dash-wrapper">
+    <div class="row">
+        <div class="col-md-6">
+            <button class="bg-violet" data-toggle="modal" id="btn-new-checklist" data-target="#checklistModal">+ Add Check List</button>
+            {% for key,checklist in checklists %}
+                    {% if checklist|length >= 0 %} 
+                        <div class="checklist-section" id="checklist-sectionid-{{ key }}">
+                            <span>{{ key }}</span>
+                            <ul class="list-group">
+                                {% for chk in checklist %}
+                                    <li id="checklist-elem-{{ chk.id }}" class="list-group-item list-{{ chk.category }}">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" {% if chk.done == 1 %}checked="checked"{% endif %} id="checklist-box-{{ chk.id }}" value="" class="checklist-elem-checkbox"><span class="checklist-elem-title">{{ chk.title }}</span></label>
+                                        </div>
+                                        <div class="checklist-list-button-group">
+                                            <button class="checklist-modal-button" data-toggle="modal" data-values='{"title":"{{ chk.title }}","description":"{{ chk.description }}","category":"{{ chk.category }}","date":"{{ chk.date }}","id":"{{ chk.id }}"}' data-target="#checklistModal"><span class="fa fa-edit" ></span></button>
+                                            <button><span class="fa fa-remove"></span></button>
+                                        </div>  
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="bg-white">
+                <div>Summary</div>
+                <div id="circle-progress"></div>
+                <div>0 Done</div>
+                <div>3 To-Dos</div>
+                <div>Planning tools   Suppliers   Ideas</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="checklistModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 id="checklist-header" class="modal-title">Create New Task</h4>
+        </div>
+        <div class="modal-body">
+            <form id="checklist-form" class="form-horizontal row" action="{{ path('user_dashboard_checklist_save') }}">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label" for="checklist-name">Task Title:</label>
+                        <div>
+                        <input type="name" class="form-control" name="checklist-name" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="checklist-category">Select Category:</label>
+                        <div>
+                            <label class="radio-inline"><input type="radio" value="green" class="form-control" name="checklist-category" placeholder="">Planning</label>
+                            <label class="radio-inline"><input type="radio" value="grey" class="form-control" name="checklist-category" placeholder="">Suppliers</label>
+                            <label class="radio-inline"><input type="radio" value="blue" class="form-control" name="checklist-category" placeholder="">Ideas</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="checklist-date">Select Timeframe:</label>
+                        <div>
+                            <select class="form-control" name="checklist-date">
+                                <option value="Engagement">Engagement</option>
+                                <option value="After Engagement">After Engagement</option>
+                                <option value="12 to 18 months before wedding">12 to 18 months before wedding</option>
+                                <option value="9 months to 11 months before wedding">9 months to 11 months before wedding</option>
+                                <option value="6 to 8 months before the wedding">6 to 8 months before the wedding</option>
+                                <option value="4 to 5 months before your wedding">4 to 5 months before your wedding</option>
+                                <option value="2 to 3 months before wedding">2 to 3 months before wedding</option>
+                                <option value="6 to 8 weeks before the wedding">6 to 8 weeks before the wedding</option>
+                                <option value="3 to 5 weeks before the wedding">3 to 5 weeks before the wedding</option>
+                                <option value="1 to 2 weeks before wedding">1 to 2 weeks before wedding</option>
+                                <option value="1 day before wedding">1 day before wedding</option>
+                                <option value="After the wedding">After the wedding</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="name">Description:</label>
+                        <div>
+                        <textarea class="form-control" row=5 name="checklist-description" placeholder=""></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group"> 
+                        <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" id="save-checklist" class="btn btn-default btn-checklist" data-dismiss="modal">Save Task</button>
+                        <input type="hidden" name="checklist-id" value=""/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="savedone-url" value="{{ path('user_dashboard_checklist_savedone') }}"/>
+{% endblock %}

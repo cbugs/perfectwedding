@@ -1,0 +1,7 @@
+name: Budget
+type: module
+description: Budget Manager
+package: 
+version: '8.x'
+core: '8.x'
+project: 'perfect_wedding'

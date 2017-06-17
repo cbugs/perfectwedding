@@ -1,0 +1,152 @@
+.step-list {
+  > li {
+    &.active {
+      background : $pink;
+      color      : $white;
+      > a {
+        color : $white;
+      }
+    }
+    &.unactive {
+      background : $color-light-grey;
+      color      : $color-darkest-grey;
+      > a {
+        color : $color-darkest-grey;
+      }
+      &:after {
+        border-left : 20px solid $color-light-grey;
+      }
+    }
+    > a {
+      &:hover {
+        text-decoration : none;
+      }
+    }
+    position     : relative;
+    width        : 300px;
+    height       : 80px;
+    margin-right : 10px;
+    padding-top  : 10px;
+    text-align   : center;
+    line-height  : 20px;
+    &:after {
+      content       : "";
+      position      : absolute;
+      left          : 100%;
+      top           : 0px;
+      width         : 0px;
+      height        : 0px;
+      z-index       : 2;
+      border-top    : 40px solid transparent;
+      border-left   : 20px solid $pink;
+      border-bottom : 40px solid transparent;
+    }
+    &:before {
+      content       : "";
+      position      : absolute;
+      right         : 93.5%;
+      top           : 0px;
+      width         : 0px;
+      height        : 0px;
+      z-index       : 0;
+      border-top    : 40px solid transparent;
+      border-left   : 20px solid $color-lighter-grey;
+      border-bottom : 40px solid transparent;
+    }
+  }
+  
+}
+
+.container-steps {
+  text-align  : center;
+  width       : 80%;
+  margin-left : 12%;
+  margin-top  : 3%;
+}
+
+.guest-summary-count {
+  background    : $pink;
+  padding       : 0px 5px 0px 5px;
+  border-radius : 2px;
+  color         : $white;
+}
+
+.guest-summary {
+  width:100%;
+  margin-top  : 3%;
+  margin-left : 8%;
+  > div > div {
+    text-align : left;
+  }
+}
+
+.list-group-item-text {
+  font-size : 12px;
+}
+
+.list-group-item-heading {
+  font-size : 18px;
+}
+
+.guestlist-total {
+  font-size   : 18px;
+  font-weight : bold;
+}
+
+#addGuest, #addAllGuest {
+  background-color : $purple;
+  color            : $white;
+  padding          : 5px 10px 5px 5px;
+  border           : none;
+}
+
+#addAllGuest{
+  margin-bottom: 10px;
+}
+
+#table-guestlist_filter {
+  width      : 100%;
+  text-align : center;
+  > button {
+    float : right;
+  }
+}
+
+#guest-event-table {
+  margin-bottom: 20px;
+  border:none;
+}
+
+.guest-event-list{
+  >li{
+    background-color: white;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom:1px;
+  }
+
+}
+
+#draggableGuestPanelList{
+  >li{
+    background-color: white;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom:5px;
+  }
+
+}
+
+.guest-tab-header {
+  margin-top:20px;
+}
+
+#draggablePanelList .panel-heading {
+    cursor: move;
+}
+
+.event-sumary-2 {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,4 @@
+couple_dashboard.index:
+  title: Couple Dashboard
+  route_name: couple_dashboard_index
+  expanded: TRUE

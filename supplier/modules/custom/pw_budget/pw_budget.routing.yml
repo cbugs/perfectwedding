@@ -1,0 +1,6 @@
+pw_budget:
+  path: /dashboard/budget
+  defaults:
+    _controller: Drupal\pw_budget\Controller\BudgetController::index
+  requirements:
+    _permission: 'access content'

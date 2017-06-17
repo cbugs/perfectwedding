@@ -1,0 +1,50 @@
+{% extends 'WeddingBundle:Regions:base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<div class="row cover-wrapper">
+    <div class="dashboard clearfix col-sm-12 cover">                            
+        <div class="dashboard-image-container">
+            <img id="cover-pic-source" src="{{ path('user_picture_path') }}/{{ cover }}" class="img-cover">
+        </div>  
+    </div>
+    <div class="caption row cover-content">
+        <div class="col-md-6">
+            <div data-image-upload='[{"name":"profile_pic_source","url":"{{ path('user_field_save', {'field': 'ProfilePicture'}) }}","for":"profile-pic-source"}]' class="img-div">
+                <img src="{{ path('user_picture_path') }}/{{ profilePicture }}" width="200px" height="200px" id="profile-pic-source" />
+                <div class="img-div-upload">
+                    <div class="text"><span class="fa fa-camera"></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 cover-profile-content">
+            <h2>Bonnie and Clyde Wedding</h2>
+            <h3>9th February, 2017</h3>
+            <p>1 day to go</p>
+        </div>
+    </div>
+    <a class='btn btn-primary cover-upload-img' data-image-upload='[{"name":"cover_pic_source","url":"{{ path('user_field_save', {'field': 'CoverPicture'}) }}","for":"cover-pic-source"}]'>
+        <span class="fa fa-camera"></span>
+    </a>
+</div>
+<ul class="dashboard-nav nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link {% if page is not defined %}active{% endif %}" href="{{ path('user_dashboard') }}"><i class="fa fa-dashboard"></i> MY DASHBOARD</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if page is defined %}{%if page == 'guestlist' %}active{% endif %}{% endif %}" href="{{ path('user_dashboard_guestlist') }}"><i class="fa fa-list"></i> MY GUEST LIST</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if page is defined %}{%if page == 'checklist' %}active{% endif %}{% endif %}" href="{{ path('user_dashboard_checklist') }}"><i class="fa fa-check"></i> MY CHECKLIST</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if page is defined %}{%if page == 'budget' %}active{% endif %}{% endif %}" href="{{ path('user_dashboard_budget') }}"><i class="fa fa-calculator"></i> MY BUDGET</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if page is defined %}{%if page == 'wishlist' %}active{% endif %}{% endif %}" href="{{ path('user_dashboard_favourite') }}"><i class="fa fa-group"></i> MY WISHLIST</a>
+  </li>
+</ul>
+{% block dashboardContent %}{% endblock %}
+{% endblock %}
+

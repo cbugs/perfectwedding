@@ -1,0 +1,19 @@
+#block-useraccountmenu {
+    background: $color-pink;
+    height: 150px;
+    >ul {
+        position: absolute;
+        right: 15px;
+        >li {
+            display: inline;
+            > a {
+                color: white;
+                text-decoration: none;
+                padding: 15px;
+            }
+        }
+    }
+    >h2 {
+        display: none;
+    }
+}

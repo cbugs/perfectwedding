@@ -1,0 +1,228 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Agnian custom admin theme.
+ */
+
+use Drupal\Component\Utility\Xss;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Menu\MenuTreeParameters;
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ */
+function agnian_material_admin_preprocess_html(&$variables) {
+  // If on a node add or edit page, add a node-layout class.
+  $path_args = explode('/', \Drupal::request()->getPathInfo());
+  if ($suggestions = theme_get_suggestions($path_args, 'page', '-')){
+    foreach ($suggestions as $key => $suggestion){
+      if ($suggestion === 'page-node-edit' || strpos($suggestion, 'page-node-add') !== FALSE) $variables['attributes']['class'][] = 'node-form-layout';
+      $variables['attributes']['class'][] = $suggestion;
+
+      if (($key == count($suggestions) - 1) && $suggestion === 'page--admin-structure') $variables['attributes']['class'][] = 'page--admin-structure-main';
+    }
+  }
+}
+
+/**
+ * Implements hook_pre_render_HOOK() for menu-local-tasks templates.
+ *
+ * Use preprocess hook to set #attached to child elements
+ * because they will be processed by Twig and drupal_render will
+ * be invoked.
+ */
+function agnian_material_admin_preprocess_menu_local_tasks(&$variables) {
+  if (!empty($variables['primary'])) {
+    $variables['primary']['#attached'] = array(
+      'library' => array(
+        'agnian_material_admin/drupal.nav-tabs',
+      ),
+    );
+  }
+  elseif (!empty($variables['secondary'])) {
+    $variables['secondary']['#attached'] = array(
+      'library' => array(
+        'agnian_material_admin/drupal.nav-tabs',
+      ),
+    );
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu-local-task templates.
+ */
+function agnian_material_admin_preprocess_menu_local_task(&$variables) {
+  $variables['attributes']['class'][] = 'tabs__tab';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for list of available node type templates.
+ */
+function agnian_material_admin_preprocess_node_add_list(&$variables) {
+  if (!empty($variables['content'])) {
+    /** @var \Drupal\node\NodeTypeInterface $type */
+    foreach ($variables['content'] as $type) {
+      $variables['types'][$type->id()]['label'] = $type->label();
+      $variables['types'][$type->id()]['url'] = \Drupal::url('node.add', array('node_type' => $type->id()));
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function agnian_material_admin_preprocess_page(&$variables) {
+// @todo: add an if statement to add below data only for "page__admin__content" page.
+ $variables['node_types'] = node_type_get_names();
+
+/**
+ * Render "admin/structure" page's menu in it's all subpages.
+ */
+// get current page path
+$path = \Drupal::request()->getPathInfo();
+if (strpos($path, '/admin/structure') !== false) {
+  $tree = \Drupal::menuTree();
+  $params = $tree->getCurrentRouteMenuTreeParameters('admin');
+  $admin_menu = $tree->load('admin', $params);
+  $admin_structure_menu = array_key_exists('system.admin_structure', $admin_menu['system.admin']->subtree) ? $admin_menu['system.admin']->subtree['system.admin_structure'] : null;
+  if ($admin_structure_menu) {
+          $subtree = $tree->build($admin_structure_menu->subtree);
+          /* this part is only for syncing menu items positions between "admin/structure" page and it's child pages */
+          $old_items = $subtree['#items'];
+          $tmp = $subtree['#items'] = array();
+          foreach($old_items as $key => $value) $tmp[$key] = $value['title'];
+          asort($tmp);
+          foreach($tmp as $key => $value) $subtree['#items'][$key] = $old_items[$key];
+          /* end of sync */
+
+          $variables['admin_menu'] = $subtree;
+  }
+}
+/** End Of Render "admin/structure" page's menu in it's all subpages. */
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block content add list templates.
+ *
+ * Displays the list of available custom block types for creation, adding
+ * separate variables for the label and url.
+ */
+function agnian_material_admin_preprocess_block_content_add_list(&$variables) {
+  if (!empty($variables['content'])) {
+    foreach ($variables['content'] as $type) {
+      $variables['types'][$type->id()]['label'] = $type->label();
+      $options = array('query' => \Drupal::request()->query->all());
+      $variables['types'][$type->id()]['url'] = \Drupal::url('block_content.add_form', array('block_content_type' => $type->id()), $options);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block admin page templates.
+ */
+function agnian_material_admin_preprocess_admin_block_content(&$variables) {
+  if (!empty($variables['content'])) {
+    foreach ($variables['content'] as $key => $item) {
+      $variables['content'][$key]['url'] = $item['url'];
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu-local-action templates.
+ */
+function agnian_material_admin_preprocess_menu_local_action(array &$variables) {
+  $variables['link']['#options']['attributes']['class'][] = 'button--primary';
+  $variables['link']['#options']['attributes']['class'][] = 'button--small';
+
+  // We require Modernizr's touch test for button styling.
+  $variables['#attached']['library'][] = 'core/modernizr';
+}
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function agnian_material_admin_element_info_alter(&$type) {
+  // We require Modernizr for button styling.
+  if (isset($type['button'])) {
+    $type['button']['#attached']['library'][] = 'core/modernizr';
+  }
+}
+
+/**
+ * Implements hook_preprocess_install_page().
+ */
+function agnian_material_admin_preprocess_install_page(&$variables) {
+  // Seven has custom styling for the install page.
+  $variables['#attached']['library'][] = 'agnian_material_admin/install-page';
+}
+
+/**
+ * Implements hook_preprocess_maintenance_page().
+ */
+function agnian_material_admin_preprocess_maintenance_page(&$variables) {
+  // Seven has custom styling for the maintenance page.
+  $variables['#attached']['library'][] = 'agnian_material_admin/maintenance-page';
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * Changes vertical tabs to container and adds meta information.
+ */
+function agnian_material_admin_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $form_state->getFormObject()->getEntity();
+
+  $form['#theme'] = array('node_edit_form');
+  $form['#attached']['library'][] = 'agnian_material_admin/node-form';
+
+  $form['advanced']['#type'] = 'container';
+  $is_new = !$node->isNew() ? format_date($node->getChangedTime(), 'short') : t('Not saved yet');
+  $form['meta'] = array(
+    '#attributes' => array('class' => array('entity-meta__header')),
+    '#type' => 'container',
+    '#group' => 'advanced',
+    '#weight' => -100,
+    'published' => array(
+      '#type' => 'html_tag',
+      '#tag' => 'h3',
+      '#value' => $node->isPublished() ? t('Published') : t('Not published'),
+      '#access' => !$node->isNew(),
+      '#attributes' => array(
+        'class' => 'entity-meta__title',
+      ),
+    ),
+    'changed' => array(
+      '#type' => 'item',
+      '#wrapper_attributes' => array('class' => array('entity-meta__last-saved', 'container-inline')),
+      '#markup' => '<h4 class="label inline">' . t('Last saved') . '</h4> ' . $is_new,
+    ),
+    'author' => array(
+      '#type' => 'item',
+      '#wrapper_attributes' => array('class' => array('author', 'container-inline')),
+      '#markup' => '<h4 class="label inline">' . t('Author') . '</h4> ' . $node->getOwner()->getUsername(),
+    ),
+  );
+  $form['revision_information']['#type'] = 'container';
+  $form['revision_information']['#group'] = 'meta';
+}
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function agnian_material_admin_library_info_alter(&$libraries, $extension) {
+  if ($extension == 'core' && isset($libraries['drupal.vertical-tabs'])) {
+    unset($libraries['drupal.vertical-tabs']['css']['component']['misc/vertical-tabs.css']);
+    $libraries['drupal.vertical-tabs']['dependencies'][] = 'agnian_material_admin/vertical-tabs';
+  }
+  if ($extension == 'core' && isset($libraries['jquery.ui'])) {
+    unset($libraries['jquery.ui']['css']['theme']['assets/vendor/jquery.ui/themes/base/theme.css']);
+    $libraries['jquery.ui']['dependencies'][] = 'agnian_material_admin/seven.jquery.ui';
+  }
+  if ($extension == 'classy' && isset($libraries['dialog'])) {
+    unset($libraries['dialog']['css']['component']['css/components/dialog.css']);
+    $libraries['dialog']['dependencies'][] = 'agnian_material_admin/seven.drupal.dialog';
+  }
+}
