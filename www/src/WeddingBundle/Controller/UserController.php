@@ -115,7 +115,9 @@ class UserController extends BaseController
      */
     public function profileAction(Request $request)
     {
-        $id = $this->getCurrentUser()->getId();
+        $currentUser = $this->getCurrentUser();
+        if($currentUser == null){return $this->redirectToRoute('user_login');}
+        $id = $currentUser->getId();
         
         $roleById = self::getRoleOfId($id);
    
