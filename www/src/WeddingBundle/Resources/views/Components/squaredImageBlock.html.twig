@@ -3,8 +3,8 @@
   <a href="{{ link }}" class="squaredImageBlock__link category-link">
   {% if overlay is defined %}
   <img
-    class="quaredImageBlock__img img-fluid b-lazy" 
-    data-original="{{ src }}" alt="{{ alt }}" width="200" height="200" />
+    class="lazyload squaredImageBlock__img img-fluid" 
+    data-src="{{ src }}" alt="{{ alt }}" />
   {% else %}
     <img
       src="{{ src }}"
