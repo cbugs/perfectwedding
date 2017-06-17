@@ -764,7 +764,7 @@ $settings['file_scan_ignore_directories'] = [
 #
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   //include $app_root . '/' . $site_path . '/settings.local.php';
-}
+}echo "LL";exit;
 $databases['default']['default'] = array (
   'database' => 'perfectwed',
   'username' => 'root',
