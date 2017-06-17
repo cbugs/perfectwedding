@@ -6,4 +6,6 @@ $(document).ready(function() {
         "info":     false
     });
 
+    $("img.b-lazy").lazyload();
+
 });
