@@ -763,11 +763,11 @@ $settings['file_scan_ignore_directories'] = [
  */
 #
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  //include $app_root . '/' . $site_path . '/settings.local.php';
+  include $app_root . '/' . $site_path . '/settings.local.php';
 }
 $databases['default']['default'] = array (
   'database' => 'cbugs_perfectweddingbo',
-  'username' => 'cbugs_pwedd',
+  'username' => 'cbugs_pwed',
   'password' => 'perfectwedding',
   'prefix' => '',
   'host' => 'localhost',
