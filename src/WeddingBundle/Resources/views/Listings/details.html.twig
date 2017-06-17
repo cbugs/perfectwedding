@@ -1,0 +1,144 @@
+{% extends 'WeddingBundle:Regions:base.html.twig' %}
+
+{% block title %}Listing details view{% endblock %}
+
+{% block body %}
+
+  <div class="container-fluid">
+
+    {{ include('WeddingBundle:Components:heroBanner.html.twig',
+      {
+      type: 'bottom-content',
+        src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-128922.jpg',
+        alt: 'Venue title',
+        contentType: 'shareable-content',
+        category: 'Boutique',
+        id: '172727',
+        title: 'Wedding Venue Title goes here',
+        address: '110 Pennington Street, London, EW1 2BB',
+        ratings: 4
+      })
+    }}
+
+    {{ include('WeddingBundle:Components:breadcrumbs.html.twig',
+      {
+        items: [
+          {
+            name: 'Home',
+            active: false,
+            link: '/'
+          },
+          {
+            name: 'Wedding Venue Listings',
+            active: false,
+            link: '/search/listings/venue-listings'
+          },
+          {
+            name: 'Wedding Venue title goes here',
+            active: true
+          }
+        ]
+      })
+    }}
+
+    <section class="container listing-item">
+      <div class="row content-wrapper">
+        <div class="col-md-8 col-sm-12 listing-details">
+          {{ include('WeddingBundle:Components:listingTabs.html.twig', {
+              id: id,
+              images: [
+                {
+                  src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-57880.jpg',
+                  alt: 'Venue title'
+                },
+                {
+                  src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-128922.jpg',
+                  alt: 'Venue title'
+                },
+                {
+                  src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-70291.jpg',
+                  alt: 'Venue title'
+                },
+                {
+                  src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-169211.jpg',
+                  alt: 'Venue title'
+                },
+                {
+                  src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-305972.jpg',
+                  alt: 'Venue title'
+                },
+                {
+                  src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo.jpg',
+                  alt: 'Venue title'
+                }
+              ],
+              desc: {
+                about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                features: [
+                  'Feature 1',
+                  'Feature 2',
+                  'Feature 3',
+                  'Feature 4',
+                  'Feature 5',
+                  'Feature 6'
+                ],
+                price: '$600-700'
+              },
+              loc: {
+                lat: '-25.363',
+                long: '131.044'
+              },
+              videos: [
+                {
+                  type: 'youtube',
+                  id: '507k7vSopTU'
+                },
+                {
+                  type: 'html5',
+                  id: id,
+                  poster: '/perfectwedding/web/bundles/build/images/cinemagraph.jpg',
+                  desc: 'Venue Video',
+                  mp4Src: '/perfectwedding/web/bundles/build/videos/cinemagraph.mp4',
+                  webmSrc: '/perfectwedding/web/bundles/build/videos/cinemagraph.webm',
+                  fallback: '/perfectwedding/web/bundles/build/videos/cinemagraph.gif'
+                }
+              ],
+              reviews: [
+                {
+                  id: '3668',
+                  date: '23-06-2017',
+                  userId: '1',
+                  username: 'User 1',
+                  pic: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-172491.jpg',
+                  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '
+                },
+                {
+                  id: '3453',
+                  date: '30-04-2016',
+                  userId: '2',
+                  username: 'Michel',
+                  pic: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-172491.jpg',
+                  content: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. '
+                },
+                {
+                  id: '1234',
+                  date: '12-07-2015',
+                  userId: '6',
+                  username: 'John',
+                  pic: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-172491.jpg',
+                  content: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.'
+                }
+              ],
+              discount: 'For a limited time, 20% discount is available for any orders over $1000. Contact us for more details. <img class="img-fluid" src="/perfectwedding/web/bundles/build/images/cinemagraph.jpg" alt="discount image" />'
+            })
+          }}
+        </div>
+        <aside class="col-md-4 col-sm-12 supplier-details">
+
+        </aside>
+      </div>
+    </section>
+
+  </div>
+
+{% endblock %}

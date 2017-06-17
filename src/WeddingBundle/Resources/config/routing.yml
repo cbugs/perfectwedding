@@ -1,0 +1,106 @@
+wedding_homepage:
+    path:   /home
+    defaults: { _controller: WeddingBundle:Home:index }
+
+user_register:
+    path:     /register
+    defaults: { _controller: WeddingBundle:User:register }
+
+user_login:
+    path:     /login
+    defaults: { _controller: WeddingBundle:User:login }
+
+user_profile:
+    path:     /profile
+    defaults: { _controller: WeddingBundle:User:profile }
+
+user_profiles:
+    path:     /profiles/{id}
+    defaults: { _controller: WeddingBundle:User:profiles }
+
+user_field_save:
+    path:   /profile/{field}/save
+    defaults: { _controller: WeddingBundle:User:saveField }
+
+user_picture_path:
+    path: /bundles/assets/images
+
+user_dashboard:
+    path:     /dashboard
+    defaults: { _controller: WeddingBundle:Dashboard:index }
+
+user_dashboard_budget:
+    path:     /dashboard/budget
+    defaults: { _controller: WeddingBundle:Dashboard:budget }
+
+user_dashboard_budget_index:
+    path:     /dashboard/budget/index
+    defaults: { _controller: WeddingBundle:Budget:index }
+
+user_dashboard_budget_add:
+    path:     /dashboard/budget/add
+    defaults: { _controller: WeddingBundle:Budget:add }
+
+user_dashboard_budget_save:
+    path:     /dashboard/budget/save
+    defaults: { _controller: WeddingBundle:Budget:save }
+
+user_dashboard_budget_create:
+    path:     /dashboard/budget/create
+    defaults: { _controller: WeddingBundle:Budget:create }
+
+user_dashboard_checklist:
+    path:     /dashboard/checklist
+    defaults: { _controller: WeddingBundle:Checklist:index }
+
+user_dashboard_guestlist:
+    path:     /dashboard/guestlist
+    defaults: { _controller: WeddingBundle:Guest:index }
+
+user_dashboard_guest_get:
+    path:     /dashboard/guest/get
+    defaults: { _controller: WeddingBundle:Guest:get }
+
+user_dashboard_guest_add:
+    path:     /dashboard/guest/add
+    defaults: { _controller: WeddingBundle:Guest:add }
+
+user_dashboard_guest_save:
+    path:     /dashboard/guest/save
+    defaults: { _controller: WeddingBundle:Guest:save }
+
+user_dashboard_checklist_get:
+    path:     /dashboard/checklist/get
+    defaults: { _controller: WeddingBundle:Checklist:get }
+
+user_dashboard_checklist_add:
+    path:     /dashboard/checklist/add
+    defaults: { _controller: WeddingBundle:Checklist:add }
+
+user_dashboard_checklist_save:
+    path:     /dashboard/checklist/save
+    defaults: { _controller: WeddingBundle:Checklist:save }
+
+user_dashboard_checklist_savedone:
+    path:     /dashboard/checklist/savedone
+    defaults: { _controller: WeddingBundle:Checklist:saveDone }
+
+listing_search_results_category:
+    path:     /search/listings/{category}
+    defaults: { _controller: WeddingBundle:Listing:search, category: 'all' }
+
+listing_detaila:
+    path:     /listing/details/{id}
+    defaults: { _controller: WeddingBundle:Listing:details }
+
+favourite_save:
+    path:   /favourite/save
+    defaults: { _controller: WeddingBundle:Favourite:save }
+
+user_dashboard_favourite:
+    path:     /dashboard/favourite
+    defaults: { _controller: WeddingBundle:Favourite:index }
+    
+search:
+    path: /search
+    defaults: { _controller: WeddingBundle:Search:index }

@@ -1,0 +1,9 @@
+<div class="iconBlock__wrapper">
+  <i class="iconBlock__icon {{ icon }}" aria-hidden="true"></i>
+  <h3 class="iconBlock__title">
+    <small>{{ title | raw }}</small>
+  </h3>
+  {% if desc %}
+    <p class="iconBlock__desc">{{ desc | raw }}</p>
+  {% endif %}
+</div>

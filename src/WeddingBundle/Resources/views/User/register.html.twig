@@ -1,0 +1,24 @@
+{% extends 'WeddingBundle:Regions:base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+<div class="container bg-overlay register">
+	<div class="row">
+        <div class="col"></div>
+        <div class="col">
+            {{ form_start(form, { 'attr': {'class': 'register-form'} }) }}
+                {{ form_widget(form.roles, { 'attr': {'class': 'text-center'} }) }}
+                {{ form_row(form.username) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.plainPassword.first) }}
+                {{ form_row(form.plainPassword.second) }}
+
+                <button class="btn-primary" type="submit">Register!</button>
+            {{ form_end(form) }}
+        </div>
+        <div class="col"></div>
+	</div>
+</div>
+{% endblock %}

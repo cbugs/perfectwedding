@@ -1,0 +1,41 @@
+
+{% extends 'WeddingBundle:Regions:base.html.twig' %}
+{% block body %}
+
+
+
+  <div id="container" class="clearfix">
+
+    
+    <div id="content" class="defaults">
+
+      <h2>Results</h2>
+
+      <!-- navigation holder -->
+      <div class="holder"></div>
+
+      <!-- item container -->
+      <ul id="resultsContainer" class="row home__featured-vendor_content">
+      {% for i in 0..100 %}
+        <li class="col-md-4 col-sm-6 home__featured-vendor_listing"> 
+        {{ include('WeddingBundle:Components:squaredImageBlock.html.twig',
+          {
+            link: '#',
+            src: '/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-256737.jpg',
+            alt: 'Featured Vendor',
+            overlay: 'top-left-featured',
+            favorite: true,
+            title: 'Venue Vendor Title',
+            address: 'Street Address, Name of Town, 12345, Country',
+            ratings: 4,
+            footerContent: '$190 - $600',
+            footerClass: 'home__featured-vendor_price'
+          })
+        }}
+      </li>
+    {% endfor %}
+      </ul>
+
+    </div> <!--! end of #content -->
+  </div> <!--! end of #container -->
+{% endblock %}

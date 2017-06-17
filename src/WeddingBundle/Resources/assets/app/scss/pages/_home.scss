@@ -1,0 +1,218 @@
+.home {
+  
+  &__header {
+    background: url('/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-208160.jpg') no-repeat;
+    background-size: cover;
+    max-width: calc(100% + 30px);
+    max-height: 100%;
+    width : calc(100% + 30px);
+    margin: 0 -15px;
+    
+    @include media-breakpoint-up(lg) {
+      height: 600px;
+    }
+    
+    h1 {
+      color: $white;
+      text-align: center;
+      text-shadow: 1px 1px $color-darkest-grey;
+      .txt-pink {
+        text-shadow: 1px 1px $color-dark-grey;
+      }
+    }
+    
+    &_wrapper {
+      @include media-breakpoint-up(lg) {
+        transform: translateY(100px);
+      }
+    }
+    
+    &_tagline {
+      color: $white;
+      text-align: center;
+      font-size: 90%;
+      font-weight: 500;
+      text-shadow: 1px 1px $color-darkest-grey;
+      .txt-pink {
+        text-shadow: 1px 1px $color-dark-grey;
+      }
+    }
+    
+  }
+  
+  &__headerSearchForm {
+    &_wrapper {
+        background: rgba($white, 0.3);
+        padding: 30px 40px 50px;
+    }
+  }
+  
+  &__popular-categories {
+    
+    background: $gray-lightest;
+    
+    &_heading {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .category-link {
+      color: $gray-dark;
+      font-size: 1rem;
+      &:hover {
+        text-decoration: none;
+        color: $brand-primary;
+      }
+    }
+    
+    .category-title,
+    .cat-availability {
+      font-size: .9rem;
+    }
+    
+    .cat-availability {
+      background: $yellow;
+      color: $white;
+      border-radius: 4px;
+      font-weight: 500;
+      margin-left: 5px;
+      padding: 2px 6px;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    
+    .category-content {
+      display: inline-flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background: $white;
+      padding: 15px 0 10px;
+    }
+    
+    &_cta {
+      .btn {
+        margin: 0 auto;
+      }
+    }
+    
+  }
+  
+  &__planning-tools {
+    background-color: $gray-lightest;
+    background-image: url('http://localhost:4242/perfectwedding/web/bundles/build/images/stock_photos/pexels-photo-57880.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    @include media-breakpoint-up(lg) {
+      height: 400px;
+    }
+    
+    &_header {
+      color: $white;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px $color-darkest-grey;
+    }
+    
+    &_content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: row wrap;
+      
+    }
+    
+    &_icons {
+      
+      background: rgba(255,255,255,.8);
+      padding: 2rem 1.5rem;
+      
+      .iconBlock {
+        
+        &__wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-flow: row wrap;
+        }
+        
+        &__icon {
+          display: block;
+          color: $pink;
+          font-size: 2.4rem;
+          margin-bottom: 10px;
+        }
+        
+        &__title {
+          display: block;
+          width: 100%;
+          text-align: center;
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+        
+        &__desc {
+          display: block;
+          color: $color-dark-grey;
+          text-align: center;
+          font-size: 95%;
+          
+          span {
+            color: $pink;
+          }
+          
+        }
+        
+      }
+    }
+    
+    
+  }
+  
+  &__featured-vendor {
+    background: $gray-lighter;
+  }
+  
+  &__testimonials {
+    background: $gray-lightest;
+    text-align: center;
+    &_title {
+      margin-bottom: 30px;
+    }
+    &_content {
+      .home__testimonials_item {
+        @include media-breakpoint-up(lg) {
+          &:first-of-type {
+            blockquote {
+              border-left: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  &__top-locs {
+    background: $gray-lighter;
+    
+    .squaredImageBlock {
+      margin-bottom: 30px;
+      
+      &__overlay {
+        color: $white;
+        background: $color-darkest-grey;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 0.8rem;
+        padding: 5px 8px;
+        text-transform: uppercase;
+      }
+      
+    }
+    
+  }
+  
+}
