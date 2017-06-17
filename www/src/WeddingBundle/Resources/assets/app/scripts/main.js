@@ -15,6 +15,7 @@ import './iframe-modal.js';
 import './checklist.js';
 import './guestlist.js';
 import './supplier.js';
+import './login.js';
 import './components/_awesomplete';
 import './components/_fileupload';
 import './components/_favoriteToggle';
