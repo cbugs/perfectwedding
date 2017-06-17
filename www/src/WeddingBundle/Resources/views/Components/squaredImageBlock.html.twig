@@ -4,8 +4,7 @@
   {% if overlay is defined %}
   <img
     class="quaredImageBlock__img img-fluid b-lazy" 
-    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-    data-src="{{ src }}" alt="{{ alt }}" />
+    data-original="{{ src }}" alt="{{ alt }}" />
   {% else %}
     <img
       src="{{ src }}"
