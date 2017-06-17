@@ -4,7 +4,6 @@ namespace WeddingBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class BaseController extends Controller
 {
@@ -14,9 +13,6 @@ class BaseController extends Controller
     {
         if ($this->user === null) {
             $this->user = $this->get('app.security_listener')->getUser();
-        }
-        if($this->user ==  null){
-            throw new RedirectResponse($this->generateUrl('user_login'));
         }
         return $this->user;
     }
