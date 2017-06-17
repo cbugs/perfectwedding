@@ -15,6 +15,9 @@ class BaseController extends Controller
             $this->user = $this->get('app.security_listener')->getUser();
         }
         if($this->user ==  null){
+            return new RedirectResponse(
+            $this->generateUrl('user_login')
+        );
            return $this->redirectToRoute('user_login');
         }echo "LL";exit;
         return $this->user;
