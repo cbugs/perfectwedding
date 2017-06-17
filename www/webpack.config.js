@@ -14,7 +14,7 @@ module.exports = {
     vendor: "./src/WeddingBundle/Resources/assets/app/scripts/vendor.js"
   },
   output: {
-    publicPath: 'http://localhost:3000/4dcubes/perfectwedding/www/web/bundles/build',
+    publicPath: '/www/web/bundles/build/',
     path: path.join(__dirname, "web/bundles/build"),
     filename: "[name].min.js"
   },
