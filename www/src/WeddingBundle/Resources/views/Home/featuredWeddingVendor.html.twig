@@ -10,7 +10,7 @@
 {% for key,group in products|batch(2) %}
     <div class="container">
         {% for element in group %}
-            <span></span>
+            <span>{{ element['nid'] }}</span>
         {% endfor %}
     </div>
 {% endfor %}
