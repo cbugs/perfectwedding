@@ -32,11 +32,11 @@ class HomeController extends Controller
     public function featuredWeddingVendorAction()
     {
         $apiData = BaseController::callAPI('GET','/featured_products');
-        $apiData = json_decode($apiData, true);
+        $products = json_decode($apiData, true);
         // /var_dump($apiData);exit;
 
         return $this->render('WeddingBundle:Home:featuredWeddingVendor.html.twig',array(
-            "products" => array("1","2","3","4","5","6")
+            "products" => $products
         ));
     }
   
