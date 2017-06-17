@@ -33,7 +33,7 @@ class HomeController extends Controller
     {
         $apiData = BaseController::callAPI('GET','/featured_products');
         $products = json_decode($apiData, true);
-        // /var_dump($apiData);exit;
+        var_dump($products);exit;
 
         return $this->render('WeddingBundle:Home:featuredWeddingVendor.html.twig',array(
             "products" => $products
