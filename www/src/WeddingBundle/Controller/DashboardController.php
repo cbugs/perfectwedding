@@ -10,7 +10,8 @@ class DashboardController extends BaseController
 {
     public function indexAction(Request $request)
     {
-        $role = $this->getCurrentUser()->getRoles()->getName();
+        $currentUser = $this->getCurrentUser();
+        $role = $currentUser->getRoles()->getName();
         if($role == "Couple") {
             $em = $this->getDoctrine()->getEntityManager();
             $couple = $em->getRepository('WeddingBundle:User\Couple')->find($this->getCurrentUser()->getId());
