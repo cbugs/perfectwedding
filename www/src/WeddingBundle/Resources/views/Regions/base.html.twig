@@ -32,24 +32,12 @@
 <script src="{{ asset('bundles/build/vendor.min.js') }}"></script>
 <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 <script src="{{ asset('bundles/build/app.min.js') }}"></script>
-  <script type="text/javascript" src="bundles/assets/plugin/jPages/js/jquery-1.8.2.min.js"></script>
-  <script type="text/javascript" src="bundles/assets/plugin/jPages/js/highlight.pack.js"></script>
-  <script type="text/javascript" src="bundles/assets/plugin/jPages/js/tabifier.js"></script>
-  <script src="bundles/assets/plugin/jPages/js/js.js"></script>
-  <script src="bundles/assets/plugin/jPages/js/jPages.js"></script>
-
-  <script>
-  $(function() {
-    $("div.holder").jPages({
-      containerID: "resultsContainer",
-      previous : "←",
-      next : "→",
-      perPage:20,
-      midRange: 3,
-      direction: "random",
-      animation: "flipInY"
-    });
-  });
-  </script>
+<script type="text/javascript" src="https://raw.githubusercontent.com/dinbror/blazy/master/blazy.min.js"></script>
+    <script>
+        ;(function() {
+            // Initialize
+            var bLazy = new Blazy();
+        })();
+    </script>
 </body>
 </html>

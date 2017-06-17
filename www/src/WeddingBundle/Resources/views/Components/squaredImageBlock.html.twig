@@ -1,9 +1,16 @@
 <div class="squaredImageBlock">
   
   <a href="{{ link }}" class="squaredImageBlock__link category-link">
+  {% if overlay is defined %}
+  <img
+    class="b-lazy" 
+    src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+    data-src="{{ src }}" alt="{{ alt }}" />
+  {% else %}
     <img
       src="{{ src }}"
       class="squaredImageBlock__img img-fluid" alt="{{ alt }}" />
+  {% endif %}
     {% if overlay is defined %}
       <span class="squaredImageBlock__overlay squaredImageBlock__overlay_{{ overlay }}">
         {% if overlayContent is defined %}
