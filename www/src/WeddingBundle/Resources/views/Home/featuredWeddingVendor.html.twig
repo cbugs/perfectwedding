@@ -10,15 +10,15 @@
         <div class="col-md-4 col-sm-6 home__featured-vendor_listing">
           {{ include('WeddingBundle:Components:squaredImageBlock.html.twig',
             {
-              link: '{{ product["nid"] }}',
-              src: '{{ product["field_image"] }}',
+              link: '{{ product['nid'] }}',
+              src: '{{ product['field_image'] }}',
               alt: '',
               overlay: 'top-left-featured',
               favorite: true,
-              title: '{{ product["title"] }}',
-              address: '{{ product["field_address"] }}',
+              title: '{{ product['title'] }}',
+              address: '{{ product['field_address'] }}',
               ratings: 4,
-              footerContent: 'Rs {{ product["field_price"] }}',
+              footerContent: 'Rs {{ product['field_price'] }}',
               footerClass: 'home__featured-vendor_price'
             })
           }}
