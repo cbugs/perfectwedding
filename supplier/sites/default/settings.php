@@ -766,7 +766,7 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
 $databases['default']['default'] = array (
-  'database' => 'perfectweddingbo',
+  'database' => 'cbugs_perfectweddingbo',
   'username' => 'cbugs_pwed',
   'password' => 'perfectwedding',
   'prefix' => '',
