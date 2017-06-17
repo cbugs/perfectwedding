@@ -21,7 +21,11 @@ class HomeController extends Controller
     
     public function popularCategoriesAction()
     {
-        return $this->render('WeddingBundle:Home:popularCategories.html.twig');
+        $apiData = BaseController::callAPI('GET','/popular_categories');
+        $categories = json_decode($apiData, true);
+        return $this->render('WeddingBundle:Home:popularCategories.html.twig',array(
+            "categories" => $categories
+        ));
     }
     
     public function planningToolsAction()
