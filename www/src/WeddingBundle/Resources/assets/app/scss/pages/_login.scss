@@ -3,7 +3,7 @@
 
 $body-bg: #c1bdba;
 $form-bg: #fff;
-$text: #000;
+$white: #ffffff;
 
 $main: #ff007b;
 $main-light: lighten($main,5%);
@@ -49,12 +49,12 @@ $br: 4px;
     transition:.5s ease;
     &:hover {
       background:$main-dark;
-      color:$text;
+      color:$white;
     }
   }
   .active a {
     background:$main;
-    color:$text;
+    color:$white;
   }
 }
 
@@ -65,7 +65,7 @@ $br: 4px;
 
 h1 {
   text-align:center;
-  color:$text;
+  color:#333;
   font-weight:$thin;
   margin:0 0 40px;
 }
@@ -74,7 +74,7 @@ label {
   position:absolute;
   transform:translateY(6px);
   left:13px;
-  color:rgba($text,.5);
+  color:rgba(#333,.5);
   transition:all 0.25s ease;
   -webkit-backface-visibility: hidden;
   pointer-events: none;
@@ -95,7 +95,7 @@ label.active {
 }
 
 label.highlight {
-	color:$text;
+	color:#333;
 }
 
 input, textarea {
@@ -107,7 +107,7 @@ input, textarea {
   background:none;
   background-image:none;
   border:1px solid $gray-light;
-  color:$text;
+  color:#333;
   border-radius:0;
   transition:border-color .25s ease, box-shadow .25s ease;
   &:focus {
@@ -153,7 +153,7 @@ textarea {
   text-transform:uppercase;
   letter-spacing:.1em;
   background:$main;
-  color:$text;
+  color:$white;
   transition:all.5s ease;
   -webkit-appearance: none;
   &:hover, &:focus {
