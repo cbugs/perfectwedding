@@ -11,7 +11,7 @@
 {% for key,group in products|batch(2) %}
     <div class="container">
         {% for element in group %}
-            <span>{{ var_dump(element) }}</span>
+            <span>{{ dump(element) }}</span>
         {% endfor %}
     </div>
 {% endfor %}
