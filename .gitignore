@@ -1,4 +1,6 @@
-/var/*
+/var/cache/*
+/var/logs/*
+/var/sessions/*
 ./web/bundles/build/*
 ./web/bundles/assets/images/*
 ./node_modules
