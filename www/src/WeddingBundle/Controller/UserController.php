@@ -38,7 +38,7 @@ class UserController extends BaseController
 
         //Handle the submit (will only happen on POST)
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
    
             //Encode the password (you could also do this via Doctrine listener)
             $password = $this->get('security.password_encoder')
