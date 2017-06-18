@@ -17,11 +17,6 @@
         {% endif %}
       </span>
     {% endif %}
-    {% if favorite is defined %}
-      <span id="dataNid" class="squaredImageBlock__fav js-favorite-btn">
-        <i aria-hidden="true" aria-selected="false" class="js-favorite-icon fa fa-heart-o"></i>
-      </span>
-    {% endif %}
     
     {% if title is defined or desc is defined or address is defined or ratings is defined %}
       <div class="squaredImageBlock__content category-content">
@@ -66,5 +61,9 @@
     {% endif %}
     
   </a>
-  
+    {% if favorite is defined %}
+      <span id="dataNid" class="squaredImageBlock__fav js-favorite-btn">
+        <i aria-hidden="true" aria-selected="false" class="js-favorite-icon fa fa-heart-o"></i>
+      </span>
+    {% endif %}
 </div>
