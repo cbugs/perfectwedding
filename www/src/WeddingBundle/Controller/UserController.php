@@ -26,10 +26,11 @@ class UserController extends BaseController
         $em = $this->getDoctrine()->getManager();
         $user = null;
         if ($request->getMethod() == 'POST') {
-            $data = $request->request->get('register_form')['roles'];
-            $role = $em->getRepository('WeddingBundle:User\Roles')->find((int)$data);
-            if($role->getName()=="Wedding Supplier"){$user = new Supplier();}
-            if($role->getName()=="Couple"){$user = new Couple();}
+            // $data = $request->request->get('register_form')['roles'];
+            // $role = $em->getRepository('WeddingBundle:User\Roles')->find((int)$data);
+            // if($role->getName()=="Wedding Supplier"){$user = new Supplier();}
+            // if($role->getName()=="Couple"){$user = new Couple();}
+            $user = new Couple();
         }
 
         //Build the form
@@ -55,8 +56,8 @@ class UserController extends BaseController
         }
 
         return $this->render(
-            'WeddingBundle:User:register.html.twig',
-            array('form' => $form->createView())
+            'WeddingBundle:User:login.html.twig'
+            //,array('form' => $form->createView())
         );
     }
 

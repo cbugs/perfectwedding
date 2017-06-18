@@ -19,36 +19,34 @@
         <div id="signup">   
           <h1 class="h1-login">Sign Up for Free</h1>
           
-          <form action="/" method="post">
-          
-          <div class="top-row-login">
-            <div class="field-wrap-login">
-              <label class="label-login">
-                First Name<span class="req">*</span>
-              </label>
-              <input class="input-login" type="text" required autocomplete="off" />
-            </div>
-        
-            <div class="field-wrap-login">
-              <label class="label-login">
-                Last Name<span class="req">*</span>
-              </label>
-              <input class="input-login" type="text"required autocomplete="off"/>
-            </div>
+          <form name="register_form" action="{{ path('user_register') }}" method="post">
+
+          <div class="field-wrap-login">
+            <label class="label-login">
+              Username <span class="req">*</span>
+            </label>
+            <input class="input-login" name="register_form[username]" type="text" required autocomplete="off"/>
           </div>
 
           <div class="field-wrap-login">
             <label class="label-login">
               Email Address<span class="req">*</span>
             </label>
-            <input class="input-login" type="email"required autocomplete="off"/>
+            <input class="input-login" type="email" name="register_form[email]" required autocomplete="off"/>
           </div>
           
           <div class="field-wrap-login">
             <label class="label-login">
               Set A Password<span class="req">*</span>
             </label>
-            <input class="input-login" type="password"required autocomplete="off"/>
+            <input class="input-login" type="password" required name="register_form[plainPassword][first]" autocomplete="off"/>
+          </div>
+        
+          <div class="field-wrap-login">
+            <label class="label-login">
+              Confirm Password<span class="req">*</span>
+            </label>
+            <input class="input-login" type="password" required name="register_form[plainPassword][second]" autocomplete="off"/>
           </div>
           
           <button type="submit" class="button-login button-block-login"/>Get Started</button>
