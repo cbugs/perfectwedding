@@ -37,7 +37,7 @@ class UserController extends BaseController
         $form = $this->createForm(RegisterForm::class, ($user==null?new User():$user), array("roles" => self::getRolesList()));
 
         //Handle the submit (will only happen on POST)
-        $form->handleRequest($request);
+        $form->handleRequest($request);var_dump($form);exit;
         if ($form->isSubmitted() && $form->isValid()) {
    
             //Encode the password (you could also do this via Doctrine listener)
