@@ -14,7 +14,7 @@ class ListingController extends Controller
     $category = $request->request->get('category');
     $location = $request->request->get('location');
     $apiData = BaseController::callAPI('GET','/search?location_tid='.$location.'&category_tid='.$category);
-    $results = json_decode($apiData, true);
+    $results = json_decode($apiData, true);var_dump($results);exit;
     return $this->render('WeddingBundle:Listings:search.html.twig', array(
       'category' => 'All',
       'results' => $results
