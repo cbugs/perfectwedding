@@ -341,13 +341,18 @@
 
 
 
-  .thumbnail
+.thumbnail
 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 0px;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
+}
+
+.item h4
+{
+    font-size:12px;
 }
 
 .item.list-group-item
@@ -372,7 +377,7 @@
 }
 .item.list-group-item .caption
 {
-    padding: 9px 9px 0px 9px;
+    padding: 2px 2px 0px 2px;
 }
 .item.list-group-item:nth-of-type(odd)
 {
