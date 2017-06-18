@@ -49,9 +49,9 @@
                     v.name,
                     v.contact_number,
                     v.email,
-                    v.category,
-                    child_meal,
-                    special_meal,
+                    // v.category,
+                    // child_meal,
+                    // special_meal,
                     '<span class="fa fa-edit"></span>&nbsp;<span class="fa fa-remove"></span>',
                 ] ).draw( false );                
             });              
