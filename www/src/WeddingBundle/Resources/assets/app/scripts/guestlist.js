@@ -171,4 +171,9 @@
     // // Apply a search to the second table for the demo
     // $('#myTable2').DataTable().search( 'New York' ).draw();
 
+
+    $('#list').click(function(){event.preventDefault();$('#products .item').addClass('list-group-item');});
+    $('#grid').click(function(){event.preventDefault();$('#products .item').removeClass('list-group-item');});
+
+
 } ) ( jQuery );
