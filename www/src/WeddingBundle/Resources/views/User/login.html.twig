@@ -3,7 +3,7 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-{% if error is defined %}
+{% if error %}
     <div>{{ error }}</div>
 {% endif %}
 
@@ -20,27 +20,21 @@
           <h1 class="h1-login">Sign Up for Free</h1>
           
           <form action="/" method="post">
-            {{ form_start(form, { 'attr': {'class': 'register-form'} }) }}
-                {{ form_widget(form.roles, { 'attr': {'class': 'text-center'} }) }}
-                {{ form_row(form.username) }}
-                {{ form_row(form.email) }}
-                {{ form_row(form.plainPassword.first) }}
-                {{ form_row(form.plainPassword.second) }}
-
-                <button class="btn-primary" type="submit">Register!</button>
-            {{ form_end(form) }}
-          <div class="field-wrap-login">
-            <label class="label-login">
-              Email Address<span class="req">*</span>
-            </label>
-            <input class="input-login" type="email"required autocomplete="off"/>
-          </div>
-
-          <div class="field-wrap-login">
-            <label class="label-login">
-              Email Address<span class="req">*</span>
-            </label>
-            <input class="input-login" type="email"required autocomplete="off"/>
+          
+          <div class="top-row-login">
+            <div class="field-wrap-login">
+              <label class="label-login">
+                First Name<span class="req">*</span>
+              </label>
+              <input class="input-login" type="text" required autocomplete="off" />
+            </div>
+        
+            <div class="field-wrap-login">
+              <label class="label-login">
+                Last Name<span class="req">*</span>
+              </label>
+              <input class="input-login" type="text"required autocomplete="off"/>
+            </div>
           </div>
 
           <div class="field-wrap-login">
