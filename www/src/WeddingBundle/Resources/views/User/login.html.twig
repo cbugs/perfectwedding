@@ -49,17 +49,11 @@
           <form action="{{ path('user_login') }}" name="login_form" method="post">
           
             <div class="field-wrap-login">
-            <label class="label-login">
-              Username<span class="req">*</span>
-            </label>
-            <input class="input-login" type="text" id="username" name="username" required autocomplete="off"/>
+            <input class="input-login" name="Username *" type="text" id="username" name="username" required autocomplete="off"/>
           </div>
           
           <div class="field-wrap-login">
-            <label class="label-login">
-              Password<span class="req">*</span>
-            </label>
-            <input class="input-login" type="password" required id="password" name="password" autocomplete="off"/>
+            <input class="input-login" placeholder="Password *" type="password" required id="password" name="password" autocomplete="off"/>
           </div>
           
           <p class="forgot-login"><a href="#">Forgot Password?</a></p>
