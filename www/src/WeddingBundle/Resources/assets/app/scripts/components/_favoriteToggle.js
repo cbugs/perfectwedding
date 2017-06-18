@@ -25,7 +25,9 @@ function handleFavoriteToggle($) {
   if ($btnFav !== undefined) {
     
     $(document).on('click', '.js-favorite-btn, .js-favorite-icon', function (e) {
-      
+      setTimeout(function(){
+        
+
       let target = e.target || window.event.srcElement;
       
      // if ($(target).hasClass('js-favorite-btn')) {
@@ -40,6 +42,11 @@ function handleFavoriteToggle($) {
       
       // saveFavourite(1);
       saveFavourite($(target).attr('data-nid'));
+
+
+
+       }, 500);
+
       
       
     });
