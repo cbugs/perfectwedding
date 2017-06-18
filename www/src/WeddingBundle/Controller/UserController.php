@@ -52,7 +52,7 @@ class UserController extends BaseController
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
-            return $this->redirectToRoute('user_register');
+            return $this->redirectToRoute('user_login');
         }
 
         return $this->render(
