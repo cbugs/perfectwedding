@@ -12,7 +12,7 @@ class ListingController extends Controller
   public function searchAction(Request $request)
   {
     $apiData = BaseController::callAPI('GET','/search_product?location_tid='.$_GET['location'].'&category_tid='.$_GET['category']);
-    $results = json_decode($apiData, true);var_dump($results);exit;
+    $results = json_decode($apiData, true);var_dump('/search_product?location_tid='.$_GET['location'].'&category_tid='.$_GET['category']);exit;
     return $this->render('WeddingBundle:Listings:search.html.twig', array(
       'category' => 'All',
       'results' => $results
