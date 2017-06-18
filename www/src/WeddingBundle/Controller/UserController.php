@@ -23,6 +23,8 @@ class UserController extends BaseController
      */
     public function registerAction(Request $request)
     {
+        $currentUser = $this->getCurrentUser();
+        if($currentUser != null){return $this->redirectToRoute('wedding_homepage');}
         $em = $this->getDoctrine()->getManager();
         $user = null;
         if ($request->getMethod() == 'POST') {
@@ -66,6 +68,8 @@ class UserController extends BaseController
      */
     public function loginAction(Request $request)
     {
+        $currentUser = $this->getCurrentUser();
+        if($currentUser != null){return $this->redirectToRoute('wedding_homepage');}
         $error = "";
         //var_dump($request->getSession()->get('SESSID'));exit;
         $response = new Response();
