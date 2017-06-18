@@ -3,7 +3,7 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-{% if error %}
+{% if error is defined %}
     <div>{{ error }}</div>
 {% endif %}
 
