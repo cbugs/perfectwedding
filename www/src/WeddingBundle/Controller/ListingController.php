@@ -11,8 +11,8 @@ class ListingController extends Controller
   
   public function searchAction(Request $request)
   {
-    $url = '/search_product?'
-    if(isset($_GET['location']) && !empty($_GET['location'])){
+    $url = '/search_product?';
+    if( isset($_GET['location']) && !empty($_GET['location'])){
       $url .= 'location_tid='.$_GET['location'].'&';
     }
     if(isset($_GET['category']) && !empty($_GET['category'])){
