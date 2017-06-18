@@ -42,7 +42,7 @@ class FavouriteController extends BaseController
       if ($request->getMethod() == 'POST' && $this->getCurrentUser()->getId()) {
           $product_id = $request->request->get('product_id'); 
           $em = $this->getDoctrine()->getManager();
-          $favourite = $em->getRepository('WeddingBundle:Product\Favourite')->findOneBy(array('id'=>$product_id,'user_id'=>$this->getCurrentUser()->getId()));
+          $favourite = $em->getRepository('WeddingBundle:Product\Favourite')->findOneBy(array('product_id'=>$product_id,'user_id'=>$this->getCurrentUser()->getId()));
           if(empty($favourite)){$favourite = new Favourite();$active = 1;}
           else{$active = ($favourite->getActive()==1?0:1);}
           $favourite->setProductId($product_id);
