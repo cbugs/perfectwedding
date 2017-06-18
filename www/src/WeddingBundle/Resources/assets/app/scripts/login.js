@@ -1,7 +1,7 @@
-$('.form').find('input, textarea').on('keyup blur focus', function (e) {
+$('.form').find('input.input-login, textarea.textarea-login').on('keyup blur focus', function (e) {
   
   var $this = $(this),
-      label = $this.prev('label');
+      label = $this.prev('label.label-login');
 
 	  if (e.type === 'keyup') {
 			if ($this.val() === '') {
@@ -35,7 +35,7 @@ $('.tab a').on('click', function (e) {
   $(this).parent().siblings().removeClass('active');
   
 
-  $('.tab-content > div').not($(this).attr('href')).hide();
+  $('.tab-content-login > div').not($(this).attr('href')).hide();
   
   $($(this).attr('href')).fadeIn(600);
   
