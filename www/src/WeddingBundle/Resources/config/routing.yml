@@ -89,9 +89,13 @@ user_dashboard_checklist_savedone:
     path:     /dashboard/checklist/savedone
     defaults: { _controller: WeddingBundle:Checklist:saveDone }
 
-listing_search_results_category:
-    path:     /search/listings/{category}
-    defaults: { _controller: WeddingBundle:Listing:search, category: 'all' }
+#listing_search_results_category:
+#    path:     /search/listings/{category}
+#    defaults: { _controller: WeddingBundle:Listing:search, category: 'all' }
+
+search:
+    path:     /search
+    defaults: { _controller: WeddingBundle:Listing:search }
 
 listing_detaila:
     path:     /listing/details/{id}
