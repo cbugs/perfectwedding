@@ -164,7 +164,7 @@ div.img-div {
 }
 
 .lazy-hidden {
-    background: black;
+    opacity: 0;
 }
 .lazy-loaded {
     -webkit-transition: opacity 3s;
