@@ -164,7 +164,13 @@ div.img-div {
 }
 
 .lazy-hidden {
-    width: 200px;
-    height: 200px;
-    background: #eee url('../images/heart.gif') no-repeat 50% 50%;
+    background: black;
+}
+.lazy-loaded {
+    -webkit-transition: opacity 3s;
+    -moz-transition: opacity 3s;
+    -ms-transition: opacity 3s;
+    -o-transition: opacity 3s;
+    transition: opacity 3s;
+    opacity: 1;
 }
