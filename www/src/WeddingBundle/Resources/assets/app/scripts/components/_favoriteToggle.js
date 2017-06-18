@@ -39,7 +39,7 @@ function handleFavoriteToggle($) {
       }
       
       // saveFavourite(1);
-      saveFavourite($(target).id);
+      saveFavourite($(target).attr('data-nid'));
       
       
     });
@@ -58,7 +58,7 @@ function handleFavoriteToggle($) {
           $(target).attr('aria-selected', true);
           $(target).removeClass('fa-heart').addClass('fa-heart-o');
         }
-        saveFavourite($(target).parent('.js-favorite-btn').id);
+        saveFavourite($(target).parent('.js-favorite-btn').attr('data-nid'));
       }
       
     });
