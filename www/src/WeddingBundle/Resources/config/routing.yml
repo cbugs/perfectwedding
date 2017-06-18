@@ -10,6 +10,10 @@ user_login:
     path:     /login
     defaults: { _controller: WeddingBundle:User:login }
 
+user_logout:
+    path:     /logout
+    defaults: { _controller: WeddingBundle:User:logout }
+
 user_profile:
     path:     /profile
     defaults: { _controller: WeddingBundle:User:profile }

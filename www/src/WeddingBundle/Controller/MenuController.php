@@ -4,8 +4,9 @@ namespace WeddingBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use WeddingBundle\Controller\BaseController;
 
-class MenuController extends Controller
+class MenuController extends BaseController
 {
     public function mainAction()
     {
@@ -38,9 +39,10 @@ class MenuController extends Controller
                 'listing' => '/listing',
             ),
         );
-
+        $currentUser = $this->getCurrentUser();
+        if($currentUser == null){$loggedIn = 0;}else{$loggedIn = 1;}
         return $this->render('WeddingBundle:Menu:main.html.twig', array(
-            'menuList' => $menuList, 
+            'menuList' => $menuList, 'loggedIn' => $loggedIn
         ));
     }
 }

@@ -155,6 +155,12 @@ class UserController extends BaseController
         
     }
 
+    public function logoutAction(Request $request)
+    {
+        $session = $request->getSession();
+        $session->remove('SESSID');
+    }
+
     /**
      * @Route("/profile/{id}/{field}/save", name="user_field_save")
      */
