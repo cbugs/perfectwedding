@@ -20,7 +20,9 @@
                   {% if loggedIn == 0 %}<a class="nav-link text-white" href="{{ path('user_login') }}">Login <span class="glyphicon glyphicon-log-in"></span></a>{% endif %}
               </li>
               {% if loggedIn == 1 %}
-                {% if loggedIn == 0 %}<a class="nav-link text-white" href="{{ path('user_logout') }}">Login <span class="glyphicon glyphicon-log-out"></span></a>{% endif %}
+              <li class="nav-item">
+                <a class="nav-link text-white" href="{{ path('user_logout') }}">Login <span class="glyphicon glyphicon-log-out"></span></a>
+              </li>
               {% endif %}
           </ul>
           </div>
