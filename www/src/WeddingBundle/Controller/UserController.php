@@ -159,6 +159,7 @@ class UserController extends BaseController
     {
         $session = $request->getSession();
         $session->remove('SESSID');
+        return $this->redirectToRoute('wedding_homepage');
     }
 
     /**
