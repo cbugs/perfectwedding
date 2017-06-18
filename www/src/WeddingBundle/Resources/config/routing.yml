@@ -4,11 +4,11 @@ wedding_homepage:
 
 user_register:
     path:     /register
-    defaults: { _controller: WeddingBundle:User:register }
+    defaults: { _controller: WeddingBundle:User:login }
 
 user_login:
     path:     /login
-    defaults: { _controller: WeddingBundle:User:login }
+    defaults: { _controller: WeddingBundle:User:register }
 
 user_logout:
     path:     /logout
