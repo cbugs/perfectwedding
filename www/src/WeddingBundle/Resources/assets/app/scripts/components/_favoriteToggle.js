@@ -28,18 +28,18 @@ function handleFavoriteToggle($) {
       
       let target = e.target || window.event.srcElement;
       
-      // if ($(target).hasClass('js-favorite-btn')) {
-        if ($(target).find('i').hasClass('fa-heart')) {
+      if ($(target).hasClass('js-favorite-btn')) {
+        if ($(target).find('i').attr('aria-selected') === 'true') {
           $(target).find('i').attr('aria-selected', false);
           $(target).find('i').removeClass('fa-heart-o').addClass('fa-heart');
         } else {
           $(target).find('i').attr('aria-selected', true);
           $(target).find('i').removeClass('fa-heart').addClass('fa-heart-o');
         }
-      // }
+      }
       
       // saveFavourite(1);
-      saveFavourite($(target).attr('data-nid'));
+      saveFavourite($(target).id);
       
       
     });
@@ -51,14 +51,14 @@ function handleFavoriteToggle($) {
       let target = e.target || window.event.srcElement;
   
       if ($(target).hasClass('js-favorite-icon')){
-        if ($(target).hasClass('fa-heart')) {
+        if ($(target).attr('aria-selected') === 'true') {
           $(target).attr('aria-selected', false);
           $(target).removeClass('fa-heart-o').addClass('fa-heart');
         } else {
           $(target).attr('aria-selected', true);
           $(target).removeClass('fa-heart').addClass('fa-heart-o');
         }
-        saveFavourite($(target).parent('.js-favorite-btn').attr('data-nid'));
+        saveFavourite($(target).parent('.js-favorite-btn').id);
       }
       
     });
