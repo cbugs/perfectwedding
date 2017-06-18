@@ -16,7 +16,14 @@ class HomeController extends Controller
   
     public function headerSearchAction()
     {
-        return $this->render('WeddingBundle:Home:headerSearch.html.twig');
+        $apiData = BaseController::callAPI('GET','/location_list');
+        $location = json_decode($apiData, true);
+        $apiData = BaseController::callAPI('GET','/category_list');
+        $category = json_decode($apiData, true);
+        return $this->render('WeddingBundle:Home:headerSearch.html.twig', array(
+            "category" => $category,
+            "location" => $location 
+        ));
     }
     
     public function popularCategoriesAction()
