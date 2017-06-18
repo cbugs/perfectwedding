@@ -93,11 +93,15 @@
   font-weight : bold;
 }
 
-#addGuest, #addAllGuest {
+#addGuest, #addAllGuest, #addEvent {
   background-color : $purple;
   color            : $white;
   padding          : 5px 10px 5px 5px;
   border           : none;
+}
+
+#addEvent{
+  margin-bottom: 10px;
 }
 
 #addAllGuest{
@@ -161,22 +165,19 @@
 	}
 	.event-list > li {
 		background-color: rgb(255, 255, 255);
-		box-shadow: 0px 0px 5px rgb(51, 51, 51);
-		box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
-		padding: 0px;
-		margin: 0px 0px 20px;
+
 	}
 	.event-list > li > time {
 		display: inline-block;
 		width: 100%;
 		color: rgb(255, 255, 255);
-		background-color: rgb(197, 44, 102);
+		background-color: $pink;
 		padding: 5px;
 		text-align: center;
 		text-transform: uppercase;
 	}
 	.event-list > li:nth-child(even) > time {
-		background-color: rgb(165, 82, 167);
+		background-color: $pink;
 	}
 	.event-list > li > time > span {
 		display: none;
