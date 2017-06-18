@@ -57,7 +57,7 @@ class UserController extends BaseController
 
         return $this->render(
             'WeddingBundle:User:register.html.twig'
-            //,array('form' => $form->createView())
+            ,array('form' => $form->createView())
         );
     }
 
