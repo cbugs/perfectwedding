@@ -8,10 +8,12 @@ use Symfony\Component\HttpFoundation\Response;
 class ListingController extends Controller
 {
   
-  public function searchAction($category)
+  public function searchAction(Request $request)
   {
+    $region = $request->request->get('region');
+    $location = $request->request->get('location');
     return $this->render('WeddingBundle:Listings:search.html.twig', array(
-      'category' => $category
+      'category' => 'All'
     ));
     
   }

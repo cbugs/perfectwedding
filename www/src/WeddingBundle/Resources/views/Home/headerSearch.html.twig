@@ -3,10 +3,10 @@
     <div class="col-sm-10 center-block form-group home__headerSearchForm_wrapper">
       <h1>Find your perfect <span class="txt-pink">Wedding</span> Supplier</h1>
       <p class="home__header_tagline">Over 1200+ <span class="txt-pink">Wedding</span> suppliers for your special date. Find your perfect venue and save your date.</p>
-      <form action="#" method="get" class="row home__headerSearchForm">
+      <form action="{{ path('search') }}" method="get" class="row home__headerSearchForm">
         <label class="hidden" for="searchForm-select-category" aria-hidden="false">Select Category</label>
         <select class="form-control col-md-4 col-sm-12 home__headerSearchForm_select" id="searchForm-select-category"
-                name="searchForm-select-category" required>
+                name="category" required>
           <option value="default">Select Category</option>
           <option value="cakes">Cakes</option>
           <option value="decorators">Decorators & Wedding Stylist</option>
@@ -30,7 +30,7 @@
         </select>
         <label class="hidden" for="searchForm-input-location-autocomplete" aria-hidden="false">Search or Browse for a location</label>
         <div class="input-group awesomplete col-md-5 col-sm-12">
-          <input id="searchForm-input-location-autocomplete" class="form-control dropdown-input home__headerSearchForm_text" placeholder="Search or Browse for a location" required />
+          <input name="location" id="searchForm-input-location-autocomplete" class="form-control dropdown-input home__headerSearchForm_text" placeholder="Search or Browse for a location" required />
           <div class="input-group-btn">
             <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
           </div>
