@@ -9,7 +9,7 @@
                 name="category" required>
                 <option value="all">Select Category</option>
                 {% for cat in category %}
-                  <option value=cat['tid']>cat['name']</option>
+                  <option value={{ cat['tid'] }}>{{ cat['name'] }}</option>
                 {% endfor %}
         </select>
         <label class="hidden" for="searchForm-input-location-autocomplete" aria-hidden="false">Search or Browse for a location</label>
@@ -17,7 +17,7 @@
                 name="location" required>
                 <option value="all">Select Location</option>
                 {% for loc in location %}
-                  <option value=loc['tid']>loc['name']</option>
+                  <option value={{ loc['tid'] }}>{{ loc['name'] }}</option>
                 {% endfor %}
         </select>
         
