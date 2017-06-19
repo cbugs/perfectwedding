@@ -3,7 +3,7 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block body %}
-{#<div class="row cover-wrapper">
+<div class="row cover-wrapper">
     <div class="dashboard clearfix col-sm-12 cover">                            
         <div class="dashboard-image-container">
             <img id="cover-pic-source" src="{{ path('user_picture_path') }}/{{ cover }}" class="img-cover">
@@ -11,12 +11,12 @@
     </div>
     <div class="caption row cover-content">
         <div class="col-md-6">
-            <div data-image-upload='[{"name":"profile_pic_source","url":"{{ path('user_field_save', {'field': 'ProfilePicture'}) }}","for":"profile-pic-source"}]' class="img-div">
+            {#<div data-image-upload='[{"name":"profile_pic_source","url":"{{ path('user_field_save', {'field': 'ProfilePicture'}) }}","for":"profile-pic-source"}]' class="img-div">
                 <img src="{{ path('user_picture_path') }}/{{ profilePicture }}" width="200px" height="200px" id="profile-pic-source" />
                 <div class="img-div-upload">
                     <div class="text"><span class="fa fa-camera"></span></div>
                 </div>
-            </div>
+            </div>#}
         </div>
         <div class="col-md-6 cover-profile-content">
             <h2>Bonnie and Clyde Wedding</h2>
@@ -27,7 +27,7 @@
     <a class='btn btn-primary cover-upload-img' data-image-upload='[{"name":"cover_pic_source","url":"{{ path('user_field_save', {'field': 'CoverPicture'}) }}","for":"cover-pic-source"}]'>
         <span class="fa fa-camera"></span>
     </a>
-</div>#}
+</div>
 <ul class="dashboard-nav nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link {% if page is not defined %}active{% endif %}" href="{{ path('user_dashboard') }}"><i class="fa fa-dashboard"></i> MY DASHBOARD</a>
