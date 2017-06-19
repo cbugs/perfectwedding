@@ -47,7 +47,7 @@ class HomeController extends BaseController
         $products = json_decode($apiData, true);
 
         $em = $this->getDoctrine()->getManager();
-        $userFavourites = $em->getRepository('WeddingBundle:Product\Favourite')->findOneBy(array('user_id'=>$this->getCurrentUser()->getId()));
+        $userFavourites = $em->getRepository('WeddingBundle:Product\Favourite')->findBy(array('user_id'=>$this->getCurrentUser()->getId()));
 var_dump($userFavourites);exit;
         return $this->render('WeddingBundle:Home:featuredWeddingVendor.html.twig',array(
             "products" => $products,
