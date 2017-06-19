@@ -2,169 +2,32 @@
 {% extends 'WeddingBundle:Dashboard:base.html.twig' %}
 
 {% block dashboardContent %}
-<div id="dash-wrapper">
-    <h4>My Dashboard</h4>
-    <div class="row">
-        <div class="col-md-4 dash-bloc">
-            <div class="dash-bloc-content">
-                <div class="row">
-                    <div class="col-md-6 text-left">
-                        <span class="dash-content-title">My Checklist</span>
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <span class="fa fa-list txt-pink dash-content-title"></span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <span class="dash-content-text txt-pink">4</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <span class="dash-content-sub-title">Completed 0 of 4 checklist items</span>
-                    </div>
-                </div>
-            </div>
+    <div class="row home__featured-vendor_content">
+
+    {% for key,product in products %}
+        {% if (key+1)%3 == 1 %}{% set overlay_value = 'top-left-featured' %}{% endif %}
+        {% if (key+1)%3 == 2 %}{% set overlay_value = 'top-left-toprated' %}{% endif %}
+        {% if (key+1)%3 == 0 %}{% set overlay_value = 'top-left-popular' %}{% endif %}
+        {% if product['nid'] in favouriteProducts %}{% set checked = 1 %}
+        {% else %}{% set checked = 0 %}{% endif %}
+        <div class="col-md-4 col-sm-6 home__featured-vendor_listing">
+          {{ include('WeddingBundle:Components:squaredImageBlock.html.twig',
+            {
+              link: product['nid'],dataNid:product['nid'],
+              isChecked: checked,
+              src: product['field_product_image'],
+              alt: '',
+              overlay: overlay_value,
+              favorite: true,
+              title: product['title'],
+              address: product['field_product_address'],
+              ratings: 4,
+              footerContent: 'Rs ' ~ product['field_product_price'],
+              footerClass: 'home__featured-vendor_price'
+            })
+          }}
         </div>
-        <div class="col-md-4 dash-bloc">
-            <div class="dash-bloc-content">
-                <div class="row">
-                    <div class="col-md-6 text-left">
-                        <span class="dash-content-title">My Budget</span>
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <span class="fa fa-calculator txt-pink dash-content-title"></span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <span class="dash-content-text txt-pink">$20,000</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <span class="dash-content-sub-title">Spent $1200 out of $20,000 so far.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 dash-bloc">
-            <div class="dash-bloc-content">
-                <div class="row">
-                    <div class="col-md-6 text-left">
-                        <span class="dash-content-title">My Watchlist</span>
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <span class="fa fa-eye txt-pink dash-content-title"></span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="dash-content-text-2 txt-pink">My Inspirations<div>42</div></span>
-                    </div>
-                    <div class="col-md-6">
-                        <span class="dash-content-text-2 txt-pink">My Suppliers<div>90</div></span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <span class="dash-content-sub-title"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    {% endfor %}
+     
     </div>
-    <div class="row">
-        <div class="col-md-4 dash-bloc">
-            <div class="dash-bloc-content">
-                <div class="row">
-                    <div class="col-md-6 text-left">
-                        <span class="dash-content-title">Total Number of Guest</span>
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <span class="fa fa-list txt-pink dash-content-title"></span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <span class="dash-content-text txt-pink">150</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <span class="dash-content-sub-title-link txt-pink text-left">ADD NEW GUEST | VIEW ALL</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 dash-bloc">
-            <div class="dash-bloc-content">
-                <div class="row">
-                    <div class="col-md-6 text-left">
-                        <span class="dash-content-title">Event & Seating Planner</span>
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <span class="fa fa-list txt-pink dash-content-title"></span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center dash-content-table">
-                        <table class="table table-responsive">
-                            <tbody>
-                                <tr>
-                                    <td scope="row">Event 1</td>
-                                    <td>: event name</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Time</td>
-                                    <td>: 4:00 pm</td>
-                                </tr>
-                                <tr>    
-                                    <td scope="row">Location</td>
-                                    <td>: Moka</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Invited Guests</td>
-                                    <td>: 120</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Uninvited Guests</td>
-                                    <td>: 10</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <span class="dash-content-sub-title-link txt-pink text-left">CREATE NEW EVENT | EDIT EXISTING EVENT</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 dash-bloc">
-            <div class="dash-bloc-content">
-                <div class="row">
-                    <div class="col-md-6 text-left">
-                        <span class="dash-content-title">My Checklist</span>
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <span class="fa fa-list txt-pink dash-content-title"></span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <span class="dash-content-text txt-pink">4</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <span class="dash-content-sub-title">Completed 0 of 4 checklist items</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 {% endblock %}

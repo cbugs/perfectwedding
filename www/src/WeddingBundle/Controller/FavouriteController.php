@@ -12,11 +12,19 @@ class FavouriteController extends BaseController
 {
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
 
         $role = $this->getCurrentUser()->getRoles()->getName();
         if($role == "Couple") {
-            $favourites = $em->getRepository('WeddingBundle:Product\Favourite')->findBy(array('user_id'=>$this->getCurrentUser()->getId()));
+
+            $apiData = BaseController::callAPI('GET','/featured_products');
+            $products = json_decode($apiData, true);
+            $favouriteProducts = array();
+            $em = $this->getDoctrine()->getManager();
+            $userFavourites = $em->getRepository('WeddingBundle:Product\Favourite')->findBy(array('active' => 1,'user_id'=>$this->getCurrentUser()->getId()));
+            foreach($userFavourites as $userFavourite) {
+                $favouriteProducts[] = $userFavourite->getProductId();
+            }
+
             $em = $this->getDoctrine()->getEntityManager();
             $couple = $em->getRepository('WeddingBundle:User\Couple')->find($this->getCurrentUser()->getId());
             $cover = $couple->getCoverPicture();
@@ -31,7 +39,8 @@ class FavouriteController extends BaseController
             array(
                 'cover' => $cover,
                 'profilePicture' => $profilePicture,
-                'favourites' => $favourites
+                "products" => $products,
+                "favouriteProducts" => $favouriteProducts
                 )
         );
     }
