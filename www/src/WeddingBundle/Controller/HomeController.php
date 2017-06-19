@@ -4,8 +4,9 @@ namespace WeddingBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use WeddingBundle\Controller\BaseController;
 
-class HomeController extends Controller
+class HomeController extends BaseController
 {
     public function indexAction()
     {
