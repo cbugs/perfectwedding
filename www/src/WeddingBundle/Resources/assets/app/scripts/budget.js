@@ -19,7 +19,7 @@
  
 $(document).ready(function() {
     var table = $('#budget-table').DataTable( {
-        "ajax": "/perfectwedding/web/dashboard/budget/index",
+        "ajax": $("#table-ajax-path"),
         "rowId": "id",
         "columns": [
             { "data": "name", "orderable": false, className: "col-name" },
