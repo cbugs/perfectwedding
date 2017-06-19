@@ -49,13 +49,12 @@ class HomeController extends BaseController
         $em = $this->getDoctrine()->getManager();
         $userFavourites = $em->getRepository('WeddingBundle:Product\Favourite')->findBy(array('user_id'=>$this->getCurrentUser()->getId()));
         $favouriteProducts = array();
-foreach($userFavourites as $userFavourite) {
-    $favouriteProducts[] = $userFavourite->getProductId();
-}
-var_dump($favouriteProducts);exit;
+        foreach($userFavourites as $userFavourite) {
+            $favouriteProducts[] = $userFavourite->getProductId();
+        }
         return $this->render('WeddingBundle:Home:featuredWeddingVendor.html.twig',array(
             "products" => $products,
-            "userFavourites" => $userFavourites
+            "favouriteProducts" => $favouriteProducts
         ));
     }
   
