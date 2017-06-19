@@ -5,8 +5,9 @@ namespace WeddingBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use WeddingBundle\Controller\BaseController;
 
-class ListingController extends Controller
+class ListingController extends BaseController
 {
   
   public function searchAction(Request $request)
