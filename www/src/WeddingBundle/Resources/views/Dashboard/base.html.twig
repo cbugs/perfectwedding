@@ -3,7 +3,7 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block body %}
-<div class="row cover-wrapper">
+{#<div class="row cover-wrapper">
     <div class="dashboard clearfix col-sm-12 cover">                            
         <div class="dashboard-image-container">
             <img id="cover-pic-source" src="{{ path('user_picture_path') }}/{{ cover }}" class="img-cover">
@@ -27,7 +27,7 @@
     <a class='btn btn-primary cover-upload-img' data-image-upload='[{"name":"cover_pic_source","url":"{{ path('user_field_save', {'field': 'CoverPicture'}) }}","for":"cover-pic-source"}]'>
         <span class="fa fa-camera"></span>
     </a>
-</div>
+</div>#}
 <ul class="dashboard-nav nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link {% if page is not defined %}active{% endif %}" href="{{ path('user_dashboard') }}"><i class="fa fa-dashboard"></i> MY DASHBOARD</a>
