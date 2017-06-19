@@ -178,3 +178,30 @@ div.img-div {
 img.squaredImageBlock__img {
     height: 350px;
 }
+
+.hover-zoom
+{
+
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);   
+
+}
+.hover-zoom:hover
+{
+
+
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(2);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(2);   
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(2);
+    transition: all 200ms ease-in;
+    transform: scale(2);
+}

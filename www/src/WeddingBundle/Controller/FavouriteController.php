@@ -15,15 +15,14 @@ class FavouriteController extends BaseController
 
         $role = $this->getCurrentUser()->getRoles()->getName();
         if($role == "Couple") {
-
-            $apiData = BaseController::callAPI('GET','/featured_products');
-            $products = json_decode($apiData, true);
-            $favouriteProducts = array();
             $em = $this->getDoctrine()->getManager();
             $userFavourites = $em->getRepository('WeddingBundle:Product\Favourite')->findBy(array('active' => 1,'user_id'=>$this->getCurrentUser()->getId()));
             foreach($userFavourites as $userFavourite) {
                 $favouriteProducts[] = $userFavourite->getProductId();
             }
+            $apiData = BaseController::callAPI('GET','/products_listing/'.implode(",",$favouriteProducts));
+            $products = json_decode($apiData, true);
+            $favouriteProducts = array();
 
             $em = $this->getDoctrine()->getEntityManager();
             $couple = $em->getRepository('WeddingBundle:User\Couple')->find($this->getCurrentUser()->getId());
