@@ -8,7 +8,7 @@
   {% else %}
     <img
       src="{{ src }}"
-      class="squaredImageBlock__img img-fluid" alt="{{ alt }}" />
+      class="squaredImageBlock__img {% if searchPage is defined %}squaredImageBlock__img_search{% endif %} img-fluid" alt="{{ alt }}" />
   {% endif %}
     {% if overlay is defined %}
       <span class="squaredImageBlock__overlay squaredImageBlock__overlay_{{ overlay }}">
