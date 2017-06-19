@@ -186,56 +186,29 @@
     <div class="row setup-content" id="step-3">
             <div class="col-md-12 well text-center">
 
+<script>
+var $ = go.GraphObject.make;
+var myDiagram =
+  $(go.Diagram, "myDiagramDiv",
+    {
+      initialContentAlignment: go.Spot.Center, // center Diagram contents
+      "undoManager.isEnabled": true // enable Ctrl-Z to undo and Ctrl-Y to redo
+    });
+
+var myModel = $(go.Model);
+// in the model data, each node is represented by a JavaScript object:
+myModel.nodeDataArray = [
+  { key: "Alpha" },
+  { key: "Beta" },
+  { key: "Gamma" }
+];
+myDiagram.model = myModel;
+    </script>
 
 
 
-<!-- Nav tabs -->
-<ul class="nav nav-tabs tabs-3 red" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Profile</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Follow</a>
-    </li>
-</ul>
-<!-- Tab panels -->
-<div class="tab-content card">
-    <!--Panel 1-->
-    <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
-<ul class="list-group">
-  <li class="list-group-item">New <span class="badge">12</span></li>
-  <li class="list-group-item">Deleted <span class="badge">5</span></li> 
-  <li class="list-group-item">Warnings <span class="badge">3</span></li> 
-</ul>
-<ul class="list-group">
-  <li class="list-group-item">New <span class="badge">12</span></li>
-  <li class="list-group-item">Deleted <span class="badge">5</span></li> 
-  <li class="list-group-item">Warnings <span class="badge">3</span></li> 
-</ul>
-    </div>
-    <!--/.Panel 1-->
-    <!--Panel 2-->
-    <div class="tab-pane fade" id="panel2" role="tabpanel">
-<div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-</div>
-<div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-</div>
-<div class="row">
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-  <div class="col-sm-4">.col-sm-4</div>
-</div>
-    </div>
-    <!--/.Panel 2-->
-</div>
-
-
+<div id="myDiagramDiv"
+     style="width:400px; height:150px; background-color: #DAE4E4;"></div>
 
 
             </div>
