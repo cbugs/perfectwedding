@@ -19,7 +19,7 @@
  
 $(document).ready(function() {
     var table = $('#budget-table').DataTable( {
-        "ajax": $("#table-ajax-path"),
+        "ajax": $("#table-ajax-path-budget-index"),
         "rowId": "id",
         "columns": [
             { "data": "name", "orderable": false, className: "col-name" },
