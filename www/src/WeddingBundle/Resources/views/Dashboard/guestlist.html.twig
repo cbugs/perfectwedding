@@ -189,11 +189,31 @@
 
 
 
+<div class="controls">
+  <h1>Wedding Table Planner <span> : A (buggy) way to plan your wedding</span></h1>
+  <input placeholder="Guest Names (Comma Separated)" type="text" id="guest_names"><button id="add_guests" class="guest_names" for="guest_names">Add Guests</button>
+  <button id="table">Add Table</button>
+  <button id="export">Export</button>
+</div>  
 
-<div id="myDiagramDiv"
-     style="width:400px; height:150px; background-color: #DAE4E4;"></div>
 
+  <ul id="sortable" class="guests">
+    
+  </ul>
 
+<div id="tables">
+  <ul id="table_1" class="snap_target guests">
+    
+    <p></p>
+    <span contenteditable="true" class="table_number">1</span>
+  </ul>
+</div>
+<div class="export_area">
+  
+  <textarea id="export_text"></textarea>
+  <br style="clear:both">
+</div>
+  
 
 
 
