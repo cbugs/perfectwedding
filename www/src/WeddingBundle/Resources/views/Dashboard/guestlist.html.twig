@@ -194,7 +194,7 @@
      style="width:400px; height:150px; background-color: #DAE4E4;"></div>
 
 
-<script>$(function() {
+<script>document.onreadystatechange = function () {
 var $ = go.GraphObject.make;
 var myDiagram =
   $(go.Diagram, "myDiagramDiv",
@@ -210,7 +210,7 @@ myModel.nodeDataArray = [
   { key: "Beta" },
   { key: "Gamma" }
 ];
-myDiagram.model = myModel;});
+myDiagram.model = myModel;};
     </script>
 
 
