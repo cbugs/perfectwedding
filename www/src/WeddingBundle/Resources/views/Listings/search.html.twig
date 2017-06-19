@@ -56,14 +56,14 @@
             {
               link: '#',lazy:true,searchPage:true,dataNid:product['nid'],
               isChecked: checked,
-              src: asset('bundles/build/images/stock_photos/pexels-photo-256737.jpg'),
-              alt: 'Featured Vendor',
+              src: product['field_product_image'],
+              alt: '',
               overlay: overlay_value,
               favorite: true,
-              title: product['field_product_address'],
-              address: product['field_product_category'],
+              title: product['title'],
+              address: product['field_product_address'],
               ratings: 4,
-              footerContent: '$190 - $600',
+              footerContent: 'Rs ' ~ product['field_product_price'],
               footerClass: 'home__featured-vendor_price'
             })
           }}
