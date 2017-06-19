@@ -2,6 +2,7 @@
 {% extends 'WeddingBundle:Dashboard:base.html.twig' %}
 
 {% block dashboardContent %}
+<div id="dash-wrapper">
     <div class="row home__featured-vendor_content">
 
     {% for key,product in products %}
@@ -13,7 +14,7 @@
         <div class="col-md-4 col-sm-6 home__featured-vendor_listing">
           {{ include('WeddingBundle:Components:squaredImageBlock.html.twig',
             {
-              link: product['nid'],dataNid:product['nid'],
+              link: product['nid'],dataNid:product['nid'],searchPage:true,
               isChecked: checked,
               src: product['field_product_image'],
               alt: '',
@@ -30,4 +31,5 @@
     {% endfor %}
      
     </div>
+</div>
 {% endblock %}
