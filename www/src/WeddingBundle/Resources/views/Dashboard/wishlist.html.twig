@@ -3,6 +3,9 @@
 
 {% block dashboardContent %}
 <div id="dash-wrapper">
+<div class="row">
+<div class="col-xs-4 col-sm-2"></div>
+<div class="col-xs-4 col-sm-8">
     <div class="row home__featured-vendor_content">
 
     {% for key,product in products %}
@@ -31,5 +34,10 @@
     {% endfor %}
      
     </div>
+
+</div>
+<div class="col-xs-4 col-sm-2"></div>
+</div>
+
 </div>
 {% endblock %}
