@@ -47,7 +47,7 @@ class HomeController extends BaseController
         $products = json_decode($apiData, true);
 
         $em = $this->getDoctrine()->getManager();
-        $userFavourites = $em->getRepository('WeddingBundle:Product\Favourite')->findBy(array('user_id'=>$this->getCurrentUser()->getId()));
+        $userFavourites = $em->getRepository('WeddingBundle:Product\Favourite')->findBy(array('active' => 1,'user_id'=>$this->getCurrentUser()->getId()));
         $favouriteProducts = array();
         foreach($userFavourites as $userFavourite) {
             $favouriteProducts[] = $userFavourite->getProductId();
