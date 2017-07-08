@@ -8,13 +8,8 @@
     <h3>Account Details - Couple</h3>
     <hr/>
     <div class="row">
-        <div class="col-md-6 col-sm-12 bg-white text-center">
+        <div class="col-md-12 col-sm-12 bg-white text-center">
             {{ form_start(form, { 'attr': {'class': 'form-horizontal', 'id': 'profile-form'} }) }}
-                <h4>Profile Picture</h4>
-                <hr/>
-                <div class="img-div text-center">
-                    <img src="http://placekitten.com/g/400/200" />
-                </div>
                 <h4>Personal Information</h4>
                 <hr/>
                 <div class="form-inline">
@@ -64,7 +59,7 @@
                 <button type="submit" class="btn btn-default btn-violet">Update Profile</button>
             {{ form_end(form) }}
         </div>
-        <div class="col-md-6 col-sm-12 bg-white text-center">
+      {#  <div class="col-md-12 col-sm-12 bg-white text-center">
             <form id="password-form" class="form-horizontal">
                 <h4>Change Password</h4>
                 <hr/>
@@ -88,7 +83,7 @@
                 </div>
                 <button type="submit" class="btn btn-default btn-violet">Save Password</button>
             </form>
-        </div>
+        </div>#}
     </div>
 </div>
 
