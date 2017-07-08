@@ -14,6 +14,7 @@ var todayDate = moment().startOf('day');
 			center: 'title',
 			right: 'month,agendaWeek,agendaDay,listWeek'
 		},
+        aspectRatio: 2,
 		editable: true,
 		eventLimit: true, // allow "more" link when too many events
 		navLinks: true,
@@ -75,7 +76,7 @@ var todayDate = moment().startOf('day');
 		]
 	});
 
-
+$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);
     var navListItems = $('ul.setup-panel li a'),
         allWells = $('.setup-content');
 
