@@ -12,7 +12,7 @@ class DashboardController extends BaseController
     {
         $currentUser = $this->getCurrentUser();
         if($currentUser == null){return $this->redirectToRoute('user_login');}
-        var_dump($currentUser->getRoles());exit;
+        var_dump($currentUser);exit;
         $role = $currentUser->getRoles()->getName();
         if($role == "Couple") {
             $em = $this->getDoctrine()->getEntityManager();
