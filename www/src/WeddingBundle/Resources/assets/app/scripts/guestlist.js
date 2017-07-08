@@ -18,9 +18,6 @@ var todayDate = moment().startOf('day');
 		editable: true,
 		eventLimit: true, // allow "more" link when too many events
 		navLinks: true,
-        eventAfterRender: function(event, element) {
-            $('#calendar').fullCalendar('option', 'aspectRatio', 1.8);
-        },
 		events: [
 			{
 				title: 'All Day Event',
@@ -79,7 +76,7 @@ var todayDate = moment().startOf('day');
 		]
 	});
 
-
+setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);},1000);
     var navListItems = $('ul.setup-panel li a'),
         allWells = $('.setup-content');
 
