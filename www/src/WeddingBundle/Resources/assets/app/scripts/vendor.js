@@ -5,6 +5,7 @@ require("slick-carousel");
 require('jquery-circle-progress');
 require('./vendors/awesomplete');
 require('jquery-ui-dist/jquery-ui');
-// require("fullcalendar");
+require("moment");
+require("fullcalendar");
 // require('lazyloadxt');
 //<script src="jquery-circle-progress/dist/circle-progress.js"></script>
