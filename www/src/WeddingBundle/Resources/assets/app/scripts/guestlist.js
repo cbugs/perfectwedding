@@ -22,11 +22,9 @@ var todayDate = moment().startOf('day');
             droppable: true, // this allows things to be dropped onto the calendar
             dragRevertDuration: 0,
             drop: function() {
-                // is the "remove after drop" checkbox checked?
-                if ($('#drop-remove').is(':checked')) {
-                    // if so, remove the element from the "Draggable Events" list
+  
                     $(this).remove();
-                }
+
             },
             eventDragStop: function( event, jsEvent, ui, view ) {
                 
