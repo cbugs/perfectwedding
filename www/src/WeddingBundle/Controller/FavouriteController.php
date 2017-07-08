@@ -13,8 +13,7 @@ class FavouriteController extends BaseController
     public function indexAction()
     {
 
-        $role = $this->getCurrentUser()->getRoles()->getName();
-        if($role == "Couple") {
+
             $em = $this->getDoctrine()->getManager();
             $userFavourites = $em->getRepository('WeddingBundle:Product\Favourite')->findBy(array('active' => 1,'user_id'=>$this->getCurrentUser()->getId()));
             $favouriteProducts = array();
@@ -28,10 +27,7 @@ class FavouriteController extends BaseController
             $couple = $em->getRepository('WeddingBundle:User\Couple')->find($this->getCurrentUser()->getId());
             $cover = $couple->getCoverPicture();
             $profilePicture = $couple->getProfilePicture();
-        } else {
-            $cover = "";
-            $profilePicture = "";            
-        }
+ 
 
         return $this->render(
             'WeddingBundle:Dashboard:wishlist.html.twig',
