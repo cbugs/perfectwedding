@@ -15,7 +15,7 @@ user_logout:
     defaults: { _controller: WeddingBundle:User:logout }
 
 user_profile:
-    path:     /profile
+    path:     /user
     defaults: { _controller: WeddingBundle:User:profile }
 
 user_profiles:
