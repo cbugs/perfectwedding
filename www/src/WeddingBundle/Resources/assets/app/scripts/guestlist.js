@@ -2,6 +2,23 @@
 // Activate Next Step
 
 
+        $('#external-events .fc-event').each(function() {
+
+            // store data so the calendar knows to render an event upon drop
+            $(this).data('event', {
+                title: $.trim($(this).text()), // use the element's text as the event title
+                stick: true // maintain when user navigates (see docs on the renderEvent method)
+            });
+
+            // make the event draggable using jQuery UI
+            $(this).draggable({
+                zIndex: 999,
+                revert: true,      // will cause the event to go back to its
+                revertDuration: 0  //  original position after the drag
+            });
+
+        });
+
 var todayDate = moment().startOf('day');
 	var YM = todayDate.format('YYYY-MM');
 	var YESTERDAY = todayDate.clone().subtract(1, 'day').format('YYYY-MM-DD');
@@ -22,9 +39,11 @@ var todayDate = moment().startOf('day');
             droppable: true, // this allows things to be dropped onto the calendar
             dragRevertDuration: 0,
             drop: function() {
-  
+                // is the "remove after drop" checkbox checked?
+                if ($('#drop-remove').is(':checked')) {
+                    // if so, remove the element from the "Draggable Events" list
                     $(this).remove();
-
+                }
             },
             eventDragStop: function( event, jsEvent, ui, view ) {
                 
@@ -104,25 +123,25 @@ setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);
 
 
 
-        $('#external-events .fc-event').each(function() {
-
-            // store data so the calendar knows to render an event upon drop
-            $(this).data('event', {
-                title: $.trim($(this).text()), // use the element's text as the event title
-                stick: true // maintain when user navigates (see docs on the renderEvent method)
-            });
-
-            // make the event draggable using jQuery UI
-            $(this).draggable({
-                zIndex: 999,
-                revert: true,      // will cause the event to go back to its
-                revertDuration: 0  //  original position after the drag
-            });
-
-        });
 
 
 
+
+        var isEventOverDiv = function(x, y) {
+
+            var external_events = $( '#external-events' );
+            var offset = external_events.offset();
+            offset.right = external_events.width() + offset.left;
+            offset.bottom = external_events.height() + offset.top;
+
+            // Compare
+            if (x >= offset.left
+                && y >= offset.top
+                && x <= offset.right
+                && y <= offset .bottom) { return true; }
+            return false;
+
+        }
 
 
 
