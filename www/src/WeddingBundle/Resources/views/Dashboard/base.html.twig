@@ -33,10 +33,10 @@
     <a class="nav-link {% if page is not defined %}active{% endif %}" href="{{ path('user_dashboard') }}"><i class="fa fa-dashboard"></i> MY DASHBOARD</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link {% if page is defined %}{%if page == 'guestlist' %}active{% endif %}{% endif %}" href="{{ path('user_dashboard_guestlist') }}"><i class="fa fa-list"></i> MY GUEST LIST</a>
+    <a class="nav-link {% if page is defined %}{%if page == 'guestlist' %}active{% endif %}{% endif %}" href="{{ path('user_dashboard_guestlist') }}"><i class="fa fa-list"></i> MY EVENT</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link {% if page is defined %}{%if page == 'checklist' %}active{% endif %}{% endif %}" href="{{ path('user_dashboard_checklist') }}"><i class="fa fa-check"></i> MY EVENT</a>
+    <a class="nav-link {% if page is defined %}{%if page == 'checklist' %}active{% endif %}{% endif %}" href="{{ path('user_dashboard_checklist') }}"><i class="fa fa-check"></i> MY CHECKLIST</a>
   </li>
   <li class="nav-item">
     <a class="nav-link {% if page is defined %}{%if page == 'budget' %}active{% endif %}{% endif %}" href="{{ path('user_dashboard_budget') }}"><i class="fa fa-calculator"></i> MY BUDGET</a>
