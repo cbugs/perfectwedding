@@ -3,16 +3,16 @@
 
 
 $('#calendar').fullCalendar({
-    defaultView: 'agendaDay',
-    events: [
-        // events go here
-    ],
-    resources: [
-        { id: 'a', title: 'Room A' },
-        { id: 'b', title: 'Room B' },
-        { id: 'c', title: 'Room C' },
-        { id: 'd', title: 'Room D' }
-    ]
+    header: {
+        center: 'month,agendaFourDay' // buttons for switching between views
+    },
+    views: {
+        agendaFourDay: {
+            type: 'agenda',
+            duration: { days: 4 },
+            buttonText: '4 day'
+        }
+    }
 });
 
 
