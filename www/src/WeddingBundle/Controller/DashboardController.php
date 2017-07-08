@@ -28,16 +28,11 @@ class DashboardController extends BaseController
     {
         $currentUser = $this->getCurrentUser();
         if($currentUser == null){return $this->redirectToRoute('user_login');}
-        $role = $currentUser->getRoles()->getName();
-        if($role == "Couple") {
-            $em = $this->getDoctrine()->getEntityManager();
-            $couple = $em->getRepository('WeddingBundle:User\Couple')->find($this->getCurrentUser()->getId());
-            $cover = $couple->getCoverPicture();
-            $profilePicture = $couple->getProfilePicture();
-        } else {
-            $cover = "";
-            $profilePicture = "";            
-        }
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $couple = $em->getRepository('WeddingBundle:User\Couple')->find($this->getCurrentUser()->getId());
+        $cover = $couple->getCoverPicture();
+        $profilePicture = $couple->getProfilePicture();
 
         return $this->render('WeddingBundle:Dashboard:budget.html.twig', array(
             'cover' => $cover,
