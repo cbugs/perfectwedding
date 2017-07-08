@@ -76,7 +76,7 @@ var todayDate = moment().startOf('day');
 		]
 	});
 
-setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);},1000);
+setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);},500);
     var navListItems = $('ul.setup-panel li a'),
         allWells = $('.setup-content');
 
