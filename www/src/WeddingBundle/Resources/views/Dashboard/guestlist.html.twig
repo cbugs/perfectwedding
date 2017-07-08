@@ -2,7 +2,27 @@
 {% extends 'WeddingBundle:Dashboard:base.html.twig' %}
 
 {% block dashboardContent %}
-    <div class="container-steps text-center">
+
+
+<div id='calendar'></div>
+
+<script>
+$(document).ready(function() {
+$('#calendar').fullCalendar({
+    defaultView: 'agendaDay',
+    events: [
+        // events go here
+    ],
+    resources: [
+        { id: 'a', title: 'Room A' },
+        { id: 'b', title: 'Room B' },
+        { id: 'c', title: 'Room C' },
+        { id: 'd', title: 'Room D' }
+    ]
+});});
+</script>
+
+    {#<div class="container-steps text-center">
 	    <div class="row form-group">
             <div class="col-xs-12">
                 <ul class="nav nav-pills nav-justified thumbnail setup-panel step-list">
@@ -286,4 +306,5 @@
 		</div>
 	</div>
 <!-- /.modal -->
+#}
 {% endblock %}
