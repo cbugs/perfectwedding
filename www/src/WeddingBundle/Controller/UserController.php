@@ -23,7 +23,7 @@ class UserController extends BaseController
      * @Route("/register", name="user_register")
      */
     public function registerAction(Request $request)
-    {self::sendRegistrationEmail("Pajaani");echo "SEND";exit;
+    {
         $currentUser = $this->getCurrentUser();
         if($currentUser != null){return $this->redirectToRoute('wedding_homepage');}
         $em = $this->getDoctrine()->getManager();
@@ -59,9 +59,9 @@ class UserController extends BaseController
             $em->persist($confirmation);
             $em->flush();            
 
-            
+            self::sendRegistrationEmail($user->getUsername(),$user->getEmail());
 
-            return $this->redirectToRoute('user_login');
+            return $this->redirectToRoute('user_login',array("register"=>"success"));
         }
 
         return $this->render(
@@ -70,36 +70,19 @@ class UserController extends BaseController
         );
     }
 
-    public function sendRegistrationEmail($name)
+    public function sendRegistrationEmail($name, $email)
     {
-        // $mailer = new \Swift_Mailer();
-        // $message = (new \Swift_Message('Hello Email'))
-        //     ->setFrom('info@4dcubes.com')
-        //     ->setTo('sbrnpjn@gmail.com')
-        //     ->setBody(
-        //         $this->renderView(
-        //             // app/Resources/views/Emails/registration.html.twig
-        //             'WeddingBundle:Emails:registration.html.twig',
-        //             array('name' => $name)
-        //         ),
-        //         'text/html'
-        //     );
-
-        // $mailer->send($message);
-
-
-# Setup the message
-$message = \Swift_Message::newInstance()
-    ->setSubject('Perfect Wedding - Registration')
-    ->setFrom('info@4dcubes.com')
-    ->setTo('sbrnpjn@gmail.com')
-    ->setBody("blabla");
-var_dump($this->get('mailer'));
-# Send the message
-var_dump($this->get('mailer')
-    ->send($message));echo "sendinggggg";
-//var_dump($mailer->send($message));
-
+        # Setup the message
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Perfect Wedding - Registration')
+            ->setFrom('info@4dcubes.com')
+            ->setTo($email)
+            ->setBody($this->renderView(
+                            // app/Resources/views/Emails/registration.html.twig
+                            'WeddingBundle:Emails:registration.html.twig',
+                            array('name' => $name)
+                        ), 'text/html');
+        $this->get('mailer');
     }
 
 
@@ -149,8 +132,15 @@ var_dump($this->get('mailer')
             }
             $error = "Wrong Username/Password";
         }
+        $success = 0;
+        if(isset($_GET['register']))
+        {
+            $success = 1;
+        }
+
         return $this->render('WeddingBundle:User:login.html.twig', array(
             'error'         => $error,
+            'success'   => $success,
             $response
         ));
     }
