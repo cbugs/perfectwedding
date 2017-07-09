@@ -24,7 +24,6 @@ class UserController extends BaseController
      */
     public function registerAction(Request $request)
     {
-        self::sendRegistrationEmail("Pajaani");exit;
         $currentUser = $this->getCurrentUser();
         if($currentUser != null){return $this->redirectToRoute('wedding_homepage');}
         $em = $this->getDoctrine()->getManager();
@@ -73,6 +72,7 @@ class UserController extends BaseController
 
     public function sendRegistrationEmail($name)
     {
+        $mailer = new \Swift_Mailer();
         $message = (new \Swift_Message('Hello Email'))
             ->setFrom('info@4dcubes.com')
             ->setTo('sbrnpjn@gmail.com')
