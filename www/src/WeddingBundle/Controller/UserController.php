@@ -70,7 +70,7 @@ class UserController extends BaseController
         );
     }
 
-    public function sendRegistrationEmail($name,\Swift_Mailer $mailer)
+    public function sendRegistrationEmail($name)
     {
         // $mailer = new \Swift_Mailer();
         // $message = (new \Swift_Message('Hello Email'))
@@ -98,7 +98,7 @@ var_dump($this->get('mailer'));
 # Send the message
 var_dump($this->get('mailer')
     ->send($message));echo "sendinggggg";
-var_dump($mailer->send($message));
+//var_dump($mailer->send($message));
 
     }
 
