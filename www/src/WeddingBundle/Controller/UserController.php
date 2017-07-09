@@ -90,7 +90,7 @@ class UserController extends BaseController
 
 # Setup the message
 $message = \Swift_Message::newInstance()
-    ->setSubject('Prefect Wedding - Registration')
+    ->setSubject('Perfect Wedding - Registration')
     ->setFrom('info@4dcubes.com')
     ->setTo('sbrnpjn@gmail.com')
     ->setBody($this->renderView(
@@ -101,7 +101,7 @@ $message = \Swift_Message::newInstance()
 
 # Send the message
 var_dump($this->get('mailer')
-    ->send($message));
+    ->send($message));echo "sendinggggg";
 
 
     }

@@ -6,7 +6,7 @@ parameters:
     database_user: cbugs_pwed
     database_password: perfectwedding
     mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
+    mailer_host: mail.4dcubes.com
+    mailer_user: info@4dcubes.com
+    mailer_password: info@4dcubes.com
     secret: ThisTokenIsNotSoSecretChangeIt
