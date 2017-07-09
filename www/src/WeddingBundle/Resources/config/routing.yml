@@ -10,6 +10,10 @@ user_login:
     path:     /login
     defaults: { _controller: WeddingBundle:User:login }
 
+user_confirm:
+    path:     /confirmation/{hash}
+    defaults: { _controller: WeddingBundle:User:confirmation }
+
 user_logout:
     path:     /logout
     defaults: { _controller: WeddingBundle:User:logout }

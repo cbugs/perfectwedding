@@ -71,6 +71,29 @@ class UserController extends BaseController
         );
     }
 
+
+    public function confirmationAction($hash)
+    {
+        $query = $this->getDoctrine()->getManager()
+          ->createQuery("SELECT c FROM WeddingBundle:User\Confirmation c WHERE c.value = :hash")
+          ->setParameter('hash', $hash);
+
+        $result  = $query->getArrayResult();
+
+        if(!empty($result))
+        {
+            foreach($result as $r)
+            {
+                $user = $em->getRepository('WeddingBundle:User\User')->findOneBy(array('id'=>$r->getUserId()));
+                $user->setActive(1);
+                $em->persist($user);
+                $em->flush();
+            }
+        }
+
+        return $this->redirectToRoute('user_login',array("confirmation"=>"success"));
+    }
+
     public function sendRegistrationEmail($name, $email)
     {
         # Setup the message
@@ -106,6 +129,13 @@ class UserController extends BaseController
               $user = $em->getRepository('WeddingBundle:User\User')->findOneBy(array('email'=>$username));  
             }
             if($user){
+                if(!$user->getActive())
+                {
+                    return $this->render('WeddingBundle:User:login.html.twig', array(
+                        'inactive' => 1,
+                        $response
+                    ));
+                }
                 if($this->get('security.password_encoder')->isPasswordValid($user, $password)){
                             $session = $request->getSession();
 
@@ -139,9 +169,16 @@ class UserController extends BaseController
             $success = 1;
         }
 
+        $confirmation = 0;
+        if(isset($_GET['confirmation']))
+        {
+            $confirmation = 1;
+        }
+
         return $this->render('WeddingBundle:User:login.html.twig', array(
             'error'         => $error,
             'success'   => $success,
+            'confirmation' => $confirmation,
             $response
         ));
     }

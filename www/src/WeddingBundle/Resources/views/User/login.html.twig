@@ -4,7 +4,9 @@
 
 {% block body %}
 {% if error %}
-    <div>{{ error }}</div>
+    <div class="alert alert-danger">
+      Wrong Username / Password
+    </div>
 {% endif %}
 
 {% if success %}
@@ -13,6 +15,17 @@
     </div>
 {% endif %}
 
+{% if confirmation %}
+    <div class="alert alert-success">
+      <strong>Great!</strong> Email confirmed successfully.
+    </div>
+{% endif %}
+
+{% if inactive %}
+    <div class="alert alert-danger">
+      Please confirm your email before you can login.
+    </div>
+{% endif %}
 
 <div class="form-login">
       
