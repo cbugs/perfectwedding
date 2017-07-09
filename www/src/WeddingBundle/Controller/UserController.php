@@ -7,6 +7,7 @@ use WeddingBundle\Form\User\CoupleForm;
 use WeddingBundle\Form\User\SupplierForm;
 use WeddingBundle\Entity\User\User;
 use WeddingBundle\Entity\User\Couple;
+use WeddingBundle\Entity\User\Confirmation;
 use WeddingBundle\Entity\User\Supplier;
 use WeddingBundle\Entity\SecurityToken;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -23,6 +24,7 @@ class UserController extends BaseController
      */
     public function registerAction(Request $request)
     {
+        self::sendRegistrationEmail("Pajaani");exit;
         $currentUser = $this->getCurrentUser();
         if($currentUser != null){return $this->redirectToRoute('wedding_homepage');}
         $em = $this->getDoctrine()->getManager();
@@ -54,6 +56,12 @@ class UserController extends BaseController
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
+            $confirmation = new Confirmation($user->getId());
+            $em->persist($confirmation);
+            $em->flush();            
+
+            self::sendRegistrationEmail("Pajaani");
+
             return $this->redirectToRoute('user_login');
         }
 
@@ -62,6 +70,24 @@ class UserController extends BaseController
             //,array('form' => $form->createView())
         );
     }
+
+    public function sendRegistrationEmail($name)
+    {
+        $message = (new \Swift_Message('Hello Email'))
+            ->setFrom('info@4dcubes.com')
+            ->setTo('sbrnpjn@gmail.com')
+            ->setBody(
+                $this->renderView(
+                    // app/Resources/views/Emails/registration.html.twig
+                    'WeddingBundle:Emails:registration.html.twig',
+                    array('name' => $name)
+                ),
+                'text/html'
+            );
+
+        $mailer->send($message);
+    }
+
 
     /**
      * @Route("/login", name="user_login")

@@ -60,6 +60,11 @@ class User implements UserInterface
      */
     private $roles;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $active = 0;
+
     // other properties and methods
 
     public function getId()
@@ -129,6 +134,16 @@ class User implements UserInterface
         $this->roles = $roles;
     }
     
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    public function setActive($active)
+    {
+        $this->active = $active;
+    }
+
     public function eraseCredentials()
     {
         
