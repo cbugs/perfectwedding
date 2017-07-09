@@ -1,6 +1,6 @@
 <?php 
 
-namespace WeddingBundle\Entity\Reset;
+namespace WeddingBundle\Entity\User;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
