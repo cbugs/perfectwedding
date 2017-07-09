@@ -20,7 +20,7 @@ class RegisterForm extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
-            ->add('username', TextType::class)
+            ->add('name', TextType::class)
             ->add('roles', EntityType::class, array(
                 'class' => 'WeddingBundle:User\Roles',
                 'choices' => $options['roles'],
