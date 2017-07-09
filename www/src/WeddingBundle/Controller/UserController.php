@@ -60,7 +60,7 @@ class UserController extends BaseController
             $em->persist($confirmation);
             $em->flush();            
 
-            self::sendRegistrationEmail($user->getName(),$user->getEmail());
+            self::sendRegistrationEmail($user->getName(),$user->getEmail(),$confirmation->getValue());
 
             return $this->redirectToRoute('user_login',array("register"=>"success"));
         }
@@ -96,7 +96,7 @@ class UserController extends BaseController
         return $this->redirectToRoute('user_login',array("confirmation"=>"success"));
     }
 
-    public function sendRegistrationEmail($name, $email)
+    public function sendRegistrationEmail($name, $email, $confirmation)
     {
         # Setup the message
         $message = \Swift_Message::newInstance()
@@ -106,7 +106,7 @@ class UserController extends BaseController
             ->setBody($this->renderView(
                             // app/Resources/views/Emails/registration.html.twig
                             'WeddingBundle:Emails:registration.html.twig',
-                            array('name' => $name)
+                            array('name' => $name, 'confirmation'=>$confirmation)
                         ), 'text/html');
        $this->get('mailer')->send($message);
     }
