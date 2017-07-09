@@ -70,7 +70,7 @@ class UserController extends BaseController
         );
     }
 
-    public function sendRegistrationEmail($name)
+    public function sendRegistrationEmail($name,\Swift_Mailer $mailer)
     {
         // $mailer = new \Swift_Mailer();
         // $message = (new \Swift_Message('Hello Email'))
@@ -93,16 +93,12 @@ $message = \Swift_Message::newInstance()
     ->setSubject('Perfect Wedding - Registration')
     ->setFrom('info@4dcubes.com')
     ->setTo('sbrnpjn@gmail.com')
-    ->setBody($this->renderView(
-                    // app/Resources/views/Emails/registration.html.twig
-                    'WeddingBundle:Emails:registration.html.twig',
-                    array('name' => $name)
-                ), 'text/html');
-
+    ->setBody("blabla");
+var_dump($this->get('mailer'));
 # Send the message
 var_dump($this->get('mailer')
     ->send($message));echo "sendinggggg";
-
+var_dump($mailer->send($message))
 
     }
 
