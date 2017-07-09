@@ -133,6 +133,9 @@ class UserController extends BaseController
                 {
                     return $this->render('WeddingBundle:User:login.html.twig', array(
                         'inactive' => 1,
+                        'error'         => 0,
+                        'success'   => 0,
+                        'confirmation' => 0,
                         $response
                     ));
                 }
@@ -179,6 +182,7 @@ class UserController extends BaseController
             'error'         => $error,
             'success'   => $success,
             'confirmation' => $confirmation,
+            'inactive' => 0,
             $response
         ));
     }
