@@ -74,6 +74,8 @@ class UserController extends BaseController
 
     public function confirmationAction($hash)
     {
+        $em = $this->getDoctrine()->getManager();
+        
         $query = $this->getDoctrine()->getManager()
           ->createQuery("SELECT c FROM WeddingBundle:User\Confirmation c WHERE c.value = :hash")
           ->setParameter('hash', $hash);
