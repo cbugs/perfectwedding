@@ -23,7 +23,7 @@ class UserController extends BaseController
      * @Route("/register", name="user_register")
      */
     public function registerAction(Request $request)
-    {
+    {self::sendRegistrationEmail("Pajaani");echo "SEND";exit;
         $currentUser = $this->getCurrentUser();
         if($currentUser != null){return $this->redirectToRoute('wedding_homepage');}
         $em = $this->getDoctrine()->getManager();
@@ -59,7 +59,7 @@ class UserController extends BaseController
             $em->persist($confirmation);
             $em->flush();            
 
-            self::sendRegistrationEmail("Pajaani");
+            
 
             return $this->redirectToRoute('user_login');
         }
