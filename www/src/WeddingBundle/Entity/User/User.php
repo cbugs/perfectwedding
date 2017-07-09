@@ -37,6 +37,11 @@ class User implements UserInterface
     private $email;
 
     /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    private $username;
+
+    /**
      * @Assert\Length(max=4096)
      */
     private $plainPassword;
@@ -80,6 +85,16 @@ class User implements UserInterface
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
     }
 
     public function getPlainPassword()

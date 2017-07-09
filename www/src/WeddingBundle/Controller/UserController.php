@@ -47,6 +47,7 @@ class UserController extends BaseController
             $password = $this->get('security.password_encoder')
                 ->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
+            $user->setUsername($user->getEmail());
 
             //Save the User!
             $em->persist($user);
@@ -59,7 +60,7 @@ class UserController extends BaseController
             $em->persist($confirmation);
             $em->flush();            
 
-            self::sendRegistrationEmail($user->getUsername(),$user->getEmail());
+            self::sendRegistrationEmail($user->getName(),$user->getEmail());
 
             return $this->redirectToRoute('user_login',array("register"=>"success"));
         }
