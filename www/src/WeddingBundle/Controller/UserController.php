@@ -75,7 +75,7 @@ class UserController extends BaseController
     public function confirmationAction($hash)
     {
         $em = $this->getDoctrine()->getManager();
-        
+
         $query = $this->getDoctrine()->getManager()
           ->createQuery("SELECT c FROM WeddingBundle:User\Confirmation c WHERE c.value = :hash")
           ->setParameter('hash', $hash);
@@ -85,7 +85,7 @@ class UserController extends BaseController
         if(!empty($result))
         {
             foreach($result as $r)
-            {
+            {var_dump($r);
                 $user = $em->getRepository('WeddingBundle:User\User')->findOneBy(array('id'=>$r->getUserId()));
                 $user->setActive(1);
                 $em->persist($user);
