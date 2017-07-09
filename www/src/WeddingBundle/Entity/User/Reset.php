@@ -8,7 +8,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use WeddingBundle\Entity\SecurityToken;
 
-
+/**
+ * @ORM\Entity
+ */
 class Reset
 {
     /**
