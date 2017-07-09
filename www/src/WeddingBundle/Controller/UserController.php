@@ -72,20 +72,38 @@ class UserController extends BaseController
 
     public function sendRegistrationEmail($name)
     {
-        $mailer = new \Swift_Mailer();
-        $message = (new \Swift_Message('Hello Email'))
-            ->setFrom('info@4dcubes.com')
-            ->setTo('sbrnpjn@gmail.com')
-            ->setBody(
-                $this->renderView(
+        // $mailer = new \Swift_Mailer();
+        // $message = (new \Swift_Message('Hello Email'))
+        //     ->setFrom('info@4dcubes.com')
+        //     ->setTo('sbrnpjn@gmail.com')
+        //     ->setBody(
+        //         $this->renderView(
+        //             // app/Resources/views/Emails/registration.html.twig
+        //             'WeddingBundle:Emails:registration.html.twig',
+        //             array('name' => $name)
+        //         ),
+        //         'text/html'
+        //     );
+
+        // $mailer->send($message);
+
+
+# Setup the message
+$message = \Swift_Message::newInstance()
+    ->setSubject('Some Subject')
+    ->setFrom('example@gmail.com')
+    ->setTo('any@whatever.com')
+    ->setBody($this->renderView(
                     // app/Resources/views/Emails/registration.html.twig
                     'WeddingBundle:Emails:registration.html.twig',
                     array('name' => $name)
-                ),
-                'text/html'
-            );
+                ), 'text/html');
 
-        $mailer->send($message);
+# Send the message
+$this->get('mailer')
+    ->send($message);
+
+
     }
 
 
