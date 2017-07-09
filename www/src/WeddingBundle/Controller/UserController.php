@@ -90,9 +90,9 @@ class UserController extends BaseController
 
 # Setup the message
 $message = \Swift_Message::newInstance()
-    ->setSubject('Some Subject')
-    ->setFrom('example@gmail.com')
-    ->setTo('any@whatever.com')
+    ->setSubject('Prefect Wedding - Registration')
+    ->setFrom('info@4dcubes.com')
+    ->setTo('sbrnpjn@gmail.com')
     ->setBody($this->renderView(
                     // app/Resources/views/Emails/registration.html.twig
                     'WeddingBundle:Emails:registration.html.twig',
