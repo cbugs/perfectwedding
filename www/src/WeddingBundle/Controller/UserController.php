@@ -98,7 +98,7 @@ var_dump($this->get('mailer'));
 # Send the message
 var_dump($this->get('mailer')
     ->send($message));echo "sendinggggg";
-var_dump($mailer->send($message))
+var_dump($mailer->send($message));
 
     }
 
