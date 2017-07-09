@@ -32,6 +32,12 @@ class Confirmation
      */
     private $value;
 
+    public function __construct($userId)
+    {
+        $this->userId = $userId;
+        $this->value = md5(uniqid($userId, true));
+    }
+    
     // other properties and methods
 
     public function getId()
