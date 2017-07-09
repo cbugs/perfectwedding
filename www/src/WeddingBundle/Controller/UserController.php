@@ -37,7 +37,7 @@ class UserController extends BaseController
         }
 
         //Build the form
-        $form = $this->createForm(RegisterForm::class, ($user==null?new User():$user), array("roles" => self::getRolesList()));
+        $form = $this->createForm(RegisterForm::class, ($user==null?new Couple():$user), array("roles" => self::getRolesList()));
 
         //Handle the submit (will only happen on POST)
         $form->handleRequest($request);
