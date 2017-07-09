@@ -100,8 +100,8 @@ $message = \Swift_Message::newInstance()
                 ), 'text/html');
 
 # Send the message
-$this->get('mailer')
-    ->send($message);
+var_dump($this->get('mailer')
+    ->send($message));
 
 
     }
