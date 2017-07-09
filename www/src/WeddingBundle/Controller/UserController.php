@@ -58,7 +58,7 @@ class UserController extends BaseController
             $confirmation = new Confirmation($user->getId());
             $em->persist($confirmation);
             $em->flush();            
-
+var_dump($user->getUsername());var_dump($user->getEmail());
             self::sendRegistrationEmail($user->getUsername(),$user->getEmail());
 
             return $this->redirectToRoute('user_login',array("register"=>"success"));
