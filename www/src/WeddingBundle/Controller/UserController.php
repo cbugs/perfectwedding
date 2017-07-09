@@ -86,7 +86,7 @@ class UserController extends BaseController
         {
             foreach($result as $r)
             {var_dump($r);exit;
-                $user = $em->getRepository('WeddingBundle:User\User')->findOneBy(array('id'=>$r->getUserId()));
+                $user = $em->getRepository('WeddingBundle:User\User')->findOneBy(array('id'=>$r["userId"]));
                 $user->setActive(1);
                 $em->persist($user);
                 $em->flush();
