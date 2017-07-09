@@ -23,7 +23,7 @@ class UserController extends BaseController
      * @Route("/register", name="user_register")
      */
     public function registerAction(Request $request)
-    {self::sendRegistrationEmail("pajaani","sbrnpjn@gmail.com");exit;
+    {
         $currentUser = $this->getCurrentUser();
         if($currentUser != null){return $this->redirectToRoute('wedding_homepage');}
         $em = $this->getDoctrine()->getManager();
@@ -82,7 +82,7 @@ class UserController extends BaseController
                             'WeddingBundle:Emails:registration.html.twig',
                             array('name' => $name)
                         ), 'text/html');
-        var_dump($this->get('mailer'));
+       $this->get('mailer')->send($message);
     }
 
 
