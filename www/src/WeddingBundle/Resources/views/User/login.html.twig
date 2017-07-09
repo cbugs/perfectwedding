@@ -4,25 +4,25 @@
 
 {% block body %}
 {% if error %}
-    <div class="alert alert-danger">
+    <div class="alert text-center alert-danger">
       Wrong Username / Password
     </div>
 {% endif %}
 
 {% if success %}
-    <div class="alert alert-success">
+    <div class="alert text-center alert-success">
       <strong>Congrats!</strong> Registration Successful. Check your email to confirm registration.
     </div>
 {% endif %}
 
 {% if confirmation %}
-    <div class="alert alert-success">
+    <div class="alert text-center alert-success">
       <strong>Great!</strong> Email confirmed successfully.
     </div>
 {% endif %}
 
 {% if inactive %}
-    <div class="alert alert-danger">
+    <div class="alert text-center alert-danger">
       Please confirm your email before you can login.
     </div>
 {% endif %}
