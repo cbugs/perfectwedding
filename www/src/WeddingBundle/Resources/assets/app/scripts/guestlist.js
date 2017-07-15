@@ -5,15 +5,15 @@
 
             var external_events = $( '#external-events' );
             var offset = external_events.offset();
-            offset.top = offset.top - 300;
+            // offset.top = offset.top - 300;
             offset.right = external_events.width() + offset.left;
             offset.bottom = external_events.height() + offset.top;
 
             // Compare
-            if (x >= offset.left
-                && y >= offset.top
-                && x <= offset.right
-                && y <= offset .bottom) { return true; }
+            if (/*x >= offset.left
+                && y >= offset.top*/
+                /*&&*/ x <= offset.right
+               /* && y <= offset .bottom*/) { return true; }
             return false;
 
         }
@@ -55,9 +55,13 @@ var todayDate = moment().startOf('day');
 
 
             },
+            eventResize: function( event, delta, revertFunc, jsEvent, ui, view ) {
+console.log(event)
+
+             },
             eventDragStop: function( event, jsEvent, ui, view ) {
                 
-console.log(jsEvent.clientX);console.log(jsEvent.clientY);
+console.log(event);
                 if(isEventOverDiv(jsEvent.clientX, jsEvent.clientY)) {
                     $('#calendar').fullCalendar('removeEvents', event._id);
                     var el = $( "<div class='fc-event'>" ).appendTo( '#external-events-listing' ).text( event.title );
