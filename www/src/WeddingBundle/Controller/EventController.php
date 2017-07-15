@@ -73,7 +73,7 @@ class EventController extends BaseController
 
             $id = $request->request->get('id'); 
             $query = $this->getDoctrine()->getManager()
-            ->createQuery("DELETE e FROM WeddingBundle:Couple\Event e WHERE e.userId = :userId and e.id = :id")
+            ->createQuery("DELETE FROM WeddingBundle:Couple\Event e WHERE e.userId = :userId and e.id = :id")
             ->setParameter('userId', $this->getCurrentUser()->getId())
             ->setParameter('id', $id);
 
