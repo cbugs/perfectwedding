@@ -46,7 +46,7 @@ class EventController extends BaseController
 
     public function createAction(Request $request)
     {
-
+        $data = array();
         if ($request->getMethod() == 'POST' && $this->getCurrentUser()->getId()) {
             $em = $this->getDoctrine()->getManager();
             $title = $request->request->get('title'); 
@@ -56,7 +56,13 @@ class EventController extends BaseController
             $event->setUserId($userId);
             $em->persist($event);
             $em->flush();
+            $data[] = $event->getId();
         }
+
+        $response = new Response(json_encode(array('data'=>$data)));
+
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
 
     }
 
