@@ -78,7 +78,7 @@ class EventController extends BaseController
             ->setParameter('id', $id);
 
             $datas = $query->execute();
-            $data[] = $id);
+            $data[] = $id;
         }
         $response = new Response(json_encode(array('data'=>$data)));
 
