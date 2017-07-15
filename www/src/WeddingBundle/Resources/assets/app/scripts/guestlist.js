@@ -399,21 +399,21 @@ setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);
 
 
 
-$("#addEventButton").on("click", function(e){
-    e.preventDefault();
-    $("#external-events-listing").append('<div class="fc-event">' + $("#eventTitle").val() + '<span class="fa fa-remove"></span></div>');
-    $.ajax({
-        url: $("#createEventForm").attr('action'), 
-        type: 'POST',
-        data: "title="+$("#eventTitle").val(),
-        success: function(data)   
-        {
-        },
-        error: function(data)
-        {
-        },
-    });
-});
+// $("#addEventButton").on("click", function(e){
+//     e.preventDefault();
+//     $("#external-events-listing").append('<div class="fc-event">' + $("#eventTitle").val() + '<span class="fa fa-remove"></span></div>');
+//     $.ajax({
+//         url: $("#createEventForm").attr('action'), 
+//         type: 'POST',
+//         data: "title="+$("#eventTitle").val(),
+//         success: function(data)   
+//         {
+//         },
+//         error: function(data)
+//         {
+//         },
+//     });
+// });
 
 
 
