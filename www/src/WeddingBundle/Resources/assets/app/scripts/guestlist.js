@@ -143,22 +143,7 @@ setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);
 
         }
 
-$(".fc-event-remove").on("click", function(e){
 
-    $.ajax({
-        url: $("#deleteEvent").val(), 
-        type: 'POST',
-        data: "id="+$(e.target).parent.attr('id'),
-        success: function(data)   
-        {
-            $("#"+data.data[0].id).remove();
-        },
-        error: function(data)
-        {
-        },
-    });
-
-});
 
 
 $("#addEventButton").on("click", function(e){
@@ -186,6 +171,25 @@ $.ajax({
         $.each(data.data,function(k,v){
             $("#external-events-listing").append('<div class="fc-event" id="'+v.id+'">' + v.title + '<span class="fc-event-remove fa fa-remove"></span></div>');
         })
+
+        $(".fc-event-remove").on("click", function(e){
+
+            $.ajax({
+                url: $("#deleteEvent").val(), 
+                type: 'POST',
+                data: "id="+$(e.target).parent.attr('id'),
+                success: function(data)   
+                {
+                    $("#"+data.data[0].id).remove();
+                },
+                error: function(data)
+                {
+                },
+            });
+
+        });
+
+
     },
     error: function(data)
     {
