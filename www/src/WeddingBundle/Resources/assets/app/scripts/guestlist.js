@@ -143,18 +143,33 @@ setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);
 
         }
 
+$(".fc-event-remove").on("click", function(e){
 
+    $.ajax({
+        url: $("#deleteEvent").val(), 
+        type: 'POST',
+        data: "id="+$(e.target).parent.attr('id'),
+        success: function(data)   
+        {
+            $("#"+$(e.target).parent.attr('id')).remove();
+        },
+        error: function(data)
+        {
+        },
+    });
+
+});
 
 
 $("#addEventButton").on("click", function(e){
     e.preventDefault();
-    $("#external-events-listing").append('<div class="fc-event">' + $("#eventTitle").val() + '<span class="fc-event-remove fa fa-remove"></span></div>');
     $.ajax({
         url: $("#createEventForm").attr('action'), 
         type: 'POST',
         data: "title="+$("#eventTitle").val(),
         success: function(data)   
         {
+            $("#external-events-listing").append('<div id="'+data[0]+'"class="fc-event">' + $("#eventTitle").val() + '<span class="fc-event-remove fa fa-remove"></span></div>');
         },
         error: function(data)
         {
@@ -168,7 +183,9 @@ $.ajax({
     success: function(data)   
     {
         $("#getEvents").val("");
-        console.log(data);
+        $.each(data,function(k,v){
+            $("#external-events-listing").append('<div class="fc-event" id="'+v.id+'">' + v.title + '<span class="fc-event-remove fa fa-remove"></span></div>');
+        })
     },
     error: function(data)
     {

@@ -124,3 +124,7 @@ create_event:
 get_event:
     path: /event/index
     defaults: { _controller: WeddingBundle:Event:index }
+
+delete_event:
+    path: /event/delete
+    defaults: { _controller: WeddingBundle:Event:delete }

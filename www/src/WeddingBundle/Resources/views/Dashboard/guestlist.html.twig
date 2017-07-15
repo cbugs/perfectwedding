@@ -10,11 +10,6 @@
             <div id='external-events'>
                 <div id='external-events-listing'>
                     <h4>Draggable Events</h4>
-                    <div class='fc-event'>My Event 1 <span class="fc-event-remove fa fa-remove"></span></div>
-                    <div class='fc-event'>My Event 2 <span class="fc-event-remove fa fa-remove"></span></div>
-                    <div class='fc-event'>My Event 3 <span class="fc-event-remove fa fa-remove"></span></div>
-                    <div class='fc-event'>My Event 4 <span class="fc-event-remove fa fa-remove"></span></div>
-                    <div class='fc-event'>My Event 5 <span class="fc-event-remove fa fa-remove"></span></div>
                 </div>
             </div>
             <br/>
@@ -39,6 +34,7 @@
         <div class="modal-body">
             <form method="post" id="createEventForm" action="{{ path('create_event') }}">
                 <input type="hidden" id="getEvents" value="{{ path('get_event') }}"/>
+                <input type="hidden" id="deleteEvent" value="{{ path('delete_event') }}"/>
                 <div class="form-group">
                     <label for="eventTitle">Email address</label>
                     <input type="text" class="form-control" id="eventTitle" placeholder="Enter Event Name">

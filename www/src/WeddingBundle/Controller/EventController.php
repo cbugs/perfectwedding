@@ -66,5 +66,20 @@ class EventController extends BaseController
 
     }
 
+    public function deleteAction(Request $request)
+    {
+        if ($request->getMethod() == 'POST' && $this->getCurrentUser()->getId()) {
+
+            $id = $request->request->get('id'); 
+            $query = $this->getDoctrine()->getManager()
+            ->createQuery("DELETE e FROM WeddingBundle:Couple\Event e WHERE e.userId = :userId and e.id = :id")
+            ->setParameter('userId', $this->getCurrentUser()->getId())
+            ->setParameter('id', $id);
+
+            $datas = $query->execute();
+        }
+
+    }
+
 
 }
