@@ -1,6 +1,23 @@
 ( function($) {
 // Activate Next Step
 
+        var isEventOverDiv = function(x, y) {
+
+            var external_events = $( '#external-events' );
+            var offset = external_events.offset();
+            offset.right = external_events.width() + offset.left;
+            offset.bottom = external_events.height() + offset.top;
+
+            // Compare
+            if (x >= offset.left
+                && y >= offset.top
+                && x <= offset.right
+                && y <= offset .bottom) { return true; }
+            return false;
+
+        }
+
+
 
 
 var todayDate = moment().startOf('day');
@@ -19,10 +36,10 @@ var todayDate = moment().startOf('day');
 		editable: true,
 		eventLimit: true, // allow "more" link when too many events
 		navLinks: true,
-        eventRender: function(event, element) {
-            element.append( "<span class='fc-event-remove fa fa-remove'></span>" );
-            bindEventsUI();
-        },
+        // eventRender: function(event, element) {
+        //     element.append( "<span class='fc-event-remove fa fa-remove'></span>" );
+        //     bindEventsUI();
+        // },
         
             droppable: true, // this allows things to be dropped onto the calendar
             dragRevertDuration: 0,
@@ -33,7 +50,7 @@ var todayDate = moment().startOf('day');
                     // if so, remove the element from the "Draggable Events" list
                     $(this).remove();
                 // }
-
+console.log(jsEvent.clientX);
                 if(isEventOverDiv(jsEvent.clientX, jsEvent.clientY)) {
                     $('#calendar').fullCalendar('removeEvents', event._id);
                     var el = $( "<div class='fc-event'>" ).appendTo( '#external-events-listing' ).text( event.title );
@@ -47,19 +64,19 @@ var todayDate = moment().startOf('day');
 
 
             },
-            eventDragStop: function( event, jsEvent, ui, view ) {
+            // eventDragStop: function( event, jsEvent, ui, view ) {
                 
-                if(isEventOverDiv(jsEvent.clientX, jsEvent.clientY)) {
-                    $('#calendar').fullCalendar('removeEvents', event._id);
-                    var el = $( "<div class='fc-event'>" ).appendTo( '#external-events-listing' ).text( event.title );
-                    el.draggable({
-                      zIndex: 999,
-                      revert: true, 
-                      revertDuration: 0 
-                    });
-                    el.data('event', { title: event.title, id :event.id, stick: true });
-                }
-            },
+            //     if(isEventOverDiv(jsEvent.clientX, jsEvent.clientY)) {
+            //         $('#calendar').fullCalendar('removeEvents', event._id);
+            //         var el = $( "<div class='fc-event'>" ).appendTo( '#external-events-listing' ).text( event.title );
+            //         el.draggable({
+            //           zIndex: 999,
+            //           revert: true, 
+            //           revertDuration: 0 
+            //         });
+            //         el.data('event', { title: event.title, id :event.id, stick: true });
+            //     }
+            // },
 
 
 
@@ -165,22 +182,6 @@ function bindEventsUI(){
 }
 
 
-
-        var isEventOverDiv = function(x, y) {
-
-            var external_events = $( '#external-events' );
-            var offset = external_events.offset();
-            offset.right = external_events.width() + offset.left;
-            offset.bottom = external_events.height() + offset.top;
-
-            // Compare
-            if (x >= offset.left
-                && y >= offset.top
-                && x <= offset.right
-                && y <= offset .bottom) { return true; }
-            return false;
-
-        }
 
 
 
