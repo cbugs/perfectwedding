@@ -68,6 +68,7 @@ class EventController extends BaseController
 
     public function deleteAction(Request $request)
     {
+        $data = array();
         if ($request->getMethod() == 'POST' && $this->getCurrentUser()->getId()) {
 
             $id = $request->request->get('id'); 
@@ -77,8 +78,12 @@ class EventController extends BaseController
             ->setParameter('id', $id);
 
             $datas = $query->execute();
+            $data[] = $id);
         }
+        $response = new Response(json_encode(array('data'=>$data)));
 
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
     }
 
 

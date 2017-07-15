@@ -151,7 +151,7 @@ $(".fc-event-remove").on("click", function(e){
         data: "id="+$(e.target).parent.attr('id'),
         success: function(data)   
         {
-            $("#"+$(e.target).parent.attr('id')).remove();
+            $("#"+data.data[0].id).remove();
         },
         error: function(data)
         {
@@ -169,7 +169,7 @@ $("#addEventButton").on("click", function(e){
         data: "title="+$("#eventTitle").val(),
         success: function(data)   
         {
-            $("#external-events-listing").append('<div id="'+data[0]+'"class="fc-event">' + $("#eventTitle").val() + '<span class="fc-event-remove fa fa-remove"></span></div>');
+            $("#external-events-listing").append('<div id="'+data.data[0]+'"class="fc-event">' + $("#eventTitle").val() + '<span class="fc-event-remove fa fa-remove"></span></div>');
         },
         error: function(data)
         {
@@ -183,8 +183,7 @@ $.ajax({
     success: function(data)   
     {
         $("#getEvents").val("");
-        $.each(data,function(k,v){
-            console.warn(v);
+        $.each(data.data,function(k,v){
             $("#external-events-listing").append('<div class="fc-event" id="'+v.id+'">' + v.title + '<span class="fc-event-remove fa fa-remove"></span></div>');
         })
     },
