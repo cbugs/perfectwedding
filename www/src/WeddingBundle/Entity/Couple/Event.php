@@ -31,7 +31,7 @@ class Event
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $name;
+    private $title;
 
     /**
      * @ORM\Column(type="integer", options={"default" : 0})
@@ -52,15 +52,15 @@ class Event
 	public function setUserId($userId){
 		$this->userId = $userId;
 	}
-    
-    public function getName()
+
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
     }
 
-    public function setName($name)
+    public function setTitle($title)
     {
-        $this->name = $name;
+        $this->title = $title;
     }
 
     public function getDate()
