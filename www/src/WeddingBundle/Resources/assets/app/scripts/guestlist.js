@@ -50,6 +50,12 @@ var todayDate = moment().startOf('day');
                     // if so, remove the element from the "Draggable Events" list
                     $(this).remove();
                 // }
+
+
+
+            },
+            eventDragStop: function( event, jsEvent, ui, view ) {
+                
 console.log(jsEvent.clientX);
                 if(isEventOverDiv(jsEvent.clientX, jsEvent.clientY)) {
                     $('#calendar').fullCalendar('removeEvents', event._id);
@@ -61,22 +67,7 @@ console.log(jsEvent.clientX);
                     });
                     el.data('event', { title: event.title, id :event.id, stick: true });
                 }
-
-
             },
-            // eventDragStop: function( event, jsEvent, ui, view ) {
-                
-            //     if(isEventOverDiv(jsEvent.clientX, jsEvent.clientY)) {
-            //         $('#calendar').fullCalendar('removeEvents', event._id);
-            //         var el = $( "<div class='fc-event'>" ).appendTo( '#external-events-listing' ).text( event.title );
-            //         el.draggable({
-            //           zIndex: 999,
-            //           revert: true, 
-            //           revertDuration: 0 
-            //         });
-            //         el.data('event', { title: event.title, id :event.id, stick: true });
-            //     }
-            // },
 
 
 
