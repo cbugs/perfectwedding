@@ -56,7 +56,7 @@ class EventController extends BaseController
             $event->setUserId($userId);
             $em->persist($event);
             $em->flush();
-            $data[] = $event->getId();
+            $data[]['id'] = $event->getId();
         }
 
         $response = new Response(json_encode(array('data'=>$data)));
@@ -78,7 +78,7 @@ class EventController extends BaseController
             ->setParameter('id', $id);
 
             $datas = $query->execute();
-            $data[] = $id;
+            $data[]['id'] = $id;
         }
         $response = new Response(json_encode(array('data'=>$data)));
 
