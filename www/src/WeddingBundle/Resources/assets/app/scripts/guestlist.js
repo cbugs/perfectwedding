@@ -2,22 +2,6 @@
 // Activate Next Step
 
 
-        $('#external-events .fc-event').each(function() {
-
-            // store data so the calendar knows to render an event upon drop
-            $(this).data('event', {
-                title: $.trim($(this).text()), // use the element's text as the event title
-                stick: true // maintain when user navigates (see docs on the renderEvent method)
-            });
-
-            // make the event draggable using jQuery UI
-            $(this).draggable({
-                zIndex: 999,
-                revert: true,      // will cause the event to go back to its
-                revertDuration: 0  //  original position after the drag
-            });
-
-        });
 
 var todayDate = moment().startOf('day');
 	var YM = todayDate.format('YYYY-MM');
@@ -123,7 +107,44 @@ setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);
 
 
 
+function bindEventsUI(){
+            $('#external-events .fc-event').each(function() {
 
+            // store data so the calendar knows to render an event upon drop
+            $(this).data('event', {
+                title: $.trim($(this).text()), // use the element's text as the event title
+                stick: true // maintain when user navigates (see docs on the renderEvent method)
+            });
+
+            // make the event draggable using jQuery UI
+            $(this).draggable({
+                zIndex: 999,
+                revert: true,      // will cause the event to go back to its
+                revertDuration: 0  //  original position after the drag
+            });
+
+        });
+
+
+        $(".fc-event-remove").on("click", function(e){
+
+            $.ajax({
+                url: $("#deleteEvent").val(), 
+                type: 'POST',
+                data: "id="+$(e.target).parent().attr('id'),
+                success: function(data)   
+                {
+                    $("#"+data.data[0].id).remove();
+                },
+                error: function(data)
+                {
+                },
+            });
+
+        });
+
+
+}
 
 
 
@@ -155,7 +176,8 @@ $("#addEventButton").on("click", function(e){
         success: function(data)   
         {
             $("#external-events-listing").append('<div id="'+data.data[0]+'"class="fc-event">' + $("#eventTitle").val() + '<span class="fc-event-remove fa fa-remove"></span></div>');
-        },
+            bindEventsUI();
+     },
         error: function(data)
         {
         },
@@ -172,22 +194,9 @@ $.ajax({
             $("#external-events-listing").append('<div class="fc-event" id="'+v.id+'">' + v.title + '<span class="fc-event-remove fa fa-remove"></span></div>');
         })
 
-        $(".fc-event-remove").on("click", function(e){
 
-            $.ajax({
-                url: $("#deleteEvent").val(), 
-                type: 'POST',
-                data: "id="+$(e.target).parent().attr('id'),
-                success: function(data)   
-                {
-                    $("#"+data.data[0].id).remove();
-                },
-                error: function(data)
-                {
-                },
-            });
+bindEventsUI();
 
-        });
 
 
     },
