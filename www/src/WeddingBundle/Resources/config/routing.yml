@@ -120,3 +120,7 @@ search:
 create_event:
     path: /event/create
     defaults: { _controller: WeddingBundle:Event:create }
+
+get_event:
+    path: /event/index
+    defaults: { _controller: WeddingBundle:Event:index }

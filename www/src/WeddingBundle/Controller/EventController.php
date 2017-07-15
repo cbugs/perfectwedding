@@ -10,17 +10,17 @@ use Symfony\Component\HttpFoundation\Request;
 
 class EventController extends BaseController
 {
-    // public function indexAction()
-    // {
-    //     $query = $this->getDoctrine()->getManager()
-    //       ->createQuery("SELECT b FROM WeddingBundle:Couple\Budget b WHERE b.user_id = :user_id")
-    //       ->setParameter('user_id', $this->getCurrentUser()->getId());
+    public function indexAction()
+    {
+        $query = $this->getDoctrine()->getManager()
+          ->createQuery("SELECT e FROM WeddingBundle:Couple\Event e WHERE e.userId = :userId")
+          ->setParameter('userId', $this->getCurrentUser()->getId());
 
-    //     $response = new Response(json_encode(array('data'=>$query->getArrayResult())));
+        $response = new Response(json_encode(array('data'=>$query->getArrayResult())));
 
-    //     $response->headers->set('Content-Type', 'application/json');
-    //     return $response;
-    // }
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+    }
 
     // public function saveAction(Request $request)
     // {

@@ -148,7 +148,7 @@ setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);
 
 $("#addEventButton").on("click", function(e){
     e.preventDefault();
-    $("#external-events-listing").append('<div class="fc-event">' + $("#eventTitle").val() + '<span class="fa fa-remove"></span></div>');
+    $("#external-events-listing").append('<div class="fc-event">' + $("#eventTitle").val() + '<span class="fc-event-remove fa fa-remove"></span></div>');
     $.ajax({
         url: $("#createEventForm").attr('action'), 
         type: 'POST',
@@ -160,6 +160,18 @@ $("#addEventButton").on("click", function(e){
         {
         },
     });
+});
+
+$.ajax({
+    url: $("#getEvents").val(), 
+    type: 'GET',
+    success: function(data)   
+    {
+        console.log(data);
+    },
+    error: function(data)
+    {
+    },
 });
 
 
