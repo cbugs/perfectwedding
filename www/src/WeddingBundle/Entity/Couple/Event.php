@@ -34,9 +34,14 @@ class Event
     private $title;
 
     /**
-     * @ORM\Column(type="integer", options={"default" : 0})
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private $date;
+    private $startDate;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $endDate;
 
     // other properties and methods
 
@@ -63,13 +68,23 @@ class Event
         $this->title = $title;
     }
 
-    public function getDate()
+    public function getStartDate()
     {
-        return $this->date;
+        return $this->startDate;
     }
 
-    public function setDate($date)
+    public function setStartDate($startDate)
     {
-        $this->date = $date;
+        $this->startDate = $startDate;
+    }
+
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
     }
 }
