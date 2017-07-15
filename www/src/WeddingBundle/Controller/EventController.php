@@ -54,7 +54,7 @@ class EventController extends BaseController
             $event = new Event();
             $event->setTitle($title);
             $event->setUserId($userId);
-            $em->persist($budget);
+            $em->persist($event);
             $em->flush();
         }
 

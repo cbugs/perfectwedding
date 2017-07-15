@@ -167,6 +167,7 @@ $.ajax({
     type: 'GET',
     success: function(data)   
     {
+        $("#getEvents").val("");
         console.log(data);
     },
     error: function(data)
