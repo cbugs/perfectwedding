@@ -184,6 +184,7 @@ $.ajax({
     {
         $("#getEvents").val("");
         $.each(data,function(k,v){
+            console.warn(v);
             $("#external-events-listing").append('<div class="fc-event" id="'+v.id+'">' + v.title + '<span class="fc-event-remove fa fa-remove"></span></div>');
         })
     },
