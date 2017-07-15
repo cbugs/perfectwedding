@@ -5,6 +5,7 @@ namespace WeddingBundle\Controller;
 use WeddingBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\Response;
 use WeddingBundle\Entity\Couple\Budget;
+use WeddingBundle\Entity\Couple\Event;
 use WeddingBundle\Form\Budget\CreateForm;
 use Symfony\Component\HttpFoundation\Request;
 
