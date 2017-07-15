@@ -5,7 +5,7 @@
 
             var external_events = $( '#external-events' );
             var offset = external_events.offset();
-            offset.top = offset.top - 250;
+            offset.top = offset.top - external_events.height();
             offset.right = external_events.width() + offset.left;
             offset.bottom = external_events.height() + offset.top;
 
