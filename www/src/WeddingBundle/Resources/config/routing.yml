@@ -116,3 +116,7 @@ user_dashboard_favourite:
 search:
     path: /search
     defaults: { _controller: WeddingBundle:Search:index }
+
+create_event:
+    path: /event/create
+    defaults: { _controller: WeddingBundle:Event:create }
