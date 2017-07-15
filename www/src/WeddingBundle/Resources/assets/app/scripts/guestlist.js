@@ -177,7 +177,7 @@ $.ajax({
             $.ajax({
                 url: $("#deleteEvent").val(), 
                 type: 'POST',
-                data: "id="+$(e.target).parent.attr('id'),
+                data: "id="+$(e.target).parent().attr('id'),
                 success: function(data)   
                 {
                     $("#"+data.data[0].id).remove();
