@@ -29,7 +29,7 @@ class EventController extends BaseController
       if ($request->getMethod() == 'POST' && $this->getCurrentUser()->getId()) {
           $id = $request->request->get('id'); 
           $em = $this->getDoctrine()->getManager();
-          $event = $em->getRepository('WeddingBundle:Couple\Event')->findOneBy(array('id'=>$id,'user_id'=>$this->getCurrentUser()->getId()));
+          $event = $em->getRepository('WeddingBundle:Couple\Event')->findOneBy(array('id'=>$id,'userId'=>$this->getCurrentUser()->getId()));
           $event->setStartDate($request->request->get('start'));
           $event->setEndDate($request->request->get('end'));
           $em->persist($event);
