@@ -51,7 +51,7 @@ var todayDate = moment().startOf('day');
                     $(this).remove();
        
                 // }
-console.log("RID "+resourceId);
+console.log(resourceId.id);
 console.log($(this));
 updateEvent($(this).attr('id'),date.valueOf(),0);
             },
