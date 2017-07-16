@@ -100,7 +100,7 @@ eventDrop : function(event,revertFunc)
    if(event.end){
     updateEvent(event.id,event.start.format('X'),event.end.format('X'));
    }else{
-    updateEvent(event.id,event.start.vformat('X'),0);
+    updateEvent(event.id,event.start.format('X'),0);
    }
  
 },
@@ -132,7 +132,10 @@ eventDrop : function(event,revertFunc)
 		events: originalEvents
 	});
 
-setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);},500);
+setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);
+   $('#calendar').fullCalendar( 'removeEvents' );
+$('#calendar').fullCalendar( 'addEventSource', originalEvents );
+},500);
 
 
 
