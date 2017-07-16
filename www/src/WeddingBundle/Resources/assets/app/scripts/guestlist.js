@@ -45,7 +45,7 @@ var todayDate = moment().startOf('day');
             droppable: true, // this allows things to be dropped onto the calendar
             dragRevertDuration: 0,
             drop: function(date, jsEvent, ui, resourceId) {
-                console.log(date);
+                console.log(date.format('dd/mm/yyyy'));
                 // is the "remove after drop" checkbox checked?
                 // if ($('#drop-remove').is(':checked')) {
                     // if so, remove the element from the "Draggable Events" list
