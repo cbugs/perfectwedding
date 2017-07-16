@@ -29,10 +29,10 @@ $.ajax({
         // id,start,title,end
         $.each(data.data,function(k,v){
    
-            if(v.start)
+            if(v.startDate)
             {
                 var  event = {
-                    id: v.id, title: v.title, start:moment(v.start).format('YYYY-MM-DD'),end:(v.end)?moment(v.end).format('YYYY-MM-DD'):0
+                    id: v.id, title: v.title, start:moment(v.startDate).format('YYYY-MM-DD'),end:(v.endDate)?moment(v.endDate).format('YYYY-MM-DD'):0
                 };
                 originalEvents.push(event);
             }else{
@@ -115,13 +115,14 @@ eventDrop : function(event,revertFunc)
 
                 if(isEventOverDiv(jsEvent.clientX, jsEvent.clientY)) {
                     $('#calendar').fullCalendar('removeEvents', event._id);
-                    var el = $( "<div class='fc-event'>" ).appendTo( '#external-events-listing' ).text( event.title );
-                    el.draggable({
+                    // var el = $( "<div class='fc-event'>" ).appendTo( '#external-events-listing' ).text( event.title );
+                    $('#external-events-listing').append('<div class="fc-event" id="'+event.id+'">' + event.title + '<span class="fc-event-remove fa fa-remove"></span></div>');
+                    $("#"+event.id).draggable({
                       zIndex: 999,
                       revert: true, 
                       revertDuration: 0 
                     });
-                    el.data('event', { title: event.title, id :event.id, stick: true });
+                    $("#"+event.id).data('event', { title: event.title, id :event.id, stick: true });
                 }
             },
 
