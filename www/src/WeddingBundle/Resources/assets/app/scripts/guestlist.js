@@ -19,81 +19,13 @@
         }
 
 
-
-
 var todayDate = moment().startOf('day');
 	var YM = todayDate.format('YYYY-MM');
 	var YESTERDAY = todayDate.clone().subtract(1, 'day').format('YYYY-MM-DD');
 	var TODAY = todayDate.format('YYYY-MM-DD');
 	var TOMORROW = todayDate.clone().add(1, 'day').format('YYYY-MM-DD');
 
-	$('#calendar').fullCalendar({
-		header: {
-			left: 'prev,next today',
-			center: 'title',
-			right: 'month,agendaWeek,agendaDay,listWeek'
-		},
-        aspectRatio: 2,
-		editable: true,
-		eventLimit: true, // allow "more" link when too many events
-		navLinks: true,
-        // eventRender: function(event, element) {
-        //     element.append( "<span class='fc-event-remove fa fa-remove'></span>" );
-        //     bindEventsUI();
-        // },
-        
-            droppable: true, // this allows things to be dropped onto the calendar
-            dragRevertDuration: 0,
-            drop: function(date, jsEvent, ui, resourceId) {
-                // is the "remove after drop" checkbox checked?
-                // if ($('#drop-remove').is(':checked')) {
-                    // if so, remove the element from the "Draggable Events" list
-                    $(this).remove();
-       
-                // }
-console.log(resourceId);
-console.log($(this));
-updateEvent($(this).attr('id'),date.valueOf(),0);
-            },
-
-//             eventRender: function ( event, element ) {
-//     element.attr( 'id', event.id );
-// },
-eventDrop : function(event,revertFunc)
-{
-
-//    if(event.end){
-//     updateEvent($(this).attr('id'),event.start.valueOf(),event.end.valueOf());
-//    }else{
-//     updateEvent($(this).attr('id'),event.start.valueOf(),0);
-//    }
- 
-},
-            eventResize: function( event, delta, revertFunc, jsEvent, ui, view ) {
-//    if(event.end){
-//     updateEvent($(this).attr('id'),event.start.valueOf(),event.end.valueOf());
-//    }else{
-//     updateEvent($(this).attr('id'),event.start.valueOf(),0);
-//    }
-
-             },
-            eventDragStop: function( event, jsEvent, ui, view ) {
-
-                if(isEventOverDiv(jsEvent.clientX, jsEvent.clientY)) {
-                    $('#calendar').fullCalendar('removeEvents', event._id);
-                    var el = $( "<div class='fc-event'>" ).appendTo( '#external-events-listing' ).text( event.title );
-                    el.draggable({
-                      zIndex: 999,
-                      revert: true, 
-                      revertDuration: 0 
-                    });
-                    el.data('event', { title: event.title, id :event.id, stick: true });
-                }
-            },
-
-
-
-		events: [
+var originalEvents = [
 			{
 				title: 'All Day Event',
 				start: YM + '-01'
@@ -148,7 +80,87 @@ eventDrop : function(event,revertFunc)
 				url: 'http://google.com/',
 				start: YM + '-28'
 			}
-		]
+		];
+
+
+
+	$('#calendar').fullCalendar({
+		header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay,listWeek'
+		},
+        aspectRatio: 2,
+		editable: true,
+		eventLimit: true, // allow "more" link when too many events
+		navLinks: true,
+        // eventRender: function(event, element) {
+        //     element.append( "<span class='fc-event-remove fa fa-remove'></span>" );
+        //     bindEventsUI();
+        // },
+        
+            droppable: true, // this allows things to be dropped onto the calendar
+            dragRevertDuration: 0,
+            drop: function(date, jsEvent, ui, resourceId) {
+                // is the "remove after drop" checkbox checked?
+                // if ($('#drop-remove').is(':checked')) {
+                    // if so, remove the element from the "Draggable Events" list
+                    $(this).remove();
+       
+    // retrieve the dropped element's stored Event Object
+    var eventObject = {
+        id: $(this).attr('id'),
+        date: date
+    };
+    originalEvents.push(eventObject);
+
+   $('#calendar').fullCalendar( 'removeEventSource', originalEvents )
+$('#calendar').fullCalendar( 'addEventSource', originalEvents )
+
+                // }
+// console.log(resourceId);
+// console.log($(this));
+updateEvent($(this).attr('id'),date.valueOf(),0);
+            },
+
+//             eventRender: function ( event, element ) {
+//     element.attr( 'id', event.id );
+// },
+eventDrop : function(event,revertFunc)
+{
+
+   if(event.end){
+    updateEvent(event.id,event.start.valueOf(),event.end.valueOf());
+   }else{
+    updateEvent(event.id,event.start.valueOf(),0);
+   }
+ 
+},
+            eventResize: function( event, delta, revertFunc, jsEvent, ui, view ) {
+   if(event.end){
+    updateEvent(event.id,event.start.valueOf(),event.end.valueOf());
+   }else{
+    updateEvent(event.id,event.start.valueOf(),0);
+   }
+
+             },
+            eventDragStop: function( event, jsEvent, ui, view ) {
+
+                if(isEventOverDiv(jsEvent.clientX, jsEvent.clientY)) {
+                    $('#calendar').fullCalendar('removeEvents', event._id);
+                    var el = $( "<div class='fc-event'>" ).appendTo( '#external-events-listing' ).text( event.title );
+                    el.draggable({
+                      zIndex: 999,
+                      revert: true, 
+                      revertDuration: 0 
+                    });
+                    el.data('event', { title: event.title, id :event.id, stick: true });
+                }
+            },
+
+
+
+		events: originalEvents
 	});
 
 setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);},500);
