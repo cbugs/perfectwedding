@@ -257,7 +257,7 @@ $("#addEventButton").on("click", function(e){
         data: "title="+$("#eventTitle").val(),
         success: function(data)   
         {
-            $("#external-events-listing").append('<div id="'+data.data[0]+'"class="fc-event">' + $("#eventTitle").val() + '<span class="fc-event-remove fa fa-remove"></span></div>');
+            $("#external-events-listing").append('<div id="'+data.data[0].id+'"class="fc-event">' + $("#eventTitle").val() + '<span class="fc-event-remove fa fa-remove"></span></div>');
             bindEventsUI();
      },
         error: function(data)
