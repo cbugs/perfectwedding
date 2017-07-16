@@ -114,8 +114,8 @@ var originalEvents = [
     };
     originalEvents.push(eventObject);
 
-   $('#calendar').fullCalendar( 'removeEventSource', originalEvents )
-$('#calendar').fullCalendar( 'addEventSource', originalEvents )
+   $('#calendar').fullCalendar( 'removeEvents' );
+$('#calendar').fullCalendar( 'addEventSource', originalEvents );
 
                 // }
 // console.log(resourceId);
