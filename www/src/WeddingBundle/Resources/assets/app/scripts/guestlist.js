@@ -28,6 +28,7 @@ $.ajax({
         // $("#getEvents").val("");
         // id,start,title,end
         $.each(data.data,function(k,v){
+            console.log(v);
             if(v.startDate)
             {
                 var  event = {
