@@ -110,6 +110,7 @@ var originalEvents = [
     // retrieve the dropped element's stored Event Object
     var eventObject = {
         id: $(this).attr('id'),
+        title: $(this).text(),
         date: date
     };
     originalEvents.push(eventObject);
