@@ -32,7 +32,7 @@ $.ajax({
             if(v.startDate)
             {
                 var  event = {
-                    id: v.id, title: v.title, start:moment(v.startDate*1000).format(),end:(v.endDate)?moment(v.endDate*1000).format():0
+                    id: v.id, title: v.title, start:moment(v.startDate*1000).format("YYYY-MM-DD"),end:(v.endDate)?moment(v.endDate*1000).format("YYYY-MM-DD"):0
                 };
                 originalEvents.push(event);
             }else{
@@ -97,14 +97,45 @@ updateEvent($(this).attr('id'),date.format('X'),0);
 eventDrop : function(event,revertFunc)
 {
 
+originalEvents = $.grep(originalEvents, function(e){ 
+     return e.id != event.id; 
+});
+
+    // var eventObject = {
+    //     id: event.id,
+    //     title: event.title,
+    //     start: event.start,
+    //     end: event.end
+    // };
+    
+
+ originalEvents.push(event);
+
    if(event.end){
+       
     updateEvent(event.id,event.start.format('X'),event.end.format('X'));
    }else{
     updateEvent(event.id,event.start.format('X'),0);
    }
- 
 },
             eventResize: function( event, delta, revertFunc, jsEvent, ui, view ) {
+
+
+originalEvents = $.grep(originalEvents, function(e){ 
+     return e.id != event.id; 
+});
+
+    // var eventObject = {
+    //     id: event.id,
+    //     title: event.title,
+    //     start: event.start,
+    //     end: event.end
+    // };
+    
+
+ originalEvents.push(event);
+
+
    if(event.end){
     updateEvent(event.id,event.start.format('X'),event.end.format('X'));
    }else{
