@@ -32,7 +32,7 @@ $.ajax({
             if(v.startDate)
             {
                 var  event = {
-                    id: v.id, title: v.title, start:moment(v.startDate).format('YYYY-MM-DD'),end:(v.endDate)?moment(v.endDate).format('YYYY-MM-DD'):0
+                    id: v.id, title: v.title, start:moment(v.startDate).format(),end:(v.endDate)?moment(v.endDate).format():0
                 };
                 originalEvents.push(event);
             }else{
