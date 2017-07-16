@@ -19,68 +19,34 @@
         }
 
 
-var todayDate = moment().startOf('day');
-	var YM = todayDate.format('YYYY-MM');
-	var YESTERDAY = todayDate.clone().subtract(1, 'day').format('YYYY-MM-DD');
-	var TODAY = todayDate.format('YYYY-MM-DD');
-	var TOMORROW = todayDate.clone().add(1, 'day').format('YYYY-MM-DD');
+$.ajax({
+    url: $("#getEvents").val(), 
+    type: 'GET',
+    success: function(data)   
+    {
+        originalEvents = [];
+        $("#getEvents").val("");
+        // id,start,title,end
+        $.each(data.data,function(k,v){
+   
+            if(v.start)
+            {
+                var  event = {
+                    id: v.id, title: v.title, start:moment(v.start).format('YYYY-MM-DD'),end:(v.end)?moment(v.end).format('YYYY-MM-DD'):0
+                };
+                originalEvents.push();
+            }else{
 
-var originalEvents = [
-			{
-				title: 'All Day Event',
-				start: YM + '-01'
-			},
-			{
-				title: 'Long Event',
-				start: YM + '-07',
-				end: YM + '-10'
-			},
-			{
-				id: 999,
-				title: 'Repeating Event',
-				start: YM + '-09T16:00:00'
-			},
-			{
-				id: 999,
-				title: 'Repeating Event',
-				start: YM + '-16T16:00:00'
-			},
-			{
-				title: 'Conference',
-				start: YESTERDAY,
-				end: TOMORROW
-			},
-			{
-				title: 'Meeting',
-				start: TODAY + 'T10:30:00',
-				end: TODAY + 'T12:30:00'
-			},
-			{
-				title: 'Lunch',
-				start: TODAY + 'T12:00:00'
-			},
-			{
-				title: 'Meeting',
-				start: TODAY + 'T14:30:00'
-			},
-			{
-				title: 'Happy Hour',
-				start: TODAY + 'T17:30:00'
-			},
-			{
-				title: 'Dinner',
-				start: TODAY + 'T20:00:00'
-			},
-			{
-				title: 'Birthday Party',
-				start: TOMORROW + 'T07:00:00'
-			},
-			{
-				title: 'Click for Google',
-				url: 'http://google.com/',
-				start: YM + '-28'
-			}
-		];
+            $("#external-events-listing").append('<div class="fc-event" id="'+v.id+'">' + v.title + '<span class="fc-event-remove fa fa-remove"></span></div>');
+            }
+        
+            
+
+        });
+
+
+
+
 
 
 
@@ -166,6 +132,25 @@ eventDrop : function(event,revertFunc)
 
 setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);},500);
 
+
+
+
+
+
+
+
+bindEventsUI();
+
+
+
+    },
+    error: function(data)
+    {
+    },
+});
+
+
+
 function updateEvent(id,start,end)
 {
     $.ajax({
@@ -245,26 +230,7 @@ $("#addEventButton").on("click", function(e){
     });
 });
 
-$.ajax({
-    url: $("#getEvents").val(), 
-    type: 'GET',
-    success: function(data)   
-    {
-        $("#getEvents").val("");
-        $.each(data.data,function(k,v){
-            $("#external-events-listing").append('<div class="fc-event" id="'+v.id+'">' + v.title + '<span class="fc-event-remove fa fa-remove"></span></div>');
-        })
 
-
-bindEventsUI();
-
-
-
-    },
-    error: function(data)
-    {
-    },
-});
 
 
 
