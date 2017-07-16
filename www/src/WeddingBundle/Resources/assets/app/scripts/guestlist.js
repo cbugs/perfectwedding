@@ -45,7 +45,6 @@ var todayDate = moment().startOf('day');
             droppable: true, // this allows things to be dropped onto the calendar
             dragRevertDuration: 0,
             drop: function(date, jsEvent, ui, resourceId) {
-                console.log(date.format('dd/mm/yyyy'));
                 // is the "remove after drop" checkbox checked?
                 // if ($('#drop-remove').is(':checked')) {
                     // if so, remove the element from the "Draggable Events" list
@@ -55,13 +54,19 @@ var todayDate = moment().startOf('day');
 
 
             },
+eventDrop : function(event,revertFunc)
+{
+   var day = event.start.format("dddd"); 
+   console.log(day);
+},
             eventResize: function( event, delta, revertFunc, jsEvent, ui, view ) {
-console.log(event)
+                var day = event.start.format("dddd"); 
+console.log(day)
 
              },
             eventDragStop: function( event, jsEvent, ui, view ) {
-                
-console.log(event);
+                var day = event.start.format("dddd"); 
+console.log(day);
                 if(isEventOverDiv(jsEvent.clientX, jsEvent.clientY)) {
                     $('#calendar').fullCalendar('removeEvents', event._id);
                     var el = $( "<div class='fc-event'>" ).appendTo( '#external-events-listing' ).text( event.title );
