@@ -35,6 +35,7 @@
             <form method="post" id="createEventForm" action="{{ path('create_event') }}">
                 <input type="hidden" id="getEvents" value="{{ path('get_event') }}"/>
                 <input type="hidden" id="deleteEvent" value="{{ path('delete_event') }}"/>
+                <input type="hidden" id="saveEvent" value="{{ path('save_event') }}"/>
                 <div class="form-group">
                     <label for="eventTitle">Email address</label>
                     <input type="text" class="form-control" id="eventTitle" placeholder="Enter Event Name">

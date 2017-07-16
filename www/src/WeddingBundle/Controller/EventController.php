@@ -23,26 +23,23 @@ class EventController extends BaseController
         return $response;
     }
 
-    // public function saveAction(Request $request)
-    // {
-    //   $json_response = array();
-    //   if ($request->getMethod() == 'POST' && $this->getCurrentUser()->getId()) {
-    //       $id = $request->request->get('id'); 
-    //       $em = $this->getDoctrine()->getManager();
-    //       $budget = $em->getRepository('WeddingBundle:Couple\Budget')->findOneBy(array('id'=>$id,'user_id'=>$this->getCurrentUser()->getId()));
-    //       $budget->setName($request->request->get('name'));
-    //       $budget->setEstimatedCost($request->request->get('estimated_cost'));
-    //       $budget->setActual($request->request->get('actual'));
-    //       $budget->setPaid($request->request->get('paid'));
-    //       $budget->setDue($request->request->get('due'));
-    //       $em->persist($budget);
-    //       $em->flush();
-    //       $json_response = array("id"=>$budget->getId());
-    //   }
-    //       $response = new Response(json_encode($json_response));
-    //       $response->headers->set('Content-Type', 'application/json');
-    //       return $response;
-    // }
+    public function saveAction(Request $request)
+    {
+      $json_response = array();
+      if ($request->getMethod() == 'POST' && $this->getCurrentUser()->getId()) {
+          $id = $request->request->get('id'); 
+          $em = $this->getDoctrine()->getManager();
+          $event = $em->getRepository('WeddingBundle:Couple\Event')->findOneBy(array('id'=>$id,'user_id'=>$this->getCurrentUser()->getId()));
+          $event->setStartDate($request->request->get('start'));
+          $event->setEndDate($request->request->get('end'));
+          $em->persist($event);
+          $em->flush();
+          $json_response = array("id"=>$event->getId());
+      }
+          $response = new Response(json_encode($json_response));
+          $response->headers->set('Content-Type', 'application/json');
+          return $response;
+    }
 
     public function createAction(Request $request)
     {

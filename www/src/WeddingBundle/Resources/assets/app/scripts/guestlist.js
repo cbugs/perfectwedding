@@ -49,19 +49,32 @@ var todayDate = moment().startOf('day');
                 // if ($('#drop-remove').is(':checked')) {
                     // if so, remove the element from the "Draggable Events" list
                     $(this).remove();
+       
                 // }
-var day = date.valueOf();
-console.log("drop "+day);
-
+console.log("RID "+resourceId);
+console.log($(this));
+updateEvent($(this).attr('id'),date.valueOf(),0);
             },
+
+//             eventRender: function ( event, element ) {
+//     element.attr( 'id', event.id );
+// },
 eventDrop : function(event,revertFunc)
 {
-   var day = event.start.valueOf();
-   console.log("eventDrop "+day);
+
+//    if(event.end){
+//     updateEvent($(this).attr('id'),event.start.valueOf(),event.end.valueOf());
+//    }else{
+//     updateEvent($(this).attr('id'),event.start.valueOf(),0);
+//    }
+ 
 },
             eventResize: function( event, delta, revertFunc, jsEvent, ui, view ) {
-                var day = event.start.valueOf();
-console.log("eventResize "+day)
+//    if(event.end){
+//     updateEvent($(this).attr('id'),event.start.valueOf(),event.end.valueOf());
+//    }else{
+//     updateEvent($(this).attr('id'),event.start.valueOf(),0);
+//    }
 
              },
             eventDragStop: function( event, jsEvent, ui, view ) {
@@ -140,6 +153,22 @@ console.log("eventResize "+day)
 
 setTimeout(function(){$('#calendar').fullCalendar('option', 'aspectRatio', 1.8);},500);
 
+function updateEvent(id,start,end)
+{
+    $.ajax({
+        url: $("#saveEvent").val(), 
+        type: 'POST',
+        data: "id="+id+"&start="+start+"&end="+end,
+        success: function(data)   
+        {
+            
+        },
+        error: function(data)
+        {
+        },
+    });
+
+}
 
 
 function bindEventsUI(){
