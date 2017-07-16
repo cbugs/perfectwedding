@@ -28,7 +28,6 @@ $.ajax({
         // $("#getEvents").val("");
         // id,start,title,end
         $.each(data.data,function(k,v){
-   console.log(v);
             if(v.startDate)
             {
                 var  event = {
@@ -39,6 +38,7 @@ $.ajax({
 
             $("#external-events-listing").append('<div class="fc-event" id="'+v.id+'">' + v.title + '<span class="fc-event-remove fa fa-remove"></span></div>');
             }
+   console.log(originalEvents);
         
             
 
