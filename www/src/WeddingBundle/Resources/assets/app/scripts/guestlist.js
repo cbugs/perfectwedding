@@ -88,7 +88,7 @@ $('#calendar').fullCalendar( 'addEventSource', originalEvents );
                 // }
 // console.log(resourceId);
 // console.log($(this));
-updateEvent($(this).attr('id'),date.valueOf(),0);
+updateEvent($(this).attr('id'),date.format('X'),0);
             },
 
 //             eventRender: function ( event, element ) {
@@ -98,17 +98,17 @@ eventDrop : function(event,revertFunc)
 {
 
    if(event.end){
-    updateEvent(event.id,event.start.valueOf(),event.end.valueOf());
+    updateEvent(event.id,event.start.format('X'),event.end.format('X'));
    }else{
-    updateEvent(event.id,event.start.valueOf(),0);
+    updateEvent(event.id,event.start.vformat('X'),0);
    }
  
 },
             eventResize: function( event, delta, revertFunc, jsEvent, ui, view ) {
    if(event.end){
-    updateEvent(event.id,event.start.valueOf(),event.end.valueOf());
+    updateEvent(event.id,event.start.format('X'),event.end.format('X'));
    }else{
-    updateEvent(event.id,event.start.valueOf(),0);
+    updateEvent(event.id,event.start.format('X'),0);
    }
 
              },
