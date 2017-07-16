@@ -1,6 +1,6 @@
 ( function($) {
 // Activate Next Step
-
+var originalEvents = [];
         var isEventOverDiv = function(x, y) {
 
             var external_events = $( '#external-events' );
@@ -24,7 +24,7 @@ $.ajax({
     type: 'GET',
     success: function(data)   
     {
-        originalEvents = [];
+        
         $("#getEvents").val("");
         // id,start,title,end
         $.each(data.data,function(k,v){
@@ -34,7 +34,7 @@ $.ajax({
                 var  event = {
                     id: v.id, title: v.title, start:moment(v.start).format('YYYY-MM-DD'),end:(v.end)?moment(v.end).format('YYYY-MM-DD'):0
                 };
-                originalEvents.push();
+                originalEvents.push(event);
             }else{
 
             $("#external-events-listing").append('<div class="fc-event" id="'+v.id+'">' + v.title + '<span class="fc-event-remove fa fa-remove"></span></div>');
