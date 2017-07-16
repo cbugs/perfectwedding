@@ -50,23 +50,22 @@ var todayDate = moment().startOf('day');
                     // if so, remove the element from the "Draggable Events" list
                     $(this).remove();
                 // }
-var day = date.format("dddd"); 
+var day = date.valueOf();
 console.log("drop "+day);
 
             },
 eventDrop : function(event,revertFunc)
 {
-   var day = event.start.format("dddd"); 
+   var day = event.start.valueOf();
    console.log("eventDrop "+day);
 },
             eventResize: function( event, delta, revertFunc, jsEvent, ui, view ) {
-                var day = event.start.format("dddd"); 
+                var day = event.start.valueOf();
 console.log("eventResize "+day)
 
              },
             eventDragStop: function( event, jsEvent, ui, view ) {
-                var day = event.start.format("dddd"); 
-console.log("eventDragStop "+day);
+
                 if(isEventOverDiv(jsEvent.clientX, jsEvent.clientY)) {
                     $('#calendar').fullCalendar('removeEvents', event._id);
                     var el = $( "<div class='fc-event'>" ).appendTo( '#external-events-listing' ).text( event.title );
