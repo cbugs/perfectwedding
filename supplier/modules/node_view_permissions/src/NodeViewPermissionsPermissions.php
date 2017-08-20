@@ -6,7 +6,7 @@
 
 namespace Drupal\node_view_permissions;
 
-use Drupal\Component\Utility\String;
+//use Drupal\Component\Utility\String;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
