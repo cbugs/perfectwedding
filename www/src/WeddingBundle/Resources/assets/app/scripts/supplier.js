@@ -12,13 +12,15 @@ $(document).ready(function() {
   slidesToScroll: 1,
   arrows: false,
   fade: true,
+  dots: false,
   asNavFor: '.slider-supplier-nav'
 });
 $('.slider-supplier-nav').slick({
-  slidesToShow: 3,
+  slidesToShow: 4,
   slidesToScroll: 1,
+  arrows: false,
   asNavFor: '.slider-supplier-for',
-  dots: true,
+  dots: false,
   centerMode: true,
   focusOnSelect: true
 });
