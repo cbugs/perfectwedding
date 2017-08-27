@@ -24,7 +24,7 @@ class SupplierController extends BaseController
     {
         return $this->render(
             'WeddingBundle:Supplier:index.html.twig'
-            //,array('form' => $form->createView())
+            ,array('id' => $id)
         );
     }
 
