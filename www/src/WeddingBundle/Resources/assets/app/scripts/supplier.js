@@ -16,7 +16,7 @@ $(document).ready(function() {
   asNavFor: '.slider-supplier-nav'
 });
 $('.slider-supplier-nav').slick({
-  slidesToShow: 4,
+  slidesToShow: 5,
   slidesToScroll: 1,
   arrows: false,
   asNavFor: '.slider-supplier-for',
@@ -25,5 +25,18 @@ $('.slider-supplier-nav').slick({
   focusOnSelect: true
 });
 
+
+$('#supplier-calendar').fullCalendar({
+        header: {
+        left: 'prev,next',
+        center: 'title',
+        right: ''
+        },
+        allDayDefault: false,
+        selectable: true,
+        selectHelper: true,
+        editable: true,
+        eventLimit: true, // allow "more" link when too many events
+   });
 
 });
