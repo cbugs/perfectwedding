@@ -10,6 +10,10 @@ user_login:
     path:     /login
     defaults: { _controller: WeddingBundle:User:login }
 
+supplier_page:
+    path:     /supplier/{id}
+    defaults: { _controller: WeddingBundle:Supplier:index }
+
 user_confirmation:
     path:     /confirmation/{hash}
     defaults: { _controller: WeddingBundle:User:confirmation }
