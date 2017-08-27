@@ -3,43 +3,49 @@
 {% block title %}Supplier{% endblock %}
 
 {% block body %}
-<div class="container supplier-container">
+<div class="row">
+<div class="col-md-6">
+    <div class="container supplier-container">
 
-<ul class="nav nav-tabs" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" href="#photo" role="tab" data-toggle="tab">Photo</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#buzz" role="tab" data-toggle="tab">buzz</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#references" role="tab" data-toggle="tab">references</a>
-  </li>
-</ul>
+    <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" href="#photo" role="tab" data-toggle="tab">Photo</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#buzz" role="tab" data-toggle="tab">buzz</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#references" role="tab" data-toggle="tab">references</a>
+    </li>
+    </ul>
 
-<!-- Tab panes -->
-<div class="tab-content">
-  <div role="tabpanel" class="tab-pane fade in active show" id="photo">
-  
-  
-   <div class="slider slider-supplier-for">
-    <div><h3><img src='https://dummyimage.com/600x400/000/fff'/></h3></div>
-    <div><h3><img src='https://dummyimage.com/600x400/fff/000'/></h3></div>
-    <div><h3><img src='https://dummyimage.com/600x400/000/fff'/></h3></div>
-    <div><h3><img src='https://dummyimage.com/600x400/fff/000'/></h3></div>
-  </div>
-  <div class="slider slider-supplier-nav">
-    <div><h3><img src='https://dummyimage.com/600x400/000/fff'/></h3></div>
-    <div><h3><img src='https://dummyimage.com/600x400/fff/000'/></h3></div>
-    <div><h3><img src='https://dummyimage.com/600x400/000/fff'/></h3></div>
-    <div><h3><img src='https://dummyimage.com/600x400/fff/000'/></h3></div>
-  </div>
-  
-  </div>
-  <div role="tabpanel" class="tab-pane fade" id="buzz">bbb</div>
-  <div role="tabpanel" class="tab-pane fade" id="references">ccc</div>
+    <!-- Tab panes -->
+    <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active show" id="photo">
+    
+    
+    <div class="slider slider-supplier-for">
+        <div><h3><img src='https://dummyimage.com/600x400/000/fff'/></h3></div>
+        <div><h3><img src='https://dummyimage.com/600x400/fff/000'/></h3></div>
+        <div><h3><img src='https://dummyimage.com/600x400/000/fff'/></h3></div>
+        <div><h3><img src='https://dummyimage.com/600x400/fff/000'/></h3></div>
+    </div>
+    <div class="slider slider-supplier-nav">
+        <div><h3><img src='https://dummyimage.com/600x400/000/fff'/></h3></div>
+        <div><h3><img src='https://dummyimage.com/600x400/fff/000'/></h3></div>
+        <div><h3><img src='https://dummyimage.com/600x400/000/fff'/></h3></div>
+        <div><h3><img src='https://dummyimage.com/600x400/fff/000'/></h3></div>
+    </div>
+    
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="buzz">bbb</div>
+    <div role="tabpanel" class="tab-pane fade" id="references">ccc</div>
+    </div>
+
+    </div>
 </div>
 
+<div class="col-md-6">info</div>
 </div>
 
 {% endblock %}
