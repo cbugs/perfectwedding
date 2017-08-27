@@ -1,2 +1,97 @@
-{{ id }}
-blabla
+{% extends 'WeddingBundle:Regions:base.html.twig' %}
+
+{% block title %}Supplier{% endblock %}
+
+{% block body %}
+<div class="container">
+	<div class="row">
+		<h2>Bootstrap icon Tabs</h2>
+       <div class="row">
+            <div class="board">
+                <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+                <div class="board-inner">
+                    <ul class="nav nav-tabs" id="myTab">
+                        <div class="liner"></div>
+                        <li class="">
+                            <a href="#profile" data-toggle="tab" title="profile" aria-expanded="false">
+                                <span class="round-tabs two">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="#picture" data-toggle="tab" title="picture" aria-expanded="false">
+                                <span class="round-tabs two">
+                                    <i class="glyphicon glyphicon-picture"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="active">
+                            <a href="#video" data-toggle="tab" title="video" aria-expanded="true">
+                                <span class="round-tabs three">
+                                    <i class="glyphicon glyphicon-facetime-video"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="#Event" data-toggle="tab" title="Event" aria-expanded="false">
+                                <span class="round-tabs four">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#Club" data-toggle="tab" title="Club" aria-expanded="false">
+                                <span class="round-tabs four">
+                                    <i class="glyphicon glyphicon-comment"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="">
+                            <a href="#messages" data-toggle="tab" title="messages" aria-expanded="false">
+                                <span class="round-tabs five">
+                                    <i class="glyphicon glyphicon-envelope"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade" id="profile">
+
+                        User Profile
+                    </div>
+                    <div class="tab-pane fade" id="picture">
+                        User Pictures
+
+                    </div>
+                    <div class="tab-pane fade  active in" id="video">
+                      User Video
+
+                    </div>
+                    <div class="tab-pane fade" id="Event">
+                        User Events
+                    </div>
+                    <div class="tab-pane fade" id="Club">
+                       User Club
+                    </div>
+                    <div class="tab-pane fade" id="messages">
+                        User Messages
+                    </div>
+                    
+                   
+                </div>
+            </div>
+        </div>
+
+	</div>
+</div>
+
+{% endblock %}
+
