@@ -33,7 +33,56 @@
                   <small>Activity</small> </h3>
               </li>
             </ul>
-            <button class="btn btn-primary followbtn">Follow</button>
+            <button class="btn btn-primary followbtn" data-toggle="modal" data-target="#exampleModal">Send Enquiry</button>
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Send Enquiry</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	<div class="row">
+	<div class="col-md-7">
+                    <div class="contact_form">
+                    		<h3 class="heading"><strong>Quick</strong> Contact <span></span></h3>
+                            	<div class="con_form">
+                                <form action="action.php?flg=tr" method="post" id="contactFrm" name="contactFrm">
+                                    <input type="text" required="" placeholder="Your Name" value="" tabindex="1" name="name" class="con_txt">
+                                    <input type="text" required="" placeholder="Your Phone No" tabindex="2" value="" name="mobile" class="con_txt">
+                                    <input type="text" required="" placeholder="Your Email" tabindex="3" value="" name="email" class="con_txt">
+                                    
+                                     <textarea placeholder="Your Message" name="message" type="text" class="con_txt_3" tabindex="4"></textarea>
+                                    
+                                    <input type="submit" value="Submit" name="submit" class="con_txt2">
+                                    <input type="submit" value="clear" name="" class="con_txt2">
+                                    
+                				</form>
+                                </div>
+                    	
+                    </div>
+                
+               
+                </div>
+	</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
           </div>
           <div class="clearfix"></div>
         </div>
