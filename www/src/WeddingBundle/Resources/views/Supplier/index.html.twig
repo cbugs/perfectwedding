@@ -45,19 +45,19 @@
       <!-- /.col-md-12 -->
       <div class="col-md-4 col-sm-12 pull-right">
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <h1 class="page-header small">Personal Details</h1>
-            <p class="page-subtitle small">Limited information is visible</p>
-          </div>
-          <div class="col-md-12 photolist">
-            <div class="row">
-              <div class="col-sm-3 col-xs-3"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="" alt=""> </div>
-              <div class="col-sm-3 col-xs-3"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="" alt=""> </div>
-              <div class="col-sm-3 col-xs-3"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="" alt=""> </div>
-              <div class="col-sm-3 col-xs-3"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="" alt=""> </div>
-            </div>
-          </div>
-          <div class="clearfix"></div>
+            <div id="googleMap" style="width:100%;height:400px;"></div>
+
+            <script>
+            function myMap() {
+            var mapProp= {
+                center:new google.maps.LatLng(51.508742,-0.120850),
+                zoom:5,
+            };
+            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            }
+            </script>
+
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdXw4tPFGoRhrnwYs__6omc0hBUabv6Hk&callback=myMap">
         </div>
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -75,50 +75,7 @@
           </div>
           <div class="clearfix"></div>
         </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h1 class="page-header small">What others are saying </h1>
-            <p class="page-subtitle small">Express your self, Express to other</p>
-          </div>
-          <div class="col-md-12">
-            <div class="media">
-              <div class="media-left"> <a href="javascript:void(0)"> <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="media-object"> </a> </div>
-              <div class="media-body">
-                <h4 class="media-heading">Lucky Sans</h4>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio. </div>
-            </div>
-            <div class="media">
-              <div class="media-left"> <a href="javascript:void(0)"> 
-              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="media-object"> </a> </div>
-              <div class="media-body">
-                <h4 class="media-heading">John Doe</h4>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio. </div>
-            </div>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h1 class="page-header small">Recently Connected</h1>
-            <p class="page-subtitle small">You have recemtly connected with 34 friends</p>
-          </div>
-          <div class="col-md-12">
-            <div class="memberblock"> <a href="" class="member"> <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="">
-              <div class="memmbername">Ajay Sriram</div>
-              </a> <a href="" class="member"> <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-              <div class="memmbername">Rajesh Sriram</div>
-              </a> <a href="" class="member"> <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-              <div class="memmbername">Manish Sriram</div>
-              </a> <a href="" class="member"> <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-              <div class="memmbername">Chandra Amin</div>
-              </a> <a href="" class="member"> <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-              <div class="memmbername">John Sriram</div>
-              </a> <a href="" class="member"> <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-              <div class="memmbername">Lincoln Sriram</div>
-              </a> </div>
-          </div>
-          <div class="clearfix"></div>
-        </div>
+
       </div>
       <div class="col-md-8 col-sm-12 pull-left posttimeline">
 
@@ -139,7 +96,7 @@
             <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/fff/000'/></div>
         </div>
 
-
+<br/><br/>
 
         <div class="panel panel-default">
           <div class="panel-body">
