@@ -1,8 +1,3 @@
-dashboard:
-    path:   /home
-    defaults: { _controller: BOBundle:Dashboard:index }
-
-_sonata_admin:
-    resource: .
-    type: sonata_admin
-    prefix: /admin
+admin:
+    path:   /admin
+    defaults: { _controller: BOBundle:Supplier:index }
