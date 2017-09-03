@@ -1,9 +1,9 @@
 services:
 #    bo.example:
 #        class: BOBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
-    admin.category:
-        class: BOBundle\Admin\CategoryAdmin
-        arguments: [~, BOBundle\Entity\Category, ~]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Category }
+# #        arguments: ["@service_id", "plain_value", "%parameter%"]
+#     admin.category:
+#         class: BOBundle\Admin\CategoryAdmin
+#         arguments: [~, BOBundle\Entity\Category, ~]
+#         tags:
+#             - { name: sonata.admin, manager_type: orm, label: Category }
