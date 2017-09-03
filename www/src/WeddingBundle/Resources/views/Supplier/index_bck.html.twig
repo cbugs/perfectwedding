@@ -1,0 +1,195 @@
+{% extends 'WeddingBundle:Regions:base.html.twig' %}
+
+{% block title %}Supplier{% endblock %}
+
+{% block body %}
+<div class="row">
+<div class="col-md-8">
+    <div class="container supplier-container">
+
+    <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" href="#photo" role="tab" data-toggle="tab">Photo</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#about" role="tab" data-toggle="tab">About</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#map" role="tab" data-toggle="tab">Map</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#video" role="tab" data-toggle="tab">Video</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#amenities" role="tab" data-toggle="tab">Amenities</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#reviews" role="tab" data-toggle="tab">Reviews</a>
+    </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active show" id="photo">
+    
+    
+    <div class="slider slider-supplier-for">
+        <div><img class="slider-supplier-for-img" src='https://dummyimage.com/600x400/000/fff'/></div>
+        <div><img class="slider-supplier-for-img" src='https://dummyimage.com/600x400/fff/000'/></div>
+        <div><img class="slider-supplier-for-img" src='https://dummyimage.com/600x400/000/fff'/></div>
+        <div><img class="slider-supplier-for-img" src='https://dummyimage.com/600x400/fff/000'/></div>
+        <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/000/fff'/></div>
+        <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/fff/000'/></div>
+    </div>
+    <div class="slider slider-supplier-nav">
+        <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/000/fff'/></div>
+        <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/fff/000'/></div>
+        <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/000/fff'/></div>
+        <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/fff/000'/></div>
+        <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/000/fff'/></div>
+        <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/fff/000'/></div>
+    </div>
+    
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="about">bbb</div>
+    <div role="tabpanel" class="tab-pane fade" id="map">bbb</div>
+    <div role="tabpanel" class="tab-pane fade" id="video">bbb</div>
+    <div role="tabpanel" class="tab-pane fade" id="amenities">ccc</div>
+    <div role="tabpanel" class="tab-pane fade" id="reviews">ccc</div>
+    </div>
+
+    </div>
+
+
+<div class="container">
+<div class="col-md-12">
+    <div class="form-area">  
+        <form role="form">
+        <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center;">Enquiry Form</h3>
+    				<div class="form-group">
+						<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Phone" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="subject" name="subject" placeholder="Date" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="subject" name="subject" placeholder="Number of guests" required>
+					</div>
+                    <div class="form-group">
+                    <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+                        <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>                    
+                    </div>
+            
+        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Send Enquiry</button>
+        </form>
+    </div>
+</div>
+</div>
+
+
+</div>
+
+<div class="col-md-4">
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+
+            <div class="card hovercard">
+                <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+                    <img alt="" src="http://lorempixel.com/100/100/people/9/">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <a target="_blank" href="http://scripteden.com/">Script Eden</a>
+                    </div>
+                    <div class="desc">Passionate designer</div>
+                    <div class="desc">Curious developer</div>
+                    <div class="desc">Tech geek</div>
+                </div>
+                <div class="bottom">
+                    <a class="btn btn-sc btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-sc btn-danger btn-sm" rel="publisher"
+                       href="https://plus.google.com/+ahmshahnuralam">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                    <a class="btn btn-sc btn-primary btn-sm" rel="publisher"
+                       href="https://plus.google.com/shahnuralam">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a class="btn btn-sc btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
+                        <i class="fa fa-behance"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+<div id='supplier-calendar'></div>
+</div>
+
+<div class="row">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Time</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Wednesday</th>
+      <td>(07:00 a.m - 10:00 a.m)</td>
+      
+      
+    </tr>
+    <tr>
+      <th scope="row">Thursday</th>
+      <td>(07:00 a.m - 10:00 a.m)</td>
+      
+      
+    </tr>
+    <tr>
+      <th scope="row">Friday</th>
+      <td>(07:00 a.m - 10:00 a.m)</td>
+      
+      
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+</div>
+</div>
+
+{% endblock %}
+
