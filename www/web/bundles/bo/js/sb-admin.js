@@ -82,7 +82,12 @@ console.log("maping");
             document.getElementById("long").value = event.latLng.lng();
             infoWindow.open(map, marker);
         });
+
+    $('#datatable').dataTable();
     
+     $("[data-toggle=tooltip]").tooltip();
+
+
 
 
 
