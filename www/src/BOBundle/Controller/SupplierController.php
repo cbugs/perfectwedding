@@ -10,6 +10,7 @@ class SupplierController extends BaseController
 {
     public function indexAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
         $id =21;
         $user = $em->getRepository('WeddingBundle:User\Supplier')->find($id);
         return $this->render('BOBundle:Supplier:index.html.twig',array(
