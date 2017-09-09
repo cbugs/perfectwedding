@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SupplierController extends BaseController
 {
-    public function indexAction($id)
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $id =21;
