@@ -33,13 +33,13 @@ class UserController extends BaseController
             // $role = $em->getRepository('WeddingBundle:User\Roles')->find((int)$data);
             // if($role->getName()=="Wedding Supplier"){$user = new Supplier();}
             // if($role->getName()=="Couple"){$user = new Couple();}
-           // $user = new Couple();
-           $user = new Supplier();
+            $user = new Couple();
+          // $user = new Supplier();
         }
 
         //Build the form
-       // $form = $this->createForm(RegisterForm::class, ($user==null?new Couple():$user), array("roles" => self::getRolesList()));
-$form = $this->createForm(RegisterForm::class, ($user==null?new Supplier():$user), array("roles" => self::getRolesList()));
+        $form = $this->createForm(RegisterForm::class, ($user==null?new Couple():$user), array("roles" => self::getRolesList()));
+//$form = $this->createForm(RegisterForm::class, ($user==null?new Supplier():$user), array("roles" => self::getRolesList()));
         //Handle the submit (will only happen on POST)
         $form->handleRequest($request);
         if ($form->isSubmitted()) {

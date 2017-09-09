@@ -26,78 +26,102 @@ class Supplier extends User
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $name;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
     private $avatar;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $phone;
+    private $cover;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $longitude;
   
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $url;
+    private $latitude;
   
     /**
-     * @ORM\Column(type="string", length=75, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $address;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $contact;
+
+    /**
+     * @ORM\Column(type="string", length=1024, nullable=true)
+     */
+    private $opening_hours;
+
     // other properties and methods
 
-    public function getName()
-    {
-        return $this->name;
-    }
+  	public function getId(){
+		return $this->id;
+	}
 
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
+	public function setId($id){
+		$this->id = $id;
+	}
 
-    public function getAvatar()
-    {
-        return $this->avatar;
-    }
+	public function getAvatar(){
+		return $this->avatar;
+	}
 
-    public function setAvatar($avatar)
-    {
-        $this->avatar = $avatar;
-    }
+	public function setAvatar($avatar){
+		$this->avatar = $avatar;
+	}
 
-    public function getPhone()
-    {
-        return $this->phone;
-    }
+	public function getCover(){
+		return $this->cover;
+	}
 
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-    }
-    
-    public function getUrl()
-    {
-        return $this->url;
-    }
+	public function setCover($cover){
+		$this->cover = $cover;
+	}
 
-    public function setUrl($url)
-    {
-        $this->phone = $url;
-    }
-    
-    public function getAddress()
-    {
-        return $this->address;
-    }
+	public function getLongitude(){
+		return $this->longitude;
+	}
 
-    public function setAddress($address)
-    {
-        $this->phone = $address;
-    }
+	public function setLongitude($longitude){
+		$this->longitude = $longitude;
+	}
+
+	public function getLatitude(){
+		return $this->latitude;
+	}
+
+	public function setLatitude($latitude){
+		$this->latitude = $latitude;
+	}
+
+	public function getAddress(){
+		return $this->address;
+	}
+
+	public function setAddress($address){
+		$this->address = $address;
+	}
+
+	public function getContact(){
+		return $this->contact;
+	}
+
+	public function setContact($contact){
+		$this->contact = $contact;
+	}
+
+	public function getOpening_hours(){
+		return $this->opening_hours;
+	}
+
+	public function setOpening_hours($opening_hours){
+		$this->opening_hours = $opening_hours;
+	}
 
 }
