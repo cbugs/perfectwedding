@@ -61,15 +61,14 @@
 // }
 
 document.addEventListener('DOMContentLoaded', () => {
-    var map;
-    function initialize() {
+
         var myLatlng = new google.maps.LatLng(40.713956, -74.006653);
         var myOptions = {
             zoom: 8,
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
         var marker = new google.maps.Marker({
             draggable: true,
             position: myLatlng,
@@ -81,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById("long").value = event.latLng.lng();
             infoWindow.open(map, marker);
         });
-    }
-    google.maps.event.addDomListener(window, "load", initialize());
+    
+    
 
 
 
