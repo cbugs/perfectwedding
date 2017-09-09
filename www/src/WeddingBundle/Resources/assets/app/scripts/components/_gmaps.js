@@ -60,7 +60,7 @@
 //     });
 // }
 
-
+document.addEventListener('DOMContentLoaded', () => {
     var map;
     function initialize() {
         var myLatlng = new google.maps.LatLng(40.713956, -74.006653);
@@ -86,3 +86,4 @@
 
 
 
+});
