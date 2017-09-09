@@ -1,5 +1,5 @@
 admin:
-    path:   /supplier/{id}
+    path:   /supplier
     defaults: { _controller: BOBundle:Supplier:index }
 
 admin_save:
