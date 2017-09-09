@@ -11,4 +11,10 @@ class SupplierController extends Controller
     {
         return $this->render('BOBundle:Supplier:index.html.twig');
     }
+
+    public function productsAction($id)
+    {
+        return $this->render('BOBundle:Supplier:products.html.twig');
+    }
+
 }

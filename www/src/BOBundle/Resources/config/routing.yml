@@ -1,3 +1,7 @@
 admin:
     path:   /supplier/{id}
     defaults: { _controller: BOBundle:Supplier:index }
+
+admin_products:
+    path:   /supplier/products/{id}
+    defaults: { _controller: BOBundle:Supplier:products }
