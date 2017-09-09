@@ -3,7 +3,7 @@ admin:
     defaults: { _controller: BOBundle:Supplier:index }
 
 admin_save:
-    path:   /supplier/products/save/{id}
+    path:   /supplier/products/save
     defaults: { _controller: BOBundle:Supplier:save }
 
 admin_products:
