@@ -47,7 +47,7 @@ $em = $this->getDoctrine()->getManager();
             $em->flush();
         }
 
-        return $this->redirectToRoute('admin');
+        return $this->redirectToRoute($this->generateUrl('admin',array('id'=>$id)));
     }
 
 }
