@@ -14,8 +14,9 @@ class SupplierController extends BaseController
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+       
+        if(!$this->getCurrentUser()->getId()){throw new NotFoundHttpException('Sorry not found!');}
         $id = $this->getCurrentUser()->getId();
-        if(!$id){throw new NotFoundHttpException('Sorry not found!');}
         $user = $em->getRepository('WeddingBundle:User\Supplier')->find($id);
         return $this->render('BOBundle:Supplier:index.html.twig',array(
             'name' => $user->getUsername(),
