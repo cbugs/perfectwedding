@@ -23,7 +23,7 @@ class BaseController extends Controller
         $params['id'] = $this->getCurrentUser()->getId();
         $stmt = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $stmt->execute($params);
-        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+        return $stmt->fetchAll();
     }
 
     public static function callAPI($method, $url, $data = false)
