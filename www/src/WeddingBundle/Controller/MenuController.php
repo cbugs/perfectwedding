@@ -39,8 +39,8 @@ class MenuController extends BaseController
                 'listing' => '/listing',
             ),
         );
-        $currentUser = $this->getCurrentUser();
-        if($currentUser == null){$loggedIn = 0;}else{$loggedIn = 1;var_dump($this->getCurrentRole());}
+        $currentUser = $this->getCurrentUser();//
+        if($currentUser == null){$loggedIn = 0;}else{$loggedIn = 1;}
         return $this->render('WeddingBundle:Menu:main.html.twig', array(
             'menuList' => $menuList, 'loggedIn' => $loggedIn
         ));
