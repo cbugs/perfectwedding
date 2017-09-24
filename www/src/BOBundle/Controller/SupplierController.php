@@ -15,7 +15,7 @@ class SupplierController extends BaseController
     {
         $em = $this->getDoctrine()->getManager();
        
-        if(!$this->getCurrentUser()){throw new NotFoundHttpException('Sorry not found!');}
+        if(!$this->getCurrentUser()){ return $this->redirectToRoute('wedding_homepage');}
         $id = $this->getCurrentUser()->getId();
         $user = $em->getRepository('WeddingBundle:User\Supplier')->find($id);
         return $this->render('BOBundle:Supplier:index.html.twig',array(
