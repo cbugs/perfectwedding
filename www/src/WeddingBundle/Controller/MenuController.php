@@ -40,7 +40,7 @@ class MenuController extends BaseController
             ),
         );
         $currentUser = $this->getCurrentUser();//
-        if($currentUser == null){$loggedIn = 0;}else{$loggedIn = 1;var_dump($currentUser->getRoles());exit;}
+        if($currentUser == null){$loggedIn = 0;}else{$loggedIn = 1;var_dump($currentUser->getId());exit;}
         return $this->render('WeddingBundle:Menu:main.html.twig', array(
             'menuList' => $menuList, 'loggedIn' => $loggedIn
         ));
