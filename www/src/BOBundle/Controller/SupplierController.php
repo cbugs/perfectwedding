@@ -7,13 +7,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use WeddingBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class SupplierController extends BaseController
 {
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $id =21;
+        $id = $this->getCurrentUser()->getId();
+        if(!$id){throw new NotFoundHttpException('Sorry not found!');}
         $user = $em->getRepository('WeddingBundle:User\Supplier')->find($id);
         return $this->render('BOBundle:Supplier:index.html.twig',array(
             'name' => $user->getUsername(),
