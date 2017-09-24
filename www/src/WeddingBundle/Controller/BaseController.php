@@ -17,6 +17,15 @@ class BaseController extends Controller
         return $this->user;
     }
 
+    public function getCurrentRole()
+    {
+        $sql = "SELECT dtype FROM user WHERE id = :id";
+        $params['id'] = getCurrentUser()->getId();
+        $stmt = $this->entityManager->getConnection()->prepare($sql);
+        $stmt->execute($params);
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+
     public static function callAPI($method, $url, $data = false)
     {
         $url = 'http://perfectwedding.4dcubes.com/supplier'.$url;
