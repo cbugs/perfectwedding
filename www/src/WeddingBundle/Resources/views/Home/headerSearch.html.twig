@@ -7,7 +7,7 @@
         <label class="hidden" for="searchForm-select-category" aria-hidden="false">Select Category</label>
         <select class="form-control col-md-4 col-sm-12 home__headerSearchForm_select" id="searchForm-select-category"
                 name="category" required>
-                <option value="all">Select Category</option>
+                <option value="">Select Category</option>
                 {% for cat in category %}
                   <option value={{ cat['tid'] }}>{{ cat['name'] }}</option>
                 {% endfor %}
@@ -15,7 +15,7 @@
         <label class="hidden" for="searchForm-input-location-autocomplete" aria-hidden="false">Search or Browse for a location</label>
         <select class="form-control col-md-4 col-sm-12 home__headerSearchForm_select" id="searchForm-select-category"
                 name="location" required>
-                <option value="all">Select Location</option>
+                <option value="">Select Location</option>
                 {% for loc in location %}
                   <option value={{ loc['tid'] }}>{{ loc['name'] }}</option>
                 {% endfor %}
