@@ -1,89 +1,100 @@
-{% extends 'WeddingBundle:Regions:base.html.twig' %}
+{% extends 'WeddingBundle:Regions:base.html.twig' %} 
+{% block title %}Register{% endblock %} 
+{% block body %} 
 
-{% block title %}Register{% endblock %}
+  {% if error %}
+  <div class="alert text-center alert-danger">
+    Wrong Username / Password
+  </div>
+  {% endif %} 
 
-{% block body %}
-{% if error %}
-    <div class="alert text-center alert-danger">
-      Wrong Username / Password
-    </div>
-{% endif %}
+  {% if success %}
+  <div class="alert text-center alert-success">
+    <strong>Congrats!</strong> Registration Successful. Check your email to confirm registration.
+  </div>
+  {% endif %} 
 
-{% if success %}
-    <div class="alert text-center alert-success">
-      <strong>Congrats!</strong> Registration Successful. Check your email to confirm registration.
-    </div>
-{% endif %}
-
-{% if confirmation %}
+  {% if confirmation %}
     <div class="alert text-center alert-success">
       <strong>Great!</strong> Email confirmed successfully.
     </div>
-{% endif %}
+ {% endif %} 
 
-{% if inactive %}
-    <div class="alert text-center alert-danger">
-      Please confirm your email before you can login.
-    </div>
-{% endif %}
+ {% if inactive %}
+  <div class="alert text-center alert-danger">
+    Please confirm your email before you can login.
+  </div>
+ {% endif %}
+  
+  <div class="form-login">
 
-<div class="form-login">
-      
-      <ul class="tab-group-login">
-        <li class="tab active"><a href="#signup">Sign Up</a></li>
-        <li class="tab"><a href="#login">Log In</a></li>
-      </ul>
-      
-      <div class="tab-content-login">
-        <div id="signup">   
-          <h1 class="h1-login">Sign Up for Free</h1>
-          
-          <form name="register_form" action="{{ path('user_register') }}" method="post">
+    <ul class="tab-group-login">
+      <li class="tab active"><a href="#signup">Sign Up</a></li>
+      <li class="tab"><a href="#login">Log In</a></li>
+    </ul>
+
+    <div class="tab-content-login">
+
+      <div id="signup">
+
+        <h1 class="h1-login">Sign Up for Free</h1>
+
+        <form name="register_form" action="{{ path('user_register') }}" method="post">
 
           <div class="field-wrap-login">
-            <input placeholder="Couple Name *" class="input-login" name="register_form[username]" type="text" required autocomplete="off"/>
+            <input type="radio" checked="checked" value="couple" name="role"> Couple
+            <input type="radio" value="supplier" name="role"> Supplier
+          </div>
+
+          <div class="field-wrap-login">
+            <input placeholder="Username *" class="input-login" name="register_form[username]" type="text" required autocomplete="off"/>
           </div>
 
           <div class="field-wrap-login">
             <input class="input-login" placeholder="Email Address *" type="email" name="register_form[email]" required autocomplete="off"/>
           </div>
-          
+
           <div class="field-wrap-login">
             <input class="input-login" placeholder="Password *" type="password" required name="register_form[plainPassword][first]" autocomplete="off"/>
           </div>
-        
+
           <div class="field-wrap-login">
             <input class="input-login" placeholder="Confirm Password *" type="password" required name="register_form[plainPassword][second]" autocomplete="off"/>
           </div>
 
           <button type="submit" class="button-login button-block-login"/>Get Started</button>
-          <input type="hidden" name="register_form[roles]" value="9" />
-          </form>
 
-        </div>
-        
-        <div id="login">   
-          <h1 class="h1-login">Welcome Back!</h1>
-          
-          <form action="{{ path('user_login') }}" name="login_form" method="post">
-          
-            <div class="field-wrap-login">
+          <input type="hidden" name="register_form[roles]" value="9"/>
+
+        </form>
+
+      </div>
+
+      <div id="login">
+
+        <h1 class="h1-login">Welcome Back!</h1>
+
+        <form action="{{ path('user_login') }}" name="login_form" method="post">
+
+          <div class="field-wrap-login">
             <input class="input-login" placeholder="Username *" type="text" id="username" name="username" required autocomplete="off"/>
           </div>
-          
+
           <div class="field-wrap-login">
             <input class="input-login" placeholder="Password *" type="password" required id="password" name="password" autocomplete="off"/>
           </div>
-          
-          <p class="forgot-login"><a href="#">Forgot Password?</a></p>
-          
-          <button class="button-login button-block-login"/>Log In</button>
-          
-          </form>
 
-        </div>
+          <p class="forgot-login">
+            <a href="#">Forgot Password?</a>
+          </p>
+
+          <button class="button-login button-block-login"/>Log In</button>
+
+        </form>
+
+      </div>
+
+    </div>
         
-      </div><!-- tab-content -->
-      <div class="text-center p-3"><a href="/supplier">Are you a Supplier?</a></div>
-</div> <!-- /form -->
+  </div>
 {% endblock %}

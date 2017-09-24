@@ -8,5 +8,5 @@ parameters:
     mailer_transport: smtp
     mailer_host: mail.4dcubes.com
     mailer_user: info@4dcubes.com
-    mailer_password: info@4dcubes.com
+    mailer_password: Pa2105so
     secret: ThisTokenIsNotSoSecretChangeIt

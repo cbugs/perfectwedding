@@ -19,9 +19,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 
 class UserController extends BaseController
 {
-    /**
-     * @Route("/register", name="user_register")
-     */
+
     public function registerAction(Request $request)
     {
         $currentUser = $this->getCurrentUser();
@@ -29,16 +27,16 @@ class UserController extends BaseController
         $em = $this->getDoctrine()->getManager();
         $user = null;
         if ($request->getMethod() == 'POST') {
-            // $data = $request->request->get('register_form')['roles'];
-            // $role = $em->getRepository('WeddingBundle:User\Roles')->find((int)$data);
-            // if($role->getName()=="Wedding Supplier"){$user = new Supplier();}
-            // if($role->getName()=="Couple"){$user = new Couple();}
-            $user = new Couple();
-          // $user = new Supplier();
+            $role = $request->request->get('role');
+            if($role=="supplier"){$user = new Supplier();}
+            if($role=="couple"){$user = new Couple();}
         }
 
+        $form = $this->createForm(RegisterForm::class, ($user==null?new User():$user), array("roles" => self::getRolesList()));
+        if($role=="supplier"){$form = $this->createForm(RegisterForm::class, ($user==null?new Supplier():$user), array("roles" => self::getRolesList()));}
+        if($role=="couple"){$form = $this->createForm(RegisterForm::class, ($user==null?new Couple():$user), array("roles" => self::getRolesList()));}
+        
         //Build the form
-        $form = $this->createForm(RegisterForm::class, ($user==null?new Couple():$user), array("roles" => self::getRolesList()));
 //$form = $this->createForm(RegisterForm::class, ($user==null?new Supplier():$user), array("roles" => self::getRolesList()));
         //Handle the submit (will only happen on POST)
         $form->handleRequest($request);
@@ -48,7 +46,9 @@ class UserController extends BaseController
             $password = $this->get('security.password_encoder')
                 ->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
+            if($role=="couple"){
             $user->setName($user->getUsername());
+            }
             $user->setUsername($user->getEmail());
 
             //Save the User!
@@ -60,9 +60,14 @@ class UserController extends BaseController
 
             $confirmation = new Confirmation($user->getId());
             $em->persist($confirmation);
-            $em->flush();            
-
-            self::sendRegistrationEmail($user->getName(),$user->getEmail(),$confirmation->getValue());
+            $em->flush();    
+            if($role=="couple"){
+                $n = $user->getName();
+            }else{
+                $n = 'Wedding Supplier';
+            }        
+            
+            self::sendRegistrationEmail($n,$user->getEmail(),$confirmation->getValue());
 
             return $this->redirectToRoute('user_login',array("register"=>"success"));
         }

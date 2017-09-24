@@ -60,14 +60,6 @@ class Supplier extends User
 
     // other properties and methods
 
-  	public function getId(){
-		return $this->id;
-	}
-
-	public function setId($id){
-		$this->id = $id;
-	}
-
 	public function getAvatar(){
 		return $this->avatar;
 	}
