@@ -21,7 +21,7 @@ class BaseController extends Controller
     {
         $sql = "SELECT dtype FROM user WHERE id = :id";
         $params['id'] = $this->getCurrentUser()->getId();
-        $stmt = $this->entityManager->getConnection()->prepare($sql);
+        $stmt = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $stmt->execute($params);
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
