@@ -23,7 +23,8 @@ class BaseController extends Controller
         $params['id'] = $this->getCurrentUser()->getId();
         $stmt = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $stmt->execute($params);
-        return $stmt->fetchAll();
+        $res = $stmt->fetchAll();
+        return $res[0]['dtype'];
     }
 
     public static function callAPI($method, $url, $data = false)
