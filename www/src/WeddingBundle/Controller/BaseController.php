@@ -20,7 +20,7 @@ class BaseController extends Controller
     public function getCurrentRole()
     {
         $sql = "SELECT dtype FROM user WHERE id = :id";
-        $params['id'] = getCurrentUser()->getId();
+        $params['id'] = $this->getCurrentUser()->getId();
         $stmt = $this->entityManager->getConnection()->prepare($sql);
         $stmt->execute($params);
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
