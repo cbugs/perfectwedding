@@ -19,6 +19,11 @@ class ListingController extends BaseController
     if(isset($_GET['category']) && !empty($_GET['category'])){
       $url .= 'category_tid='.$_GET['category'];
     }
+    if(isset($_GET['price_min']) && !empty($_GET['price_min']) && isset($_GET['price_max']) && !empty($_GET['price_max'])){
+      $url .= '&price[min]='.$_GET['price_min'].'&price[max]='.$_GET['price_max'];
+    }
+
+
     $apiData = BaseController::callAPI('GET',$url);
     $results = json_decode($apiData, true);//var_dump('/search_product?location_tid='.$_GET['location'].'&category_tid='.$_GET['category']);exit;
     
