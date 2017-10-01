@@ -25,13 +25,13 @@ class SupplierController extends BaseController
       
         $apiData = BaseController::callAPI('GET','/get_product_uid?nid='.$id);
         $supplier_uid = json_decode($apiData, true);
-        var_dump($supplier_uid);
+        var_dump($supplier_uid);echo "===========+++++++++++++++++++==============";
         $apiData = BaseController::callAPI('GET','/get_supplier?uid=21');
         $supplier_details = json_decode($apiData, true);
-      var_dump($supplier_details);
+      var_dump($supplier_details);echo "===========+++++++++++++++++++==============";
         $apiData = BaseController::callAPI('GET','/get_supplier_products?uid=21');
         $supplier_products = json_decode($apiData, true);
-      var_dump($supplier_products);exit;
+      var_dump($supplier_products);echo "===========+++++++++++++++++++==============";exit;
 
         return $this->render(
             'WeddingBundle:Supplier:index.html.twig'
