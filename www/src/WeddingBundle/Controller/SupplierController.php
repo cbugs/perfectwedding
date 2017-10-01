@@ -47,7 +47,7 @@ class SupplierController extends BaseController
         $return = array (
           's_address' => isset($supplier_details[0]['field_a']['value'])?$supplier_details[0]['field_a']['value']:'',
           's_name' => isset($supplier_details[0]['field_company_name'][0])?$supplier_details[0]['field_company_name'][0]['value']:'',
-          's_email' => $supplier_details[0]['mail'][0]['value'],
+          's_email' => isset($supplier_details[0]['mail'][0])?$supplier_details[0]['mail'][0]['value']:'',
           's_image' => isset($supplier_details[0]['user_picture'][0])?$supplier_details[0]['user_picture'][0]['value']:'',
           's_products' => $s_products
         );
