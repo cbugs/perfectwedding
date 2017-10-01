@@ -34,6 +34,7 @@ class SupplierController extends BaseController
         $supplier_products = json_decode($apiData, true);
         
         $s_products = array();
+      var_dump($supplier_uid);
       var_dump($supplier_details);exit;
         foreach($supplier_products as $supplier_product)
         {
