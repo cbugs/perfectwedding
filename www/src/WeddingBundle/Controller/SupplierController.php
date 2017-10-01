@@ -25,13 +25,34 @@ class SupplierController extends BaseController
       
         $apiData = BaseController::callAPI('GET','/get_product_uid?nid='.$id);
         $supplier_uid = json_decode($apiData, true);
-        var_dump($supplier_uid);echo "===========+++++++++++++++++++==============";
-        $apiData = BaseController::callAPI('GET','/get_supplier?uid=21');
+        $supplier_uid = $supplier_uid[0]['uid'][0]['target_id'];
+
+        $apiData = BaseController::callAPI('GET','/get_supplier?uid='.$supplier_uid);
         $supplier_details = json_decode($apiData, true);
-      var_dump($supplier_details);echo "===========+++++++++++++++++++==============";
-        $apiData = BaseController::callAPI('GET','/get_supplier_products?uid=21');
+
+        $apiData = BaseController::callAPI('GET','/get_supplier_products?uid='.$supplier_uid);
         $supplier_products = json_decode($apiData, true);
-      var_dump($supplier_products);echo "===========+++++++++++++++++++==============";exit;
+        
+        $s_products = array();
+      
+        foreach($supplier_products in $supplier_product)
+        {
+         $s_products[] = array(
+          'image' => $supplier_product->field_product_image[0]->url,
+          'title' => $supplier_product->title[0]->value,
+          'price' => $supplier_product->field_product_price[0]->value
+         );
+        }
+      
+        $return = array (
+          's_address' => $supplier_details[0]->field_a[0]->value,
+          's_name' => isset($supplier_details[0]->field_company_name[0])?$supplier_details[0]->field_company_name[0]->value:'',
+          's_email' => $supplier_details[0]->mail[0]->value,
+          's_image' => isset($supplier_details[0]->user_picture[0])?$supplier_details[0]->user_picture[0]->value:'',
+          's_products' => $products
+        );
+      
+      var_dump($return);
 
         return $this->render(
             'WeddingBundle:Supplier:index.html.twig'
