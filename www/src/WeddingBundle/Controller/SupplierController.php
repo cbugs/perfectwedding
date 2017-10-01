@@ -32,7 +32,7 @@ class SupplierController extends BaseController
 
         $apiData = BaseController::callAPI('GET','/get_supplier_products?uid='.$supplier_uid);
         $supplier_products = json_decode($apiData, true);
-        
+        var_dump($supplier_details);exit;
         $s_products = array();
    
         foreach($supplier_products as $supplier_product)
