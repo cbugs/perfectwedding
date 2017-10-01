@@ -10,8 +10,14 @@
       <div class="col-md-12 text-center ">
         <div class="panel panel-default">
           <div class="userprofile social ">
-            <div class="userpic"> <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" class="userpicimg"> </div>
-            <h3 class="username">The Empire</h3>
+            <div class="userpic">
+            {% if s_image is empty %}
+            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" class="userpicimg"> 
+            {% else %}
+            <img src="{{ s_image }}" alt="" class="userpicimg"> 
+            {% endif %}
+            </div>
+            <h3 class="username">{{ s_title }}</h3>
            {# <div class="socials tex-center"> <a href="" class="btn btn-circle btn-primary ">
             <i class="fa fa-facebook"></i></a> <a href="" class="btn btn-circle btn-danger ">
             <i class="fa fa-google-plus"></i></a> <a href="" class="btn btn-circle btn-info ">
@@ -30,7 +36,7 @@
                 <h3>5000   <span class="fa fa-frown-o ml-3"></span></h3>
               </li>#}
             </ul>
-            <button class="btn btn-primary followbtn" data-toggle="modal" data-target="#myModal">Send Enquiry</button>
+            <a href="mailto:{{ s_email }}" class="btn btn-primary followbtn" >Send Enquiry</a>
 
 
 
@@ -88,6 +94,7 @@
       <!-- /.col-md-12 -->
       <div class="col-md-4 col-sm-12 pull-right">
         <div class="panel panel-default">
+        {% if s_address is empty %} set s_address = 'Port-Louis' {% endif; %}
             <div id="googleMap" style="width:100%;height:400px;"></div>
 <input type="hidden" value="{{ s_address }}, Mauritius" id="address-supplier"/>
             <script>
