@@ -36,19 +36,19 @@ class SupplierController extends BaseController
         $s_products = array();
       
         foreach($supplier_products as $supplier_product)
-        {var_dump($supplier_product['title'][0]['value']);exit;
+        {
          $s_products[] = array(
-          'image' => isset($supplier_product->field_product_image[0])?$supplier_product->field_product_image[0]->url:'',
-          'title' => $supplier_product->title[0]->value,
-          'price' => $supplier_product->field_product_price[0]->value
+          'image' => isset($supplier_product['field_product_image'][0]['url'])?$supplier_product['field_product_image'][0]['url']:'',
+          'title' => $supplier_product['title'][0]['value'],
+          'price' => isset($supplier_product['field_product_price'][0]['value'])?$supplier_product['field_product_price'][0]['value']:''
          );
         }
       
         $return = array (
-          's_address' => $supplier_details[0]->field_a[0]->value,
-          's_name' => isset($supplier_details[0]->field_company_name[0])?$supplier_details[0]->field_company_name[0]->value:'',
-          's_email' => $supplier_details[0]->mail[0]->value,
-          's_image' => isset($supplier_details[0]->user_picture[0])?$supplier_details[0]->user_picture[0]->value:'',
+          's_address' => $supplier_details[0]['field_a']['value'],
+          's_name' => isset($supplier_details[0]['field_company_name'][0])?$supplier_details[0]['field_company_name'][0]['value']:'',
+          's_email' => $supplier_details[0]['mail'][0]['value'],
+          's_image' => isset($supplier_details[0]['user_picture'][0])?$supplier_details[0]['user_picture'][0]['value']:'',
           's_products' => $products
         );
       
