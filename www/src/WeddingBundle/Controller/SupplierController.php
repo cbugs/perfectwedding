@@ -56,7 +56,7 @@ class SupplierController extends BaseController
 
         return $this->render(
             'WeddingBundle:Supplier:index.html.twig'
-            ,array('id' => $id)
+            ,$return
         );
     }
 
