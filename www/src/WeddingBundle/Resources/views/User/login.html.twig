@@ -41,7 +41,7 @@
 
         <form name="register_form" action="{{ path('user_register') }}" method="post">
 
-          <div class="field-wrap-login">
+          <div style="display:none;" class="field-wrap-login">
             <input type="radio" checked="checked" value="couple" name="role"> Couple
             <input type="radio" value="supplier" name="role"> Supplier
           </div>
@@ -85,7 +85,7 @@
           </div>
 
           <p class="forgot-login">
-            <a href="#">Forgot Password?</a>
+         <!--   <a href="#">Forgot Password?</a> -->
           </p>
 
           <button class="button-login button-block-login"/>Log In</button>
