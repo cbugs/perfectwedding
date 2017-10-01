@@ -36,9 +36,9 @@ class SupplierController extends BaseController
         $s_products = array();
       
         foreach($supplier_products as $supplier_product)
-        {
+        {var_dump($supplier_product);exit;
          $s_products[] = array(
-          'image' => isset($supplier_details[0]->field_product_image[0])?$supplier_details[0]->field_product_image[0]->url:'',
+          'image' => isset($supplier_product->field_product_image[0])?$supplier_product->field_product_image[0]->url:'',
           'title' => $supplier_product->title[0]->value,
           'price' => $supplier_product->field_product_price[0]->value
          );
