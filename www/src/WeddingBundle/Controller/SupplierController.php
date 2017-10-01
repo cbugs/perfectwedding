@@ -35,7 +35,7 @@ class SupplierController extends BaseController
         
         $s_products = array();
       
-        foreach($supplier_products in $supplier_product)
+        foreach($supplier_products as $supplier_product)
         {
          $s_products[] = array(
           'image' => $supplier_product->field_product_image[0]->url,
