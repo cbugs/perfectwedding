@@ -52,7 +52,7 @@ class SupplierController extends BaseController
           's_products' => $s_products
         );
       
-      var_dump($return);
+    //  var_dump($return);
 
         return $this->render(
             'WeddingBundle:Supplier:index.html.twig'
