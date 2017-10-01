@@ -103,7 +103,7 @@
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdXw4tPFGoRhrnwYs__6omc0hBUabv6Hk&callback=myMap">
             </script>
         </div>
-        <div class="panel panel-default">
+       {# <div class="panel panel-default">
           <div class="col-md-12">
             <ul class="list-group">
               <li class="list-group-item"><span class="fa fa-clock-o"></span> Monday (18h00 to 19h00) </li>
@@ -114,26 +114,20 @@
             </ul>
           </div>
           <div class="clearfix"></div>
-        </div>
+        </div>#}
 
       </div>
       <div class="col-md-8 col-sm-12 pull-left posttimeline">
 
         <div class="slider slider-supplier-for">
-            <div><img class="slider-supplier-for-img" src='https://dummyimage.com/600x400/000/fff'/></div>
-            <div><img class="slider-supplier-for-img" src='https://dummyimage.com/600x400/fff/000'/></div>
-            <div><img class="slider-supplier-for-img" src='https://dummyimage.com/600x400/000/fff'/></div>
-            <div><img class="slider-supplier-for-img" src='https://dummyimage.com/600x400/fff/000'/></div>
-            <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/000/fff'/></div>
-            <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/fff/000'/></div>
+          {% for product in s_products %}
+              <div><img alt="{{ product.title }} - Rs {{ product.price }}" title="{{ product.title }} - Rs {{ product.price }}" class="slider-supplier-for-img" src='{{ product.image }}'/></div>
+          {% endfor %}
         </div>
         <div class="slider slider-supplier-nav">
-            <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/000/fff'/></div>
-            <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/fff/000'/></div>
-            <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/000/fff'/></div>
-            <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/fff/000'/></div>
-            <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/000/fff'/></div>
-            <div><img class="slider-supplier-nav-img" src='https://dummyimage.com/600x400/fff/000'/></div>
+          {% for product in s_products %}
+              <div><img alt="{{ product.title }} - Rs {{ product.price }}" title="{{ product.title }} - Rs {{ product.price }}" class="slider-supplier-nav-img" src='{{ product.image }}'/></div>
+          {% endfor %}
         </div>
 
 <br/><br/>
