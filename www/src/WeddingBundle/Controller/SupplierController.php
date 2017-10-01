@@ -22,6 +22,20 @@ class SupplierController extends BaseController
 
     public function indexAction($id)
     {
+      
+        $apiData = BaseController::callAPI('GET','/get_product_uid?nid='.$id);
+        $supplier_uid = json_decode($apiData, true);
+        var_dump($supplier_uid);
+        $apiData = BaseController::callAPI('GET','/get_supplier?uid=21');
+        $supplier_details = json_decode($apiData, true);
+      var_dump($supplier_details);
+        $apiData = BaseController::callAPI('GET','/get_supplier_products?uid=21');
+        $supplier_products = json_decode($apiData, true);
+      var_dump($supplier_products);exit;
+        return $this->render('WeddingBundle:Home:headerSearch.html.twig', array(
+            "category" => $category,
+            "location" => $location 
+      
         return $this->render(
             'WeddingBundle:Supplier:index.html.twig'
             ,array('id' => $id)
