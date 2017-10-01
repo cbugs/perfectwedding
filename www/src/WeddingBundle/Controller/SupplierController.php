@@ -32,10 +32,7 @@ class SupplierController extends BaseController
         $apiData = BaseController::callAPI('GET','/get_supplier_products?uid=21');
         $supplier_products = json_decode($apiData, true);
       var_dump($supplier_products);exit;
-        return $this->render('WeddingBundle:Home:headerSearch.html.twig', array(
-            "category" => $category,
-            "location" => $location 
-      
+
         return $this->render(
             'WeddingBundle:Supplier:index.html.twig'
             ,array('id' => $id)
