@@ -49,7 +49,7 @@ class SupplierController extends BaseController
           's_name' => isset($supplier_details[0]['field_company_name'][0])?$supplier_details[0]['field_company_name'][0]['value']:'',
           's_email' => $supplier_details[0]['mail'][0]['value'],
           's_image' => isset($supplier_details[0]['user_picture'][0])?$supplier_details[0]['user_picture'][0]['value']:'',
-          's_products' => $products
+          's_products' => $s_products
         );
       
       var_dump($return);
